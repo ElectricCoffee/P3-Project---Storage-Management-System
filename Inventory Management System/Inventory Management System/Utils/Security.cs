@@ -7,12 +7,12 @@ namespace Inventory_Management_System.Utils
 {
     public static class Security
     {
-        /* 
-         * bool HasAccess(Models.Employee emp, IReresponsibility resp)
-         * {
-         * 
-         * }
-         */
+        
+        bool HasAccess(Employee emp, IResponsibilities res)
+        {
+            throw new NotImplementedException("TBD");
+        }
+        
 
     }
 }
