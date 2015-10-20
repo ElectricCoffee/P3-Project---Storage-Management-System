@@ -10,11 +10,9 @@ namespace Inventory_Management_System.Utils
     public static class Security
     {
         
-        bool HasAccess(ED.Employee emp, ER.IResponsibilities res)
+        bool HasAccess(ED.Employee emp, ER.IResponsibility res)
         {
-            throw new NotImplementedException("TBD");
+            return emp.Responsibilities.Contains(res);
         }
-        
-
     }
 }
