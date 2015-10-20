@@ -125,6 +125,12 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\Test.js">
+      <DependentUpon>Test.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Custom\Test.min.js">
+      <DependentUpon>Test.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -869,6 +875,13 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\Custom\Test.coffee" />
+    <Content Include="Scripts\Custom\Test.js.map">
+      <DependentUpon>Test.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Custom\Test.min.js.map">
+      <DependentUpon>Test.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
