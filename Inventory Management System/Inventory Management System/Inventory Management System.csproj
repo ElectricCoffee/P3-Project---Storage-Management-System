@@ -866,41 +866,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IResponsibilities.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Amount.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\APrice.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\ArticleNumber1.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\ArticleNumber2.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Buyer.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Category.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Documents.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Images.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\InventoryLocation.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\InventoryStatus.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Model.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Accountance.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibilities.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Amount.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\APrice.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\ArticleNumber1.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\ArticleNumber2.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Buyer.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Category.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Documents.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Images.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\InventoryLocation.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\InventoryStatus.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Model.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Accountance.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Employee.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Employee.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employee\Employee_Data\IMngr.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Name.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\ProductionYear.cs" />
+    <Compile Include="Models\Employee\EmployeeData\IMngr.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Name.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\ProductionYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Salesmen.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Sales_Mngr.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Technician.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Warehouse_Empl.cs" />
-    <Compile Include="Models\Employee\Employee_Data\Warehouse_Mngr.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\SalesPrice.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\SalesStatus.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\SerialNumber.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\SpecSheet.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Tags.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\Transit.cs" />
-    <Compile Include="Models\Employee\Employee_Responsibilities\WorldLocation.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Sales_Mngr.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Technician.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Warehouse_Empl.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Warehouse_Mngr.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\SalesPrice.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\SalesStatus.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\SerialNumber.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\SpecSheet.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Tags.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\Transit.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\WorldLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -918,9 +918,9 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Models\Employee\Employee_Data\EmployeeDiagram.cd" />
+    <Content Include="Models\Employee\EmployeeData\EmployeeDiagram.cd" />
     <Content Include="Models\Employee\Empl_Interfaces\Employee_InterfaceDiagram.cd" />
-    <Content Include="Models\Employee\Employee_Responsibilities\responsibilities_Diagram.cd" />
+    <Content Include="Models\Employee\EmployeeResponsibilities\responsibilities_Diagram.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -943,7 +943,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50309</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
