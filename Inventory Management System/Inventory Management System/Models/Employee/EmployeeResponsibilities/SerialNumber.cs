@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeResponsibilities
 {
-    public class SerialNumber : IResponsibilities
+    public class SerialNumber : IResponsibility
     {
         public bool ReadWrite { get; set; }
     }

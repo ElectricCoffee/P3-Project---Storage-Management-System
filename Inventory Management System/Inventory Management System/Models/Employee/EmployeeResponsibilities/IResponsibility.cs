@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeResponsibilities
 {
-    public interface IResponsibilities
+    public interface IResponsibility
     {
         bool ReadWrite { get; set; }
     }

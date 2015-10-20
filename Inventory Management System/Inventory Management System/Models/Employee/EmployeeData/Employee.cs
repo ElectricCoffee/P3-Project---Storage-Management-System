@@ -4,13 +4,17 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Collections.Generic;
+using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
     public abstract class Employee
     {
-        //public string Role { get; set; }
+        /// <summary>
+        /// List of an employee's responsibilities
+        /// </summary>
+        public List<ER.IResponsibility> Responsibilities { get; set; }
 
         /// <summary>
         /// First and lastname
