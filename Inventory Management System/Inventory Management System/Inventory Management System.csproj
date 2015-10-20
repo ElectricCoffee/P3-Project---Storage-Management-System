@@ -866,7 +866,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibilities.cs" />
+    <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Amount.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\APrice.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\ArticleNumber1.cs" />

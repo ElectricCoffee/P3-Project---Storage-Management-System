@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeResponsibilities
 {
-    public class SalesStatus : IResponsibilities
+    public class SalesStatus : IResponsibility
     {
         public bool ReadWrite { get; set; }
     }
