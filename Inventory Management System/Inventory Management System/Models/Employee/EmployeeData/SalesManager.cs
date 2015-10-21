@@ -30,6 +30,7 @@ namespace Inventory_Management_System.Models.EmployeeData
                 new ER.Documents      {ReadWrite = false},
                 new ER.SalesPrice     {ReadWrite = true}
             };
+
             if (/*indsæt valid indput check*/true)
             {
 
