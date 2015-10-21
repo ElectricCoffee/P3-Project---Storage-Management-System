@@ -26,6 +26,22 @@ namespace Inventory_Management_System.Utils
         }
 
         /// <summary>
+        /// returns false if any of the inputs are null or (if it's a string) empty
+        /// </summary>
+        /// <param name="input"></param>
+        public static bool AnyNullOrEmpty(params object[] input)
+        {
+            Func<object, bool> isNullOrEmpty = obj =>
+                obj is String ?
+                String.IsNullOrEmpty(obj as String) :
+                obj == null;
+
+            foreach (var obj in input) if (isNullOrEmpty(obj)) return false;
+
+            return true;
+        }
+
+        /// <summary>
         /// Returns the input if it's not empty or null, otherwise throws an argument exception
         /// </summary>
         /// <param name="input"></param>
