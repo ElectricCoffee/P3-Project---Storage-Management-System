@@ -6,7 +6,8 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
-    public class Accountance : Employee
+    public class Accountant : Employee
     {
+
     }
 }

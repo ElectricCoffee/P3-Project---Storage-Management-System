@@ -878,7 +878,7 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\InventoryLocation.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\InventoryStatus.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Model.cs" />
-    <Compile Include="Models\Employee\EmployeeData\Accountance.cs" />
+    <Compile Include="Models\Employee\EmployeeData\Accountant.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Models\Employee\EmployeeData\Employee.cs" />
@@ -919,7 +919,6 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Models\Employee\EmployeeData\EmployeeDiagram.cd" />
-    <Content Include="Models\Employee\Empl_Interfaces\Employee_InterfaceDiagram.cd" />
     <Content Include="Models\Employee\EmployeeResponsibilities\responsibilities_Diagram.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
