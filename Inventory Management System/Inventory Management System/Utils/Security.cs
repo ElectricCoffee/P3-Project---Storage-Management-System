@@ -9,19 +9,21 @@ namespace Inventory_Management_System.Utils
 {
     public static class Security
     {
+        private static bool IsNullOrEmpty(object obj)
+        {
+            return obj is String ?
+                String.IsNullOrEmpty(obj as String) :
+                obj == null;
+        }
+
         /// <summary>
         /// Throws an argument exception if any of the inputs are null or (if it's a string) empty
         /// </summary>
         /// <param name="input"></param>
         public static void ThrowIfAnyNullOrEmpty(params object[] input)
         {
-            Func<object, bool> isNullOrEmpty = obj => 
-                obj is String ? 
-                String.IsNullOrEmpty(obj as String) : 
-                obj == null;
-
             foreach (var obj in input)
-                if(isNullOrEmpty(obj))
+                if(IsNullOrEmpty(obj))
                     throw new ArgumentException("Input was null or empty");
         }
 
@@ -31,14 +33,9 @@ namespace Inventory_Management_System.Utils
         /// <param name="input"></param>
         public static bool AnyNullOrEmpty(params object[] input)
         {
-            Func<object, bool> isNullOrEmpty = obj =>
-                obj is String ?
-                String.IsNullOrEmpty(obj as String) :
-                obj == null;
+            foreach (var obj in input) if (IsNullOrEmpty(obj)) return true;
 
-            foreach (var obj in input) if (isNullOrEmpty(obj)) return false;
-
-            return true;
+            return false;
         }
 
         /// <summary>
