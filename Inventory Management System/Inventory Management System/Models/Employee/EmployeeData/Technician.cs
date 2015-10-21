@@ -19,13 +19,12 @@ namespace Inventory_Management_System.Models.EmployeeData
                 new ER.ArticleNumber2       {ReadWrite = false},
                 new ER.Name                 {ReadWrite = false},
                 new ER.SerialNumber         {ReadWrite = false},
-                new ER.InventoryLocation    {ReadWrite = false},
-                new ER.InventoryStatus      {ReadWrite = true},
+                new ER.InventoryLocation    {ReadWrite = true},
                 new ER.Tags                 {ReadWrite = true},
                 new ER.Images               {ReadWrite = true},
                 new ER.Model                {ReadWrite = false},
                 new ER.SpecSheet            {ReadWrite = true},
-                new ER.Documents            {ReadWrite = true},
+                new ER.Documents            {ReadWrite = true}
             };
 
             if (/* indsæt valid indput check her*/true)

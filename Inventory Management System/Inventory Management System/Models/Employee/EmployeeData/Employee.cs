@@ -33,11 +33,10 @@ namespace Inventory_Management_System.Models.EmployeeData
 
         public Employee(string name, string password, string username)
         {
-            if (name == null || password == null || username == null)
+            if (Utils.Security.AnyNullOrEmpty(name, password, username))
             {
-                throw new Exception();
+                throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
             }
-            //Role = role;
             Name = name;
             Password = password;
             Username = username;
@@ -47,7 +46,6 @@ namespace Inventory_Management_System.Models.EmployeeData
         /// <summary>
         /// Ved større ændringer - Indtast password
         /// </summary>
-        
         public void SetPassword(string userinput)
         {
             Password = userinput;

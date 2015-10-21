@@ -17,6 +17,7 @@ namespace Inventory_Management_System.Models.EmployeeData
             {
                 new ER.ArticleNumber1       {ReadWrite = false},
                 new ER.ArticleNumber2       {ReadWrite = false},
+                new ER.Name                 {ReadWrite = false},
                 new ER.SerialNumber         {ReadWrite = false},
                 new ER.WorldLocation        {ReadWrite = false},
                 new ER.InventoryLocation    {ReadWrite = false},
