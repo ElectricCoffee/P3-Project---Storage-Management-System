@@ -890,10 +890,10 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\ProductionYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
-    <Compile Include="Models\Employee\EmployeeData\Sales_Mngr.cs" />
+    <Compile Include="Models\Employee\EmployeeData\SalesManager.cs" />
     <Compile Include="Models\Employee\EmployeeData\Technician.cs" />
-    <Compile Include="Models\Employee\EmployeeData\Warehouse_Empl.cs" />
-    <Compile Include="Models\Employee\EmployeeData\Warehouse_Mngr.cs" />
+    <Compile Include="Models\Employee\EmployeeData\WarehouseEmployee.cs" />
+    <Compile Include="Models\Employee\EmployeeData\WarehouseManager.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\SalesPrice.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\SalesStatus.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\SerialNumber.cs" />

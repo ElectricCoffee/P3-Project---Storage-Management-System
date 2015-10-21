@@ -6,16 +6,20 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
-    public class Salesmen : Employee
+    public class SalesManager : Salesmen, IMngr
     {
-        public Salesmen(string name, string password, string username) 
-            : base(name, password, username) 
+        public SalesManager(string name, string password, string username)
+            : base(name, password, username)
         {
             if (/*indsæt valid indput check*/true)
             {
-                
+
             }
-               
+        }
+
+        public string SetRole(string userinput)
+        {
+            throw new NotImplementedException();
         }
     }
 }

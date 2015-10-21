@@ -6,15 +6,17 @@ using System.ComponentModel;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
-    public class Accountant : Employee
+    public class WarehouseEmployee
+        : Employee
     {
-        public Accountant(string name, string password, string username)
+        public WarehouseEmployee (string name, string password, string username) 
             : base(name, password, username) 
         {
-            if (/*Indsæt valid indput check her*/true)
+            if (/* valid indput check her*/true)
             {
                 
             }
+               
         }
     }
 }
