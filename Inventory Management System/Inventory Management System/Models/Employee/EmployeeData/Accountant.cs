@@ -26,11 +26,6 @@ namespace Inventory_Management_System.Models.EmployeeData
                 new ER.Buyer          {ReadWrite = false},
                 new ER.SalesPrice     {ReadWrite = false}
             };
-
-            if (/*Indsæt valid indput check her*/true)
-            {
-                
-            }
         }
     }
 }

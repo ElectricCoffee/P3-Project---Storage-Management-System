@@ -8,13 +8,12 @@ using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 namespace Inventory_Management_System.Models.EmployeeData
 {
     public class Buyer : Employee
-    {
-        public Buyer(string name, string password, string username)
+    {   
+        public Buyer(string name, string password, string username) //indkøber
             : base(name, password, username)
         {
             Responsibilities = new List<ER.IResponsibility>
             {
-            #warning what, fix at buyer har adgang til at rette alt
                 new ER.ArticleNumber1       {ReadWrite = false},
                 new ER.ArticleNumber2       {ReadWrite = false},
                 new ER.Name                 {ReadWrite = true},
