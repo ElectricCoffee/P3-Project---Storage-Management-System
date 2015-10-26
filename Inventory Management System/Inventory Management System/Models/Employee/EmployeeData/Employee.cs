@@ -5,7 +5,7 @@ using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Collections.Generic;
 using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
-
+using Inventory_Management_System.Utils;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
@@ -33,7 +33,7 @@ namespace Inventory_Management_System.Models.EmployeeData
 
         public Employee(string name, string password, string username)
         {
-            if (Utils.Security.AnyNullOrEmpty(name, password, username))
+            if (Security.AnyNullOrEmpty(name, password, username))
             {
                 throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
             }
