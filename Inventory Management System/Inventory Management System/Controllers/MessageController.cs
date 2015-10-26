@@ -34,7 +34,7 @@ namespace Inventory_Management_System.Controllers
             throw new NotImplementedException();
         }
 
-        Queue<Target> SendQueue(Target)
+        Queue<Target> SendQueue(Target target)
         {
             throw new NotImplementedException();
         }
