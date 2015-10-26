@@ -899,6 +899,7 @@
     <Compile Include="Models\Employee\EmployeeData\IMngr.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Name.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\ProductionYear.cs" />
+    <Compile Include="Models\Message\EmployeeMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
     <Compile Include="Models\Employee\EmployeeData\SalesManager.cs" />
