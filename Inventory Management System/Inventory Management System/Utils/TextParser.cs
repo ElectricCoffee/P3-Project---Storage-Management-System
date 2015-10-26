@@ -14,7 +14,7 @@ namespace Inventory_Management_System.Utils
         /// Returns the corresponding DestinationType
         /// </summary>
         /// <param name="msg"></param>
-        /// <returns></returns>
+        /// <returns>Corresponding DestinationType</returns>
         DestinationType DetermineDestination(EmployeeMessage msg)
         {
             var destKey = Char.ToUpper(msg.TargetID[0]);
@@ -22,7 +22,7 @@ namespace Inventory_Management_System.Utils
                 ?  DestinationType.Employee
                 :  destKey == 'R' // if not E, check R
                 ?  DestinationType.Responsibility
-                :  DestinationType.Undefined; // if neither E or R, send undefined
+                :  DestinationType.Undefined; // if neither, send undefined
         }
     }
 }
