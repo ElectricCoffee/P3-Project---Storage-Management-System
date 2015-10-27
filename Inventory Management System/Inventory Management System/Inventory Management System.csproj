@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -902,6 +903,7 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\Tags.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Transit.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\WorldLocation.cs" />
+    <Compile Include="Utils\Guid.cs" />
     <Compile Include="Utils\Security.cs" />
   </ItemGroup>
   <ItemGroup>
