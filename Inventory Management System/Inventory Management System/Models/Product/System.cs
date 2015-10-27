@@ -13,12 +13,12 @@ namespace Inventory_Management_System.Models.Product
     class System : Product
     {
         public System(Id id, Location location, int amount, Price price, string acquisitor,
-            Status status) 
+            Status status)
             : base(amount, id, price, location)
         {
-            if (Security.AnyNullOrEmpty(id.ArticleNumber1, id.SerialNumber, id.Name, id.Tags, 
-                id.Catagory, id.Model, id.ProductionYear, location.WorldLocation, location.InventoryLocation, 
-                amount, price.AcquisitionPrice, price.SalesPrice, status.Transit, status.InventoryStatus, 
+            if (Security.AnyNullOrEmpty(id.ArticleNumber1, id.SerialNumber, id.Name, id.Tags,
+                id.Catagory, id.Model, id.ProductionYear, location.WorldLocation, location.InventoryLocation,
+                amount, price.AcquisitionPrice, price.SalesPrice, status.Transit, status.InventoryStatus,
                 status.SalesStatus, acquisitor))
             {
                 throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
@@ -31,7 +31,7 @@ namespace Inventory_Management_System.Models.Product
             SalesStatus = status.SalesStatus;
             Model = id.Model;
             ProductionYear = id.ProductionYear;
-            Acquisitor = acquisitor;   
+            Acquisitor = acquisitor;
         }
 
         public int ArticleNumber2 { get; set; }
@@ -42,8 +42,9 @@ namespace Inventory_Management_System.Models.Product
         public string Model { get; set; }
         public int ProductionYear { get; set; }
         public string Acquisitor { get; set; }
-
+        public List<SparePart> Parts { get; set; }
     }
+
     #region Helper classes
     public class Id : Label
     {
