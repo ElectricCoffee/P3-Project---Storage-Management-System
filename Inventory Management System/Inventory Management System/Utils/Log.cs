@@ -4,26 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Diagnostics;
 
 namespace Inventory_Management_System.Utils
 {
     public class Log
     {
-        public Log(Product product,Employee employee,/* LogEvent event,*/ string comment)
+        public Log(Product product,Employee employee, LogEvent event, string comment)
         {
-            try
-            {
-                LogId = Guid.CreateString();
-            }
-            catch (ApplicationException)
-            {
-
-                throw;
-            }
-            LogId = 
+            LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.message));
             Time = DateTime.Now;
             ProductId = product.ArticleNumber1;
             Employe = employee.ToString();
+            /*Event = event*/
             Comment = comment;
         }
 
