@@ -10,8 +10,11 @@ namespace Inventory_Management_System.Utils
         public Log()
         {
 
+            Time = DateTime.Now;
         }
 
-        private int LogId { get; set; }
+        public string LogId { get { return Guid.NewGuid().ToString(); } }
+        public DateTime Time { get; private set; }
+        
     }
 }
