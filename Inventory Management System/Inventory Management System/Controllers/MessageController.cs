@@ -20,7 +20,7 @@ namespace Inventory_Management_System.Controllers
         /// <returns></returns>
         [Route("api/messages")]
         [HttpGet]
-        public Queue<EmployeeMessage> AllMessages() 
+        public Queue<EmployeeMessage> AllMessages()
         {
             throw new NotImplementedException();
         }
@@ -30,13 +30,13 @@ namespace Inventory_Management_System.Controllers
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        [Route("api/messages/{id:string}")]
+        [Route("api/messages/{id:alpha}")]
         [HttpGet]
-        public Queue<EmployeeMessage> TargetMessages(Target target) 
+        public Queue<EmployeeMessage> TargetMessages(Target target)
         {
             throw new NotImplementedException();
         }
     }
 
-    
+
 }
