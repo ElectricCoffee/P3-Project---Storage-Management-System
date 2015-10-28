@@ -909,9 +909,9 @@
     <Compile Include="Utils\Guid.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\LogEvent.cs" />
-    <Compile Include="Utils\LogEventMove.cs" />
-    <Compile Include="Utils\LogEventSold.cs" />
-    <Compile Include="Utils\LogEventStatusChange.cs" />
+    <Compile Include="Utils\Logevent\LogEventMove.cs" />
+    <Compile Include="Utils\Logevent\LogEventSold.cs" />
+    <Compile Include="Utils\Logevent\LogEventStatusChange.cs" />
     <Compile Include="Utils\Security.cs" />
   </ItemGroup>
   <ItemGroup>

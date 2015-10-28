@@ -8,9 +8,9 @@ using System.Diagnostics;
 
 namespace Inventory_Management_System.Utils
 {
-    public class Log
+    public class LogEntry
     {
-        public Log(Product product,Employee employee, LogEvent logevent, string comment)
+        public LogEntry(Product product,Employee employee, LogEntryEvent logevent, string comment)
         {
             LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.Message));
             Time = DateTime.Now;
@@ -24,7 +24,7 @@ namespace Inventory_Management_System.Utils
         public DateTime Time { get; private set; }
         public string Employe { get; set;}
         public int ProductId { get; set;}
-        public LogEvent Event { get; set; }
+        public LogEntryEvent Event { get; set; }
         public string Comment { get; set;}
 
     }

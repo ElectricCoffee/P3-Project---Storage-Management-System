@@ -6,13 +6,14 @@ using Inventory_Management_System.Models.EmployeeData;
 
 namespace Inventory_Management_System.Utils
 {
-    public abstract class LogEvent
+    public abstract class LogEntryEvent
     {
-        public Employee Employee { get; protected set; }
-        public DateTime Time { get; protected set; }
+        public virtual Employee Employee { get; protected set; }
+        public virtual DateTime Time { get; protected set; }
 
-
-        public override abstract string ToString();
-
+        public override string ToString()
+        {
+            return "Employee: " + Employee + ", Date: " + Time;
+        }
     }
 }

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web;
 using Inventory_Management_System.Models.EmployeeData;
 
-namespace Inventory_Management_System.Utils
+namespace Inventory_Management_System.Utils.logEvent
 {
-    public class LogEventStatusChange : LogEvent
+    public class LogEventStatusChange : LogEntryEvent
     {
         public string OldStatus { get; private set; }
         public string NewStatus { get; private set; }
 
         public override string ToString()
         {
-            return "Employee: " + Employee + " Time: " + Time + " Old Status: " + OldStatus + " New Status: " + NewStatus;
+            return String.Format("{0} Old Status: {1} New Status: {2}", base.ToString(), OldStatus, NewStatus);
         }
 
         public LogEventStatusChange(Employee employee, DateTime time, string oldStatus, string newStatus)
