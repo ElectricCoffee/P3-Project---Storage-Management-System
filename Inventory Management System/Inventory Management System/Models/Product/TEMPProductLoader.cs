@@ -9,13 +9,15 @@ namespace Inventory_Management_System.Models.Product
 {
     public static class TEMPProductLoader
     {
-        public List<Product> NOGET { get; private set; }
+        public List<Product> ListOfProducts { get; private set; }
 
         public TEMPProductLoader(Product p)
         {
             LoadListOfProducts();
         }
-        private void LoadShit(string fileName)
+
+
+        private void LoadFileIntoList(string fileName)
         {
             string filepath = Directory.GetParent(Directory.GetParent(Directory.GetParent(
             Directory.GetCurrentDirectory()).ToString()).ToString()).ToString() + @"\" + fileName;
@@ -24,13 +26,13 @@ namespace Inventory_Management_System.Models.Product
 
             foreach (var js in jsondata)
             {
-                NOGET.Add(js);
+                ListOfProducts.Add(js);
             }
         }
 
-        private void Writeshit(string fileName)
+        private void WriteObjectToFile(string fileName)
         {
-            string json = JsonConvert.SerializeObject(NOGET.ToArray());
+            string json = JsonConvert.SerializeObject(ListOfProducts.ToArray());
 
             string filepath = Directory.GetParent(Directory.GetParent(Directory.GetParent(
             Directory.GetCurrentDirectory()).ToString()).ToString()).ToString() + @"\" + fileName + ".txt";
@@ -38,9 +40,9 @@ namespace Inventory_Management_System.Models.Product
             File.WriteAllText(filepath, json);
         }
 
-        private void WriteToList(Product p) 
+        private void WriteProductToList(Product p) 
         {
-            foreach (Product pr in NOGET)
+            foreach (Product pr in ListOfProducts)
             {
                 if (p.ArticleNumber1 == pr.ArticleNumber1)
                 {
@@ -48,20 +50,20 @@ namespace Inventory_Management_System.Models.Product
                 }
                 else 
                 {
-                    NOGET.Add(p);
+                    ListOfProducts.Add(p);
                 }
             }
         }
-        public void skrivNOGETtilFil(Product p)
+        public void SkribListentilFil(Product p)
         {
-            WriteToList(p);
-            Writeshit("Products");
+            WriteProductToList(p);
+            WriteObjectToFile("Products");
         }
         private void LoadListOfProducts()
         {
-            if (NOGET != null)
+            if (ListOfProducts != null)
             {
-                LoadShit("Products");
+                LoadFileIntoList("Products");
             }
             else Console.WriteLine("Noget er galt - Kontakt Mr. Lepka ved uundgåeligt vrøvl - 10hi f9z vrøvlehoved :3");
         }
