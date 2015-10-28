@@ -10,13 +10,13 @@ namespace Inventory_Management_System.Utils
 {
     public class Log
     {
-        public Log(Product product,Employee employee, LogEvent event, string comment)
+        public Log(Product product,Employee employee, LogEvent logevent, string comment)
         {
-            LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.message));
+            LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.Message));
             Time = DateTime.Now;
             ProductId = product.ArticleNumber1;
             Employe = employee.ToString();
-            /*Event = event*/
+            Event = logevent;
             Comment = comment;
         }
 
@@ -24,6 +24,7 @@ namespace Inventory_Management_System.Utils
         public DateTime Time { get; private set; }
         public string Employe { get; set;}
         public int ProductId { get; set;}
+        public LogEvent Event { get; set; }
         public string Comment { get; set;}
 
     }
