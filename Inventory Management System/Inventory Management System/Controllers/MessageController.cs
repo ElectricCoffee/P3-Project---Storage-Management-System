@@ -14,38 +14,28 @@ namespace Inventory_Management_System.Controllers
 {
     public class MessageController : ApiController
     {
-        // get all the messages
-        public void Get() { }
-        // get all messages defined by a specific target
-        public void Get([FromUri] Target target) { }
-        public void Put() { }
-        public void Post() { }
-        public void Delete() { }
+        /// <summary>
+        /// Gets the complete queue of all pending messages
+        /// </summary>
+        /// <returns></returns>
+        [Route("api/messages")]
+        [HttpGet]
+        public Queue<EmployeeMessage> AllMessages() 
+        {
+            throw new NotImplementedException();
+        }
 
-        //public EmployeeMessage SendMessage([FromBody] EmployeeMessage msg)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Queue<Target> EnQueue([FromBody] EmployeeMessage msg, [FromUri] Target target)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public EmployeeMessage DeQueue()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public EmployeeMessage ReciveMessage([FromBody] EmployeeMessage msg)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //Queue<Target> SendQueue([FromUri] Target target)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        /// <summary>
+        /// Gets the queue for a specific target
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        [Route("api/messages/{id:string}")]
+        [HttpGet]
+        public Queue<EmployeeMessage> TargetMessages(Target target) 
+        {
+            throw new NotImplementedException();
+        }
     }
 
     
