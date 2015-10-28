@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Technician">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Technician.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Warehouse_Empl">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Warehouse_Empl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Salesmen">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Salesmen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Accountance">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Accountance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Warehouse_Mngr">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Warehouse_Mngr.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Employee">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAARAAAAQAAAAAAAACAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_Management_System.Models.EmployeeData.Sales_Mngr">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\Sales_Mngr.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Inventory_Management_System.Models.EmployeeData.IMngr">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employee\EmployeeData\IMngr.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

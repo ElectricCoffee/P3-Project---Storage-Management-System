@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Inventory_Management_System.Utils;
-
 namespace Inventory_Management_System.Models.Product
 {
-    public class Product
+    public abstract class Product
     {
         public Product(int amount, Label label, Price price, Location location) 
         {
@@ -35,9 +34,7 @@ namespace Inventory_Management_System.Models.Product
         public string Tags { get; set; }
         public string Catagory { get; set; }
         public int SalesPrice { get; set; }
-        
     }
-    
 
     #region helper classes
     public class Location
