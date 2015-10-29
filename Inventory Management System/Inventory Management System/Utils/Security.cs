@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics; // adds Debug.WriteLine
+using System.Linq; // adds Linq expressions
 using System.Web;
-using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
+
+// Aliases
 using ED = Inventory_Management_System.Models.EmployeeData;
+using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 
 namespace Inventory_Management_System.Utils
 {
@@ -60,6 +63,57 @@ namespace Inventory_Management_System.Utils
         public static bool HasAccess(ED.Employee emp, ER.IResponsibility res)
         {
             return emp.Responsibilities.Contains(res);
+        }
+
+        /// <summary>
+        /// Tries to create an object of the specified type a number of times
+        /// </summary>
+        /// <typeparam name="Ex">An Exception</typeparam>
+        /// <typeparam name="Res">The result type</typeparam>
+        /// <param name="body">The code body</param>
+        /// <param name="exBody">The exception body</param>
+        /// <returns></returns>
+        public static Res TryCreate<Ex, Res>(int times, Func<Res> body, Action<Ex> exBody) where Ex : Exception
+        {
+            int i = 0;
+            Func<Res, bool> isDefault = r => EqualityComparer<Res>.Default.Equals(r, default(Res));
+            Res result = default(Res);
+
+            do // attempt getting result a number of times
+            {
+                try { result = body(); } // try setting the result returned from body
+                catch (Ex exception) { exBody(exception); } // if it fails do something with the result
+            } while (isDefault(result) && i++ < times);
+
+            if (isDefault(result)) // if the result is still the default value, throw 
+                throw (Ex)Activator.CreateInstance(typeof(Ex), "Could not create");
+            else return result;
+        }
+
+        /// <summary>
+        /// Tries to create an object of the specified type
+        /// </summary>
+        /// <typeparam name="Ex">An Exception</typeparam>
+        /// <typeparam name="Res">The result type</typeparam>
+        /// <param name="body">The code body</param>
+        /// <param name="exBody"></param>
+        /// <returns></returns>
+        public static Res TryCreate<Ex, Res>(Func<Res> body, Action<Ex> exBody) where Ex : Exception
+        {
+            return TryCreate<Ex, Res>(1, body, exBody);
+        }
+
+
+        /// <summary>
+        /// Tries to create an object of the specified type, has logging built in
+        /// </summary>
+        /// <typeparam name="Ex">An Exception</typeparam>
+        /// <typeparam name="Res">The result type</typeparam>
+        /// <param name="body">The code body</param>
+        /// <returns></returns>
+        public static Res TryCreateWithLog<Ex, Res>(Func<Res> body) where Ex : Exception
+        {
+            return TryCreate<Ex, Res>(body, x => Debug.WriteLine(x.Message));
         }
     }
 }
