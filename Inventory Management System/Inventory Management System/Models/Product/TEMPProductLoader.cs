@@ -9,15 +9,14 @@ namespace Inventory_Management_System.Models.Product
 {
     public static class TEMPProductLoader
     {
-        public List<Product> ListOfProducts { get; private set; }
+        public static List<Product> ListOfProducts { get; private set; }
 
-        public TEMPProductLoader(Product p)
+        public static TEMPProductLoader(Product p)
         {
             LoadListOfProducts();
         }
 
-
-        private void LoadFileIntoList(string fileName)
+        private static void LoadFileIntoList(string fileName)
         {
             string filepath = Directory.GetParent(Directory.GetParent(Directory.GetParent(
             Directory.GetCurrentDirectory()).ToString()).ToString()).ToString() + @"\" + fileName;
@@ -25,12 +24,10 @@ namespace Inventory_Management_System.Models.Product
             var jsondata = JsonConvert.DeserializeObject<List<Product>>(filepath);
 
             foreach (var js in jsondata)
-            {
                 ListOfProducts.Add(js);
-            }
         }
 
-        private void WriteObjectToFile(string fileName)
+        private static void WriteObjectToFile(string fileName)
         {
             string json = JsonConvert.SerializeObject(ListOfProducts.ToArray());
 
@@ -40,7 +37,7 @@ namespace Inventory_Management_System.Models.Product
             File.WriteAllText(filepath, json);
         }
 
-        private void WriteProductToList(Product p) 
+        private static void WriteProductToList(Product p) 
         {
             foreach (Product pr in ListOfProducts)
             {
@@ -54,12 +51,12 @@ namespace Inventory_Management_System.Models.Product
                 }
             }
         }
-        public void SkribListentilFil(Product p)
+        public static void SkribListentilFil(Product p)
         {
             WriteProductToList(p);
             WriteObjectToFile("Products");
         }
-        private void LoadListOfProducts()
+        private static void LoadListOfProducts()
         {
             if (ListOfProducts != null)
             {
