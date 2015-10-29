@@ -8,7 +8,7 @@ namespace Inventory_Management_System.Models.EmployeeData
 {
     public interface IMngr
     {
-        public void SetRole();
+        string SetRole(string userinput);
 
     }
 }

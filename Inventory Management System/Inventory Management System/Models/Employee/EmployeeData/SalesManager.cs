@@ -8,10 +8,10 @@ using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
-    public class Salesmen : Employee
+    public class SalesManager : Salesmen, IMngr
     {
-        public Salesmen(string name, string password, string username) 
-            : base(name, password, username) 
+        public SalesManager(string name, string password, string username)
+            : base(name, password, username)
         {
             Responsibilities = new List<ER.IResponsibility> 
             {
@@ -28,14 +28,18 @@ namespace Inventory_Management_System.Models.EmployeeData
                 new ER.ProductionYear {ReadWrite = false},
                 new ER.SpecSheet      {ReadWrite = false},
                 new ER.Documents      {ReadWrite = false},
-                new ER.SalesPrice     {ReadWrite = false}
+                new ER.SalesPrice     {ReadWrite = true}
             };
 
             if (/*indsæt valid indput check*/true)
             {
-                
+
             }
-               
+        }
+
+        public string SetRole(string userinput)
+        {
+            throw new NotImplementedException();
         }
     }
 }

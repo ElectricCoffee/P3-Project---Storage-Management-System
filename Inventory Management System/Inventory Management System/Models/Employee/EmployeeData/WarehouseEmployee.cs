@@ -8,26 +8,30 @@ using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
-    public class Technician : Employee
+    public class WarehouseEmployee
+        : Employee
     {
-        public Technician(string name, string password, string username) 
+        public WarehouseEmployee (string name, string password, string username) 
             : base(name, password, username) 
         {
             Responsibilities = new List<ER.IResponsibility>
             {
-                new ER.ArticleNumber1       {ReadWrite = false},
-                new ER.ArticleNumber2       {ReadWrite = false},
+                new ER.ArticleNumber1       {ReadWrite = true},
+                new ER.ArticleNumber2       {ReadWrite = true},
                 new ER.Name                 {ReadWrite = false},
-                new ER.SerialNumber         {ReadWrite = false},
+                new ER.SerialNumber         {ReadWrite = true},
+                new ER.WorldLocation        {ReadWrite = true},
                 new ER.InventoryLocation    {ReadWrite = true},
+                new ER.Transit              {ReadWrite = true},
+                new ER.InventoryStatus      {ReadWrite = true},
                 new ER.Tags                 {ReadWrite = true},
+                new ER.Category             {ReadWrite = true},
                 new ER.Images               {ReadWrite = true},
-                new ER.Model                {ReadWrite = false},
-                new ER.SpecSheet            {ReadWrite = true},
+                new ER.Model                {ReadWrite = true},
+                new ER.Buyer                {ReadWrite = false},
                 new ER.Documents            {ReadWrite = true}
             };
-
-            if (/* indsæt valid indput check her*/true)
+            if (/* valid indput check her*/true)
             {
                 
             }
