@@ -894,6 +894,10 @@
     <Compile Include="Models\Product\Spares.cs" />
     <Compile Include="Models\Product\System.cs" />
     <Compile Include="Models\Product\TEMPProductLoader.cs" />
+    <Compile Include="Network\PacketHandler.cs" />
+    <Compile Include="Network\PacketStructure.cs" />
+    <Compile Include="Network\Packets\Message.cs" />
+    <Compile Include="Network\ServerSocket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
     <Compile Include="Models\Employee\EmployeeData\SalesManager.cs" />
