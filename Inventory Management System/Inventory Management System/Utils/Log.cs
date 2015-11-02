@@ -15,14 +15,14 @@ namespace Inventory_Management_System.Utils
             LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.Message));
             Time = DateTime.Now;
             ProductId = product.ArticleNumber1;
-            Employe = employee.ToString();
+            Employee = employee.Username;
             Event = logevent;
             Comment = comment;
         }
 
         public string LogId { get; private set;}
         public DateTime Time { get; private set; }
-        public string Employe { get; set;}
+        public string Employee { get; set;}
         public int ProductId { get; set;}
         public LogEntryEvent Event { get; set; }
         public string Comment { get; set;}
