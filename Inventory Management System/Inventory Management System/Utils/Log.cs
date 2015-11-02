@@ -1,37 +1,27 @@
-﻿using Inventory_Management_System.Models.Product;
-using Inventory_Management_System.Models.EmployeeData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Diagnostics;
+using Inventory_Management_System.Models.EmployeeData;
+using Inventory_Management_System.Models.Product;
 
 namespace Inventory_Management_System.Utils
 {
-    public class LogEntry
+    public class Log
     {
-        public LogEntry(Product product,Employee employee, LogEntryEvent logevent, string comment)
-        {
-            /// <summary>
-            /// LogID calls a generic try/catch method from security on the Generalized user ID method.
-            /// </summary>
-            LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.Message));
-            Time = DateTime.Now;
-            ProductId = product.ArticleNumber1;
-            Employee = employee.Username;
-            Event = logevent;
-            Comment = comment;
-        }
+        /// <summary>
+        /// instanciation of a dictionary for further methods
+        /// </summary>
+        public Dictionary<string, LogEntry> LogDic;
 
         /// <summary>
-        /// instanciating properties
+        /// creates method for adding entries to log.
         /// </summary>
-        public string LogId { get; private set;}
-        public DateTime Time { get; private set; }
-        public string Employee { get; set;}
-        public int ProductId { get; set;}
-        public LogEntryEvent Event { get; set; }
-        public string Comment { get; set;}
-
+        public void AddLog(Product product, Employee employee, LogEntryEvent logevent, string comment)
+        {
+            LogEntry logEntry = new LogEntry(product, employee, logevent, comment);
+            LogDic.Add(logEntry.LogId,logEntry);
+        }
     }
 }

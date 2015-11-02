@@ -908,6 +908,7 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\WorldLocation.cs" />
     <Compile Include="Utils\Guid.cs" />
     <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\LogEntry.cs" />
     <Compile Include="Utils\LogEvent.cs" />
     <Compile Include="Utils\Logevent\LogEventMove.cs" />
     <Compile Include="Utils\Logevent\LogEventSold.cs" />
