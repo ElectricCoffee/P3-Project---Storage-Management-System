@@ -31,7 +31,9 @@ namespace Inventory_Management_System.Models.EmployeeData
         /// </summary>
         public string Username { get; set; }
 
-        public Employee(string name, string password, string username)
+        public string Role { get; private set; }
+
+        public Employee(string name, string password, string username, string role)
         {
             if (Security.AnyNullOrEmpty(name, password, username))
             {
@@ -40,9 +42,14 @@ namespace Inventory_Management_System.Models.EmployeeData
             Name = name;
             Password = password;
             Username = username;
+            Role = role;
         }
-        
-        
+
+        public override string ToString()
+        {
+            return "Name: " + Name + "Username: " + Username;
+        }
+
         /// <summary>
         /// Ved større ændringer - Indtast password
         /// </summary>
