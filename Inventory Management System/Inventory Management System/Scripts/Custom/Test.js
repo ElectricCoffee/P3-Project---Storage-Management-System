@@ -43,7 +43,12 @@
     }
   ]);
 
-  app.controller('MessageController', ['MessageService', function(MessageService) {}]);
+  app.controller('MessageController', [
+    'MessageService', function(MessageService) {
+      this.messages = MessageService.allMessages;
+      return this.sendMessage = MessageService.send;
+    }
+  ]);
 
 }).call(this);
 

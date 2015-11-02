@@ -15,7 +15,7 @@ namespace Inventory_Management_System.Utils
         /// </summary>
         /// <param name="msg"></param>
         /// <returns>Corresponding DestinationType</returns>
-        DestinationType DetermineDestination(EmployeeMessage msg)
+        public static DestinationType DetermineDestination(EmployeeMessage msg)
         {
             var destKey = Char.ToUpper(msg.TargetID[0]);
             return destKey == 'E'

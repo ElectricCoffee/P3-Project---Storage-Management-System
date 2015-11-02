@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Collections.Generic;
 using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 
 namespace Inventory_Management_System.Models.EmployeeData

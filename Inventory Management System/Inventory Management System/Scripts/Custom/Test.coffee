@@ -28,5 +28,6 @@ app.factory 'MessageService', ['$rootScope', 'Hub', '$timeout', ($rootScope, Hub
 ]
 
 app.controller 'MessageController', ['MessageService', (MessageService) ->
-    
+    @messages = MessageService.allMessages
+    @sendMessage = MessageService.send
 ]
