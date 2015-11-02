@@ -13,7 +13,7 @@ namespace Inventory_Management_System.Utils
 
         public override string ToString()
         {
-            return "Employee: " + Employee + ", Date: " + Time;
+            return "Employee: " + Employee + ", Date: " + Time.ToLongTimeString();
         }
     }
 }
