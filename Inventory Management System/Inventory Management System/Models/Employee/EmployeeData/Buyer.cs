@@ -8,9 +8,9 @@ using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 namespace Inventory_Management_System.Models.EmployeeData
 {
     public class Buyer : Employee
-    {   
-        public Buyer(string name, string password, string username) //indkøber
-            : base(name, password, username)
+    {
+        public Buyer(string name, string password, string username, string role) //indkøber
+            : base(name, password, username, role)
         {
             Responsibilities = new List<ER.IResponsibility>
             {
@@ -29,8 +29,13 @@ namespace Inventory_Management_System.Models.EmployeeData
 
             if (/*ïndsæt indput valid check her*/true)
             {
-                
+
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
 
         public string SetRole(string userinput)

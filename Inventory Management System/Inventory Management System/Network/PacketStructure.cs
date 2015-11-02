@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory_Management_System.Network
 {
-    private abstract class PacketStructure
+    public abstract class PacketStructure
     {
         private byte[] _buffer;
 
@@ -53,6 +53,6 @@ namespace Inventory_Management_System.Network
             WriteUShort(length, 0);
             WriteUShort(type, 2);
         }
-        public byte[] Data { get { return _buffer} }
+        public byte[] Data { get { return _buffer; } }
     }
 }

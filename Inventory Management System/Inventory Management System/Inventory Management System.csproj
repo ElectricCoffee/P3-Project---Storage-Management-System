@@ -890,6 +890,7 @@
     <Compile Include="Models\Employee\EmployeeData\IMngr.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Name.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\ProductionYear.cs" />
+    <Compile Include="Models\Product\Constructor.cs" />
     <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\Product\Spares.cs" />
     <Compile Include="Models\Product\System.cs" />
