@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Inventory_Management_System.Models.EmployeeData;
 
-namespace Inventory_Management_System.Utils.logEvent
+namespace Inventory_Management_System.Utils.LogEvent
 {
     public class LogEventStatusChange : LogEntryEvent
     {

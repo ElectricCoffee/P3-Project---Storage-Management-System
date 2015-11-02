@@ -12,6 +12,9 @@ namespace Inventory_Management_System.Utils
     {
         public LogEntry(Product product,Employee employee, LogEntryEvent logevent, string comment)
         {
+            /// <summary>
+            /// LogID calls a generic try/catch method from security on the Generalized user ID method.
+            /// </summary>
             LogId = Security.TryCreate<ApplicationException, string>(10, Guid.CreateString, x => Debug.WriteLine(x.Message));
             Time = DateTime.Now;
             ProductId = product.ArticleNumber1;
@@ -20,6 +23,9 @@ namespace Inventory_Management_System.Utils
             Comment = comment;
         }
 
+        /// <summary>
+        /// instanciating properties
+        /// </summary>
         public string LogId { get; private set;}
         public DateTime Time { get; private set; }
         public string Employee { get; set;}
