@@ -10,8 +10,8 @@ namespace Inventory_Management_System.Models.EmployeeData
 {
     public class WarehouseManager : Employee, IMngr
     {
-        public WarehouseManager(string name, string password, string username)
-            : base(name, password, username)
+        public WarehouseManager(string name, string password, string username, string role)
+            : base(name, password, username, role)
         {
             Responsibilities = new List<ER.IResponsibility>
             {
@@ -38,11 +38,15 @@ namespace Inventory_Management_System.Models.EmployeeData
 
             if (/*ïndsæt indput valid check her*/true)
             {
-                
+
             }
         }
 
 
+        public override string ToString()
+        {
+            return Name + Username;
+        }
 
         public string SetRole(string userinput)
         {
