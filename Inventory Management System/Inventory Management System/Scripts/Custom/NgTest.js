@@ -27,12 +27,13 @@
             listeners: { // listensers 'listen' for messages from the server
                 'displayMessage': function (sndr, msg) {
                     pushMessage(sndr, msg);
-                    $rootScope.$apply();
+                    // update the view after receiving a message
+                    $rootScope.$apply(); 
                 }
             },
             // server-side methods
             methods: ['sendMessage'],
-            errorHandler: err => console.error(err)
+            errorHandler: function (err) { console.error(err); }
         });
 
         // Angular methods
