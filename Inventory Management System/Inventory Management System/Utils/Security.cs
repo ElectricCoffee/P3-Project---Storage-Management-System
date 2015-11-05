@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Diagnostics; // adds Debug.WriteLine
 using System.Linq; // adds Linq expressions
 using System.Web;
+using System.Security.Cryptography;
+using Inventory_Management_System.MySql;
 
 // Aliases
 using ED = Inventory_Management_System.Models.EmployeeData;
 using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
+using System.Text;
 
 namespace Inventory_Management_System.Utils
 {
     public static class Security
     {
+        public static string Salt = "srh91awac98sel23sjn8glc9dv2e1a8a6f";
+
         private static bool IsNullOrEmpty(object obj)
         {
             return obj is String ?
@@ -114,6 +119,24 @@ namespace Inventory_Management_System.Utils
         public static Res TryCreateWithLog<Ex, Res>(Func<Res> body) where Ex : Exception
         {
             return TryCreate<Ex, Res>(body, x => Debug.WriteLine(x.Message));
+        }
+
+        public static bool LogInCheck(string Username, string password)
+        {
+            if (MySqlCommunication.GetHashedPassword(Username) == HashPassword(Username,password))
+                return true;
+            return false;
+        }
+
+        public static string Hash(string text)
+        {
+            var sha1 = new SHA1CryptoServiceProvider();
+            return Encoding.ASCII.GetString(sha1.ComputeHash(Encoding.ASCII.GetBytes(text)));
+        }
+
+        public static string HashPassword(string Username, string password)
+        {
+            return Hash(Salt + Hash(Username + Hash(password)));
         }
     }
 }
