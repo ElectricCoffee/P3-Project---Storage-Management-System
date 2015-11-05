@@ -44,5 +44,11 @@ namespace Inventory_Management_System.MySql
             return text;
 
         }
+
+        public void CreateUser(string Username, string password, string role)
+        {
+            string text = "INSERT INTO employee_db (Username,Password,Role) VALUES('" + Username + "','" + password + "','" + role + "')";
+            SendString(text);
+        }
     }
 }
