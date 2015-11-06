@@ -6,9 +6,9 @@
     angular.module('messageSystem')
         .service('MessageService', MessageService);
 
-    MessageService.$inject = ['$rootScope', 'Hub', '$timeout'];
+    MessageService.$inject = ['$rootScope', 'Hub'];
 
-    function MessageService($rootScope, Hub, $timeout) {
+    function MessageService($rootScope, Hub) {
         var self = this;
         var hub = new Hub('message', {
             methods: ['sendMessage'],
