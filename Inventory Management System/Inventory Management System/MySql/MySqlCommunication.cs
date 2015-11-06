@@ -10,7 +10,7 @@ namespace Inventory_Management_System.MySql
     public static class MySqlCommunication
     {
         private static string connectionstring = "Server=localhost; Port=50309; Database=lbn_medical_db; Uid=root; Pwd=DS309e15LS;"; //fastkodning ikke en god ide
-        private static MySqlConnection connection = new MySqlConnection(connectionstring)
+        private static MySqlConnection connection = new MySqlConnection(connectionstring);
         private static MySqlCommand cmd;
 
 
@@ -81,10 +81,29 @@ namespace Inventory_Management_System.MySql
 
         public static string GetHashedPassword(string Username)
         {
-            string text = "SELECT Password FROM employee_db WHERE Username = '"+Username+"'";
+            string text = "SELECT Password FROM employee_db WHERE Username = '" + Username + "'";
+            return GetString(text);
+        }
+
+        public static string Select(string table, string targetcollum, string keycollum, string key )
+        {
+            string text = "SELECT " + targetcollum + " FROM " + table + " WHERE " + keycollum + " = '" + key + "'";
             return GetString(text);
         }
             
+        public static void Insert(string table, string collum, string value)
+        {
+            string text = "INSERT INTO " + table + " (" + collum + ") VALUES('" + value + "')";
+            SendString(text);
+        }
+
+        public static void Update(string table, string targetCollum, string value, string keyCollum, string key)
+        {
+            string text = "UPDATE " + table + " SET " + targetCollum + "=" + value + " WHERE " + keyCollum + "=" + key;
+            SendString(text);
+        }
+
+        
 
 
     }
