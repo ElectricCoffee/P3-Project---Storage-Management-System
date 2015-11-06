@@ -208,6 +208,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Message\controller.js" />
+    <Content Include="Scripts\Message\directive.js" />
+    <Content Include="Scripts\Message\message-directive.html" />
     <Content Include="Scripts\Message\service.js" />
     <Content Include="Scripts\Custom\NgTest.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
