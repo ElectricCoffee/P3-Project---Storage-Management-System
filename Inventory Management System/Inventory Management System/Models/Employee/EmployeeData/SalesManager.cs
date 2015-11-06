@@ -10,8 +10,8 @@ namespace Inventory_Management_System.Models.EmployeeData
 {
     public class SalesManager : Salesmen, IMngr
     {
-        public SalesManager(string name, string password, string username)
-            : base(name, password, username)
+        public SalesManager(string name, string password, string username, string role)
+            : base(name, password, username, role)
         {
             Responsibilities = new List<ER.IResponsibility> 
             {
@@ -35,6 +35,11 @@ namespace Inventory_Management_System.Models.EmployeeData
             {
 
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
 
         public string SetRole(string userinput)

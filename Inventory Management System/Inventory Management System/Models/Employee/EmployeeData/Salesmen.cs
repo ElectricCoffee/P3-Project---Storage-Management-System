@@ -10,8 +10,8 @@ namespace Inventory_Management_System.Models.EmployeeData
 {
     public class Salesmen : Employee
     {
-        public Salesmen(string name, string password, string username) 
-            : base(name, password, username) 
+        public Salesmen(string name, string password, string username, string role)
+            : base(name, password, username, role)
         {
             Responsibilities = new List<ER.IResponsibility> 
             {
@@ -33,9 +33,14 @@ namespace Inventory_Management_System.Models.EmployeeData
 
             if (/*indsæt valid indput check*/true)
             {
-                
+
             }
-               
+
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

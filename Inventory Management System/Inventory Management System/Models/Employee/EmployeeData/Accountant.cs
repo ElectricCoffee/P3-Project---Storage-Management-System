@@ -10,8 +10,8 @@ namespace Inventory_Management_System.Models.EmployeeData
 {
     public class Accountant : Employee
     {
-        public Accountant(string name, string password, string username)
-            : base(name, password, username) 
+        public Accountant(string name, string password, string username, string role)
+            : base(name, password, username, role)
         {
             Responsibilities = new List<ER.IResponsibility> 
             {
@@ -26,6 +26,10 @@ namespace Inventory_Management_System.Models.EmployeeData
                 new ER.Buyer          {ReadWrite = false},
                 new ER.SalesPrice     {ReadWrite = false}
             };
+        }
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
