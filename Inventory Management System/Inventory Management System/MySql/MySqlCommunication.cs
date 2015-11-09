@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 using Inventory_Management_System.Utils;
+using Inventory_Management_System.Utils.Exceptions;
 
 namespace Inventory_Management_System.MySql
 {
@@ -117,9 +118,23 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
-        public static void Update(string table, string targetCollum, string value, string keyCollum, string key)
+        public static void Update(string table, List<string> targetCollum, List<string> value, string keyCollum, string key)
         {
-            string text = "UPDATE " + table + " SET " + targetCollum + " = " + value + " WHERE " + keyCollum + " = " + key;
+            if(targetCollum.Count != value.Count())
+            {
+                throw new NotEqualException();
+            }
+
+            string text = "UPDATE " + table + " WHERE " + keyCollum + " = " + key + " SET ";
+            for (int i = 0; i < value.Count(); i++)
+            {
+                text += targetCollum[i] + " = " + value[i];
+
+                if(value.Count()-1 != i)
+                {
+                    text += ", ";
+                }
+            }
             SendString(text);
         }
 
