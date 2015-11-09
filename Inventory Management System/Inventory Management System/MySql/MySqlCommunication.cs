@@ -91,9 +91,29 @@ namespace Inventory_Management_System.MySql
             return GetString(text);
         }
             
-        public static void Insert(string table, string collum, string value)
+        public static void Insert(string table, List<string> collum, List<string> value)
         {
-            string text = "INSERT INTO " + table + " (" + collum + ") VALUES('" + value + "')";
+            string text = "INSERT INTO " + table + "(";
+            for (int i = 0; i < collum.Count(); i++)
+            {
+                text += collum[i];
+
+                if (i != collum.Count() -1)
+                {
+                    text += ",";
+                }
+            }
+            text += ") VALUES('";
+            for (int i = 0; i < value.Count(); i++)
+            {
+                text += "'" + value[i] + "'";
+                if (i != value.Count()-1)
+                {
+                    text += ",";
+
+                }
+            }
+            text +="')";
             SendString(text);
         }
 
