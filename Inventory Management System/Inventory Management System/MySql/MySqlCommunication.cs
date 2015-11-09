@@ -103,9 +103,9 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
-        public static List<string> GetList(string text)
+        public static List<List<string>> GetList(string text, int numbersOfCollum)
         {
-            List<string> ReaderList = new List<string>();
+            List<List<string>> ReaderList = new List<List<string>>();
             try
             {
                 connection.Open();
@@ -115,7 +115,12 @@ namespace Inventory_Management_System.MySql
 
                 while (reader.Read())
                 {
-                    ReaderList.Add(reader.GetString(0));
+                    for (int i = 0; i < numbersOfCollum; i++)
+                    {
+                        ReaderList.Add(new List<string>());
+                        ReaderList.Last().Add(reader.GetString(i));
+                    }
+                    
                 }
             }
             catch (Exception)
@@ -135,6 +140,18 @@ namespace Inventory_Management_System.MySql
         }
         
 
+
+        public static List<List<string>> FilterList(string table, string keyCollum, string key, int numbersOfCollums)
+        {
+            string text = "SELECT * FROM " + table + "WHERE " + keyCollum + " = " + key;
+            return GetList(text,numbersOfCollums);
+        }
+
+        public static List<List<string>> SelectAll(string table, int numbersOfCollums)
+        {
+            string text = "SELECT * FROM " + table;
+            return GetList(text, numbersOfCollums);
+        }
 
     }
 }
