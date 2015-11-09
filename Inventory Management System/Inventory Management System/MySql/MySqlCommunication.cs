@@ -16,7 +16,11 @@ namespace Inventory_Management_System.MySql
 
 
         
-
+        /// <summary>
+        /// Opens a connection to the Database, and send the text string
+        /// </summary>
+        /// <param name="text">the string to send to the database</param>
+        /// <returns>the string that was send to the database</returns>
         public static string SendString(string text)
         {
             try
@@ -43,6 +47,11 @@ namespace Inventory_Management_System.MySql
 
         }
 
+        /// <summary>
+        /// Gets a string back from the database by sending the text
+        /// </summary>
+        /// <param name="text">the text thats get send to the database</param>
+        /// <returns>The return string from the database.</returns>
         public static string GetString(string text)
         {
             string readertext = "";
@@ -74,24 +83,50 @@ namespace Inventory_Management_System.MySql
             return readertext;
         }
 
-        public static void CreateUser(string Username, string password, string role)
+        /// <summary>
+        /// Creats a user in the database
+        /// </summary>
+        /// <param name="Username">The Username</param>
+        /// <param name="password">The password, not hashed</param>
+        /// <param name="role">The role</param>
+        /// <param name="name">The Name</param>
+        public static void CreateUser(string Username, string password, string role, string name)
         {
-            string text = "INSERT INTO employee_db (Username,Password,Role) VALUES('" + Username + "','" + Security.HashPassword(Username,password) + "','" + role + "')";
+            string text = "INSERT INTO employee_db (Username,Password,Role, Name, ActivationDate) VALUES('" + Username + "','" + Security.HashPassword(Username, password) + "','" + role + "', '" + name + "', '" + DateTime.Now.ToString() + "')";
             SendString(text);
         }
 
+        /// <summary>
+        /// Gets the hashed password from the database
+        /// </summary>
+        /// <param name="Username">the Username you wants the password from</param>
+        /// <returns>the hashed password</returns>
         public static string GetHashedPassword(string Username)
         {
             string text = "SELECT Password FROM employee_db WHERE Username = '" + Username + "'";
             return GetString(text);
         }
 
+        /// <summary>
+        /// Select a singel collum, where keycollum = key
+        /// </summary>
+        /// <param name="table">the name of the table</param>
+        /// <param name="targetcollum">The collum you wants data from</param>
+        /// <param name="keycollum">the collum you know</param>
+        /// <param name="key">the value you know</param>
+        /// <returns>Data from the database</returns>
         public static string Select(string table, string targetcollum, string keycollum, string key )
         {
             string text = "SELECT " + targetcollum + " FROM " + table + " WHERE " + keycollum + " = '" + key + "'";
             return GetString(text);
         }
-            
+           
+        /// <summary>
+        /// Inserts alle the data in alle the collum in the speciafic table
+        /// </summary>
+        /// <param name="table">the name of the table</param>
+        /// <param name="collum">a list of collums</param>
+        /// <param name="value">a list of values</param>
         public static void Insert(string table, List<string> collum, List<string> value)
         {
             string text = "INSERT INTO " + table + "(";
@@ -118,6 +153,14 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
+        /// <summary>
+        /// Update a line in the database
+        /// </summary>
+        /// <param name="table">the name of the table</param>
+        /// <param name="targetCollum">a list of collums you want to update values</param>
+        /// <param name="value">a list of values you ants to update</param>
+        /// <param name="keyCollum">the collums you know</param>
+        /// <param name="key">the value you know</param>
         public static void Update(string table, List<string> targetCollum, List<string> value, string keyCollum, string key)
         {
             if(targetCollum.Count != value.Count())
@@ -138,6 +181,12 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
+        /// <summary>
+        /// Gets a list of list of data from the database
+        /// </summary>
+        /// <param name="text">the text to send to the database</param>
+        /// <param name="numbersOfCollum">the numbers of collums you want back</param>
+        /// <returns>a list of list of data</returns>
         public static List<List<string>> GetList(string text, int numbersOfCollum)
         {
             List<List<string>> ReaderList = new List<List<string>>();
@@ -175,13 +224,26 @@ namespace Inventory_Management_System.MySql
         }
         
 
-
+        /// <summary>
+        /// Filter a list
+        /// </summary>
+        /// <param name="table">the name of the table</param>
+        /// <param name="keyCollum">the know collum</param>
+        /// <param name="key">the known value</param>
+        /// <param name="numbersOfCollums">numbers of collums you want back</param>
+        /// <returns></returns>
         public static List<List<string>> FilterList(string table, string keyCollum, string key, int numbersOfCollums)
         {
             string text = "SELECT * FROM " + table + "WHERE " + keyCollum + " = " + key;
             return GetList(text,numbersOfCollums);
         }
 
+        /// <summary>
+        /// Select all the data in the database
+        /// </summary>
+        /// <param name="table">the name of the table</param>
+        /// <param name="numbersOfCollums">the numbes of collums you wants back</param>
+        /// <returns></returns>
         public static List<List<string>> SelectAll(string table, int numbersOfCollums)
         {
             string text = "SELECT * FROM " + table;
