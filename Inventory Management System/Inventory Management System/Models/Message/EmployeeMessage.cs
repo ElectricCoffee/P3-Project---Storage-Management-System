@@ -9,19 +9,16 @@ namespace Inventory_Management_System.Models.Message
 {
     public class EmployeeMessage
     {
-        public string TargetID { get; private set; }
-        public string Message { get; private set; }
-        public Enums.AlertType MessageType { get; private set; }
+        public string Group { get; set; }
+        public string Message { get; set; }
+        public string Sender { get; set; }
+        public Enums.AlertType MessageType { get; set; }
 
         public EmployeeMessage(Enums.AlertType messageType, string targetId, string message)
         {
-            TargetID = targetId;
+            Group = targetId;
             Message = message;
             MessageType = messageType;
         }
-
-        public EmployeeMessage(string targetId, string message)
-            : this(Enums.AlertType.Info, targetId, message) { }
-
     }
 }

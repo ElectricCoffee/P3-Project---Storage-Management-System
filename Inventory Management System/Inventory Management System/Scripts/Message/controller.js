@@ -10,13 +10,33 @@
     MessageController.$inject = ['MessageService', '$resource'];
 
     function MessageController(messageService, $resource) {
-        this.getMessageQueue = getMessages;
-        this.messages = messageService.allMessages;
-        this.pushMessage = messageService.push;
-        this.sendMessage = messageService.send;
+        var self = this;
+
+        self.getMessageQueue = getMessages;
+        self.group = null;
+        self.joinGroup = joinGroup
+        self.messages = messageService.allMessages;
+        self.pushMessage = messageService.push;
+        self.sendMessage = sendMessage;
 
         function getMessages() { // temporary definition
             return $resource('/api/Message').query();
+        }
+
+        function joinGroup(groupName) {
+            messageService.join(groupName);
+            self.group = groupName;
+        }
+
+        function sendMessage(sender, message) {
+            var msg = {
+                sender: sender,
+                group: self.group,
+                message: message
+            };
+
+            console.log(msg);
+            messageService.send (msg);
         }
     }
 })();

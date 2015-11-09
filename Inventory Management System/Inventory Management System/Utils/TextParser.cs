@@ -17,7 +17,7 @@ namespace Inventory_Management_System.Utils
         /// <returns>Corresponding DestinationType</returns>
         public static DestinationType DetermineDestination(EmployeeMessage msg)
         {
-            var destKey = Char.ToUpper(msg.TargetID[0]);
+            var destKey = Char.ToUpper(msg.Group[0]);
             return destKey == 'E'
                 ? DestinationType.Employee
                 : destKey == 'R' // if not E, check R

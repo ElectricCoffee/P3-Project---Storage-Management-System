@@ -4,16 +4,24 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Inventory_Management_System.Models.Message;
 
 namespace Inventory_Management_System.Hubs
 {
     [HubName("message")]
     public class MessageHub : Hub
     {
-        public void SendMessage(String sender, String message)
+        public void SendMessage(EmployeeMessage message)
         {
-            // just relay the message to all the clients
-            Clients.All.displayMessage(sender, message);
+            if (message.Group == null)
+                Clients.All.displayMessage(message);
+            else
+                Clients.Group(message.Group).displayMessage(message);
+        }
+
+        public void JoinGroup(string groupName)
+        {
+            Groups.Add(Context.ConnectionId, groupName);
         }
     }
 }

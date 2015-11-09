@@ -11,29 +11,21 @@
     function MessageService($rootScope, Hub) {
         var self = this;
         var hub = new Hub('message', {
-            methods: ['sendMessage'],
+            methods: ['sendMessage', 'joinGroup'],
             listeners: { 'displayMessage': displayMessage },
             errorHandler: console.error
         });
 
         // exposable functions
         self.allMessages = [];
-        self.push = pushMessage;
+        self.join = hub.joinGroup;
+        self.push = self.allMessages.push;
         self.send = hub.sendMessage;
 
-        // convenience functions
-        function pushMessage(sender, message) {
-            self.allMessages.push(new Message(sender, message));
-        }
-
-        function displayMessage(sender, message) {
-            pushMessage(sender, message);
+        // message is of the form {sender: ..., group: ..., message: ...}
+        function displayMessage(message) {
+            self.allMessages.push(message);
             $rootScope.$apply();
-        }
-
-        function Message(sender, message) {
-            this.sender = sender;
-            this.message = message;
         }
     }
 })();
