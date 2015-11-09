@@ -99,10 +99,40 @@ namespace Inventory_Management_System.MySql
 
         public static void Update(string table, string targetCollum, string value, string keyCollum, string key)
         {
-            string text = "UPDATE " + table + " SET " + targetCollum + "=" + value + " WHERE " + keyCollum + "=" + key;
+            string text = "UPDATE " + table + " SET " + targetCollum + " = " + value + " WHERE " + keyCollum + " = " + key;
             SendString(text);
         }
 
+        public static List<string> GetList(string text)
+        {
+            List<string> ReaderList = new List<string>();
+            try
+            {
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText = text;
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ReaderList.Add(reader.GetString(0));
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+
+            }
+            return ReaderList;
+        }
         
 
 
