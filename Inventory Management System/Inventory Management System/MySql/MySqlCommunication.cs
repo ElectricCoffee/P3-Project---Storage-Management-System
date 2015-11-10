@@ -250,5 +250,16 @@ namespace Inventory_Management_System.MySql
             return GetList(text, numbersOfCollums);
         }
 
+        /// <summary>
+        /// Delete a row in the database
+        /// </summary>
+        /// <param name="table">the table where the row is</param>
+        /// <param name="keyCollum"> the known collum</param>
+        /// <param name="key">the known value</param>
+        public static void Delete(string table, string keyCollum, string key)
+        {
+            string text = "DELETE FROM " + table + " WHERE " + keyCollum + " = " + key;
+            SendString(text);
+        }
     }
 }
