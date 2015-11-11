@@ -142,7 +142,14 @@ namespace Inventory_Management_System.Utils
         public static string Hash(string text)
         {
             var sha1 = new SHA1CryptoServiceProvider();
-            return Encoding.ASCII.GetString(sha1.ComputeHash(Encoding.ASCII.GetBytes(text)));
+            sha1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+            StringBuilder sb = new StringBuilder();
+            foreach(byte b in sha1.Hash)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+            return sb.ToString();
         }
 
         /// <summary>

@@ -95,7 +95,7 @@ namespace Inventory_Management_System.MySql
         /// <param name="name">The Name</param>
         public static void CreateUser(string Username, string password, string role, string name)
         {
-            string text = "INSERT INTO employee_db (Username,Password,Role, Name, ActivationDate) VALUES('" + Username + "','" + Security.HashPassword(Username, password) + "','" + role + "', '" + name + "', '" + DateTime.Now.ToString() + "')";
+            string text = "INSERT INTO " + EmployeeTable + " (Username,Password,Role, Name, ActivationDate) VALUES('" + Username + "','" + Security.HashPassword(Username, password) + "','" + role + "', '" + name + "', '" + DateTime.Now.ToString() + "')";
             SendString(text);
         }
 
@@ -265,6 +265,12 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
+
+        /// <summary>
+        /// Get Coolumn Names
+        /// </summary>
+        /// <param name="table">the tabel you want names from</param>
+        /// <returns></returns>
         public static List<string> GetColumnName(string table)
         {
             string text = "SHOW Columns FROM " + table;
