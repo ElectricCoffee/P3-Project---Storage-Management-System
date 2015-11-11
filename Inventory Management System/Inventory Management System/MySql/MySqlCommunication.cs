@@ -13,6 +13,9 @@ namespace Inventory_Management_System.MySql
         private static string connectionstring = "Server=localhost; Port=50309; Database=lbn_medical_db; Uid=root; Pwd=DS309e15LS;"; //fastkodning ikke en god ide
         private static MySqlConnection connection = new MySqlConnection(connectionstring);
         private static MySqlCommand cmd;
+        public static string EmployeeTable = "employee_db";
+        public static string ProductTable = "product_db";
+        public static string RoleTable = "role_db";
 
 
         
@@ -103,7 +106,7 @@ namespace Inventory_Management_System.MySql
         /// <returns>the hashed password</returns>
         public static string GetHashedPassword(string Username)
         {
-            string text = "SELECT Password FROM employee_db WHERE Username = '" + Username + "'";
+            string text = "SELECT Password FROM " + EmployeeTable + " WHERE Username = '" + Username + "'";
             return GetString(text);
         }
 
@@ -262,10 +265,18 @@ namespace Inventory_Management_System.MySql
             SendString(text);
         }
 
-        public static List<List<string>> GetColumnName(string table)
+        public static List<string> GetColumnName(string table)
         {
             string text = "SHOW Columns FROM " + table;
-            return GetList(text, 1);
+
+            List<List<string>> columns = GetList(text, 1);
+            List<string> ColumnNames = new List<string>();
+            for (int i = 0; i < columns.Count(); i++)
+            {
+                ColumnNames.Add(columns[i][0]);
+            }
+
+            return ColumnNames;
 
         }
     }

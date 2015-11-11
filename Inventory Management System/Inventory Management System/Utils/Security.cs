@@ -167,7 +167,7 @@ namespace Inventory_Management_System.Utils
         {
             if(LogInCheck(Username,OldPassword))
             {
-                MySqlCommunication.Update("employee_db", new List<string> { "Password" }, new List<string> { NewPassword }, "Username", Username);
+                MySqlCommunication.Update(MySqlCommunication.EmployeeTable, new List<string> { "Password" }, new List<string> { NewPassword }, "Username", Username);
                 return true;
             }
             return false;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Inventory_Management_System.Utils;
+using Inventory_Management_System.MySql;
 
 namespace Inventory_Management_System.Models.Product
 {
@@ -28,6 +29,10 @@ namespace Inventory_Management_System.Models.Product
             Catagory = label.Catagory;
             SalesPrice = price.SalesPrice;
             Transit = location.Transit;
+
+            List<string> Values = new List<string> { ArticleNumber1, Name, "", WorldLocation, InventoryLocation, Transit, Amount.ToString(), AcquisitionPrice.ToString(), "", "", Tags, Catagory, "", "", "", Acquisitor, "", "", SalesPrice.ToString() };
+
+            MySqlCommunication.Insert(MySqlCommunication.ProductTable, MySqlCommunication.GetColumnName(MySqlCommunication.ProductTable), Values);
         }
 
         public string ArticleNumber1 { get; set; }
