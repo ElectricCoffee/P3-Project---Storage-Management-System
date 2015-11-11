@@ -68,7 +68,8 @@ namespace Inventory_Management_System.Models.EmployeeData
         {
             if (Security.LogInCheck(this.Username, password))
             {
-                MySqlCommunication.Update(MySqlCommunication.EmployeeTable, new List<string> { "UserName" }, new List<string> { newUsername }, "UserName", this.Username);
+                MySqlCommunication.Update(MySqlCommunication.EmployeeTable, new List<string> { "UserName", "Password" }, new List<string> { newUsername, Security.HashPassword(newUsername, password) }, "UserName", this.Username);
+                
                 Username = newUsername;
             }
         }
