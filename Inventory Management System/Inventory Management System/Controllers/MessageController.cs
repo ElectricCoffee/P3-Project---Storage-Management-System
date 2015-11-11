@@ -9,6 +9,7 @@ using Inventory_Management_System.Models.Message;
 
 #warning replace this with concrete type!!
 using Target = System.Object;
+using System.Diagnostics;
 
 namespace Inventory_Management_System.Controllers
 {
@@ -36,7 +37,13 @@ namespace Inventory_Management_System.Controllers
         {
             throw new NotImplementedException();
         }
+
+        [Route("api/message-group")]
+        [HttpGet]
+        public string GetMessageGroup()
+        {
+            Debug.WriteLine(">>> Getting Group");
+            return "TestGroup";
+        }
     }
-
-
 }

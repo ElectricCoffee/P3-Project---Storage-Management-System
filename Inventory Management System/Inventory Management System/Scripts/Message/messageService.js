@@ -4,11 +4,11 @@
 (function () {
     'use strict';
     angular.module('messageSystem')
-        .factory('MessageService', MessageService);
+        .service('MessageService', MessageService);
 
-    MessageService.$inject = ['$rootScope'];
+    MessageService.$inject = ['$rootScope', '$resource'];
 
-    function MessageService($rootScope) {
+    function MessageService($rootScope, $resource) {
         var self    = this,
             message = $.connection.message,
             hub     = $.connection.hub;
@@ -24,23 +24,29 @@
         self.allMessages = [];
 
         self.sendMessage = message.server.sendMessage;
-        self.joinGroup = joinGroup;
+        //self.joinGroup = message.server.joinGroup;
+        //self.done = hub.start().done;
+        //self.start = start;
 
         function hubStart() {
             // do stuff on start
         }
 
         function hubDone() {
-            //message.server.joinGroup("testGroup");
-            // do stuff on connection done
-            console.log("I'm done.");
+            self.group = $resource('/api/message-group').get();
+            message.server.joinGroup(self.group);
         }
 
-        function joinGroup(group) {
-            console.log("joining group: " + group);
-            self.group = group;
-            message.server.joinGroup(group);
-        }
+        //function start(group) {
+        //    self.group = group;
+        //    hub.start().done(hubDone);
+        //}
+
+        //function joinGroup(group) {
+        //    console.log("joining group: " + group);
+        //    self.group = group;
+        //    message.server.joinGroup(group);
+        //}
 
         function displayMessage(msg) {
             console.log('received message: ' + JSON.stringify(msg));

@@ -7,26 +7,14 @@
     angular.module('messageSystem')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['MessageService', '$resource'];
+    MessageController.$inject = ['MessageService'];
 
-    function MessageController(messageService, $resource) {
+    function MessageController(messageService) {
         var self = this;
 
         self.service = messageService;
-
-        self.getMessageQueue = getMessages;
-        self.messages        = messageService.allMessages;
-        self.sendMessage     = sendMessage;
-
-        function getMessages() { // temporary definition
-            return $resource('/api/Message').query();
-        }
-
-        function joinGroup(groupName) {
-            console.log('joining group: ' + groupName);
-            messageService.join(groupName);
-            self.group = groupName;
-        }
+        self.messages = messageService.allMessages;
+        self.sendMessage = sendMessage;
 
         function sendMessage(sender, message) {
             var msg = {
@@ -34,8 +22,7 @@
                 Group: self.service.group,
                 Message: message
             };
-
-            console.log(msg);
+            console.log("sending message: " + JSON.stringify(msg));
             messageService.sendMessage(msg);
         }
     }
