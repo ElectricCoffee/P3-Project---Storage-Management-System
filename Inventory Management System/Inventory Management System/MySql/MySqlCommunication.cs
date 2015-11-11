@@ -261,5 +261,12 @@ namespace Inventory_Management_System.MySql
             string text = "DELETE FROM " + table + " WHERE " + keyCollum + " = " + key;
             SendString(text);
         }
+
+        public static List<List<string>> GetColumnName(string table)
+        {
+            string text = "SHOW Columns FROM " + table;
+            return GetList(text, 1);
+
+        }
     }
 }
