@@ -24,6 +24,7 @@
 
         // message is of the form {sender: ..., group: ..., message: ...}
         function displayMessage(message) {
+            console.log('received message: ' + JSON.stringify(message));
             self.allMessages.push(message);
             $rootScope.$apply();
         }

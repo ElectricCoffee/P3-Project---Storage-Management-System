@@ -13,17 +13,18 @@
         var self = this;
 
         self.getMessageQueue = getMessages;
-        self.group = null;
-        self.joinGroup = joinGroup
-        self.messages = messageService.allMessages;
-        self.pushMessage = messageService.push;
-        self.sendMessage = sendMessage;
+        self.group           = null;
+        self.joinGroup       = joinGroup
+        self.messages        = messageService.allMessages;
+        self.pushMessage     = messageService.push;
+        self.sendMessage     = sendMessage;
 
         function getMessages() { // temporary definition
             return $resource('/api/Message').query();
         }
 
         function joinGroup(groupName) {
+            console.log('joining group: ' + groupName);
             messageService.join(groupName);
             self.group = groupName;
         }

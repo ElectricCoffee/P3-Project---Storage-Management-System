@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using Inventory_Management_System.Models.Message;
+using System.Diagnostics;
 
 namespace Inventory_Management_System.Hubs
 {
@@ -13,6 +14,7 @@ namespace Inventory_Management_System.Hubs
     {
         public void SendMessage(EmployeeMessage message)
         {
+            Debug.WriteLine("Sending message: \"sender: {0}, group: {1}, message: {2}\"", message.Sender, message.Group, message.Message);
             if (message.Group == null)
                 Clients.All.displayMessage(message);
             else
@@ -21,6 +23,7 @@ namespace Inventory_Management_System.Hubs
 
         public void JoinGroup(string groupName)
         {
+            Debug.WriteLine("joining group: " + groupName);
             Groups.Add(Context.ConnectionId, groupName);
         }
     }
