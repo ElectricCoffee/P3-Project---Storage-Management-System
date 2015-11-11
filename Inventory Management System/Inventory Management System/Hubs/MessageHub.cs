@@ -16,7 +16,7 @@ namespace Inventory_Management_System.Hubs
         {
             Debug.WriteLine("Sending message: \"sender: {0}, group: {1}, message: {2}\"", message.Sender, message.Group, message.Message);
             if (message.Group == null)
-                Clients.All.displayMessage(message);
+                this.Clients.All.displayMessage(message);
             else
                 Clients.Group(message.Group).displayMessage(message);
         }

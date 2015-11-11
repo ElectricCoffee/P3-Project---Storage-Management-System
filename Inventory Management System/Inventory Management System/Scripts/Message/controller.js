@@ -12,11 +12,10 @@
     function MessageController(messageService, $resource) {
         var self = this;
 
+        self.service = messageService;
+
         self.getMessageQueue = getMessages;
-        self.group           = null;
-        self.joinGroup       = joinGroup
         self.messages        = messageService.allMessages;
-        self.pushMessage     = messageService.push;
         self.sendMessage     = sendMessage;
 
         function getMessages() { // temporary definition
@@ -31,13 +30,13 @@
 
         function sendMessage(sender, message) {
             var msg = {
-                sender: sender,
-                group: self.group,
-                message: message
+                Sender: sender,
+                Group: self.service.group,
+                Message: message
             };
 
             console.log(msg);
-            messageService.send (msg);
+            messageService.sendMessage(msg);
         }
     }
 })();
