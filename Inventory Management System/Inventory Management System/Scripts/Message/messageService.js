@@ -6,48 +6,46 @@
     angular.module('messageSystem')
         .service('MessageService', MessageService);
 
-    MessageService.$inject = ['$rootScope', '$resource'];
+    MessageService.$inject = ['$rootScope', '$http'];
 
-    function MessageService($rootScope, $resource) {
-        var self    = this,
-            message = $.connection.message,
-            hub     = $.connection.hub;
-        
-        //message.on('displayMessage', displayMessage);
+    function MessageService($rootScope, $http) {
+        // define aliases
+        var self = this,
+            message = $.connection.message, // define message hub
+            hub = $.connection.hub;
+
         message.client.displayMessage = displayMessage;
-
-        //hub.start(hubStart);
         hub.start().done(hubDone);
 
         // exposable functions
-        self.group = null;
         self.allMessages = [];
-
+        self.group = null;
         self.sendMessage = message.server.sendMessage;
-        //self.joinGroup = message.server.joinGroup;
-        //self.done = hub.start().done;
-        //self.start = start;
 
-        function hubStart() {
-            // do stuff on start
-        }
-
+        // What the hub should do when done loading
         function hubDone() {
-            self.group = $resource('/api/message-group').get();
-            message.server.joinGroup(self.group);
+            $http.get('/api/message-group').then(httpSuccess, httpFailure);
+
+            // what to do when the http GET succeeds
+            function httpSuccess(response) {
+                joinGroup(response.data);
+            }
+
+            // what to do when GET fails
+            function httpFailure(response) {
+                console.log(response.data);
+            }
         }
 
-        //function start(group) {
-        //    self.group = group;
-        //    hub.start().done(hubDone);
-        //}
+        // behavior for joining a group
+        function joinGroup(group) {
+            console.log("joining group: " + JSON.stringify(group));
+            self.group = group;
+            message.server.joinGroup(group);
+        }
 
-        //function joinGroup(group) {
-        //    console.log("joining group: " + group);
-        //    self.group = group;
-        //    message.server.joinGroup(group);
-        //}
-
+        // Adds a message to the allMessages array. 
+        // This array will hold the data 
         function displayMessage(msg) {
             console.log('received message: ' + JSON.stringify(msg));
             self.allMessages.push(msg);

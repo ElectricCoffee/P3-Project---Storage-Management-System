@@ -10,18 +10,20 @@
     MessageController.$inject = ['MessageService'];
 
     function MessageController(messageService) {
-        var self = this;
+        var self = this; // make alias for this
 
+        // expose the service
         self.service = messageService;
-        self.messages = messageService.allMessages;
         self.sendMessage = sendMessage;
 
+        // defines a simpler interface for sending messages within the view
         function sendMessage(sender, message) {
             var msg = {
                 Sender: sender,
                 Group: self.service.group,
                 Message: message
             };
+
             console.log("sending message: " + JSON.stringify(msg));
             messageService.sendMessage(msg);
         }
