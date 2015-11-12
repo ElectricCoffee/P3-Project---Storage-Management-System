@@ -5,7 +5,7 @@ using Inventory_Management_System.Utils;
 namespace Inventory_Management_System.Tests
 {
     [TestClass]
-    public class UnitTest2
+    public class SecurityTest
     {
         [TestMethod]
         public void Hash()
@@ -22,7 +22,7 @@ namespace Inventory_Management_System.Tests
         [TestMethod]
         public void TestLoginCheck()
         {
-            
+            Assert.AreEqual(true, Security.LogInCheck("username", "password"));
         }
     }
 }
