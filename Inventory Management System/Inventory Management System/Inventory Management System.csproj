@@ -1016,6 +1016,10 @@
     <Compile Include="Models\Product\TEMPProductLoader.cs" />
     <Compile Include="MySql\MySqlCommunication.cs" />
     <Compile Include="Network\PacketStructure.cs" />
+    <Compile Include="Network\PacketHandler.cs" />
+    <Compile Include="Network\PacketStructure.cs" />
+    <Compile Include="Network\Packets\Message.cs" />
+    <Compile Include="Network\ServerSocket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
     <Compile Include="Models\Employee\EmployeeData\SalesManager.cs" />
@@ -1077,6 +1081,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
