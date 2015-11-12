@@ -9,7 +9,8 @@
         <button type="submit" class="btn btn-default" ng-click="messageCtrl.sendMessage('foo', 'foomsg')">Hit Me!</button>
         <ul class="list-group">
             <li ng-repeat="msg in messageCtrl.service.allMessages" class="list-group-item">
-                <strong>{{msg.Sender}}:</strong> {{msg.Message}}
+                @*<strong>{{msg.Sender}}:</strong> {{msg.Message}}*@
+                <message-popup type="success" sender="{{msg.Sender}}">{{msg.Message}}</message-popup>
             </li>
         </ul>
     </div>
