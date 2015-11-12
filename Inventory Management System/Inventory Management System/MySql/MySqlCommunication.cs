@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Inventory_Management_System.Utils;
+using Inventory_Management_System.Utils.Exceptions;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using MySql.Data.MySqlClient;
-using Inventory_Management_System.Utils;
-using Inventory_Management_System.Utils.Exceptions;
 
 namespace Inventory_Management_System.MySql
 {
@@ -17,8 +16,6 @@ namespace Inventory_Management_System.MySql
         public static string ProductTable = "product_db";
         public static string RoleTable = "role_db";
 
-
-        
         /// <summary>
         /// Opens a connection to the Database, and send the text string
         /// </summary>
@@ -35,7 +32,7 @@ namespace Inventory_Management_System.MySql
             }
             catch (Exception)
             {
-                
+#warning throw something
                 throw;
             }
             finally
@@ -44,7 +41,6 @@ namespace Inventory_Management_System.MySql
                 {
                     connection.Close();
                 }
-                
             }
             return text;
 
@@ -72,7 +68,7 @@ namespace Inventory_Management_System.MySql
             }
             catch (Exception)
             {
-
+#warning needs to throw something
                 throw;
             }
             finally
@@ -81,7 +77,6 @@ namespace Inventory_Management_System.MySql
                 {
                     connection.Close();
                 }
-
             }
             return readertext;
         }
@@ -114,13 +109,13 @@ namespace Inventory_Management_System.MySql
         /// Select a singel collum, where keycollum = key
         /// </summary>
         /// <param name="table">the name of the table</param>
-        /// <param name="targetcollum">The collum you wants data from</param>
-        /// <param name="keycollum">the collum you know</param>
+        /// <param name="targetColumn">The collum you wants data from</param>
+        /// <param name="keyColumn">the collum you know</param>
         /// <param name="key">the value you know</param>
         /// <returns>Data from the database</returns>
-        public static string Select(string table, string targetcollum, string keycollum, string key )
+        public static string Select(string table, string targetColumn, string keyColumn, string key )
         {
-            string text = "SELECT " + targetcollum + " FROM " + table + " WHERE " + keycollum + " = '" + key + "'";
+            string text = "SELECT " + targetColumn + " FROM " + table + " WHERE " + keyColumn + " = '" + key + "'";
             return GetString(text);
         }
            
@@ -128,16 +123,16 @@ namespace Inventory_Management_System.MySql
         /// Inserts alle the data in alle the collum in the speciafic table
         /// </summary>
         /// <param name="table">the name of the table</param>
-        /// <param name="collum">a list of collums</param>
+        /// <param name="column">a list of collums</param>
         /// <param name="value">a list of values</param>
-        public static void Insert(string table, List<string> collum, List<string> value)
+        public static void Insert(string table, List<string> column, List<string> value)
         {
             string text = "INSERT INTO " + table + "(";
-            for (int i = 0; i < collum.Count(); i++)
+            for (int i = 0; i < column.Count(); i++)
             {
-                text += collum[i];
+                text += column[i];
 
-                if (i != collum.Count() -1)
+                if (i != column.Count() -1)
                 {
                     text += ",";
                 }
@@ -149,7 +144,6 @@ namespace Inventory_Management_System.MySql
                 if (i != value.Count()-1)
                 {
                     text += ",";
-
                 }
             }
             text +="')";
@@ -160,21 +154,21 @@ namespace Inventory_Management_System.MySql
         /// Update a line in the database
         /// </summary>
         /// <param name="table">the name of the table</param>
-        /// <param name="targetCollum">a list of collums you want to update values</param>
+        /// <param name="targetColumn">a list of collums you want to update values</param>
         /// <param name="value">a list of values you ants to update</param>
-        /// <param name="keyCollum">the collums you know</param>
+        /// <param name="keyColumn">the collums you know</param>
         /// <param name="key">the value you know</param>
-        public static void Update(string table, List<string> targetCollum, List<string> value, string keyCollum, string key)
+        public static void Update(string table, List<string> targetColumn, List<string> value, string keyColumn, string key)
         {
-            if(targetCollum.Count != value.Count())
+            if(targetColumn.Count != value.Count())
             {
                 throw new NotEqualException();
             }
 
-            string text = "UPDATE " + table + " WHERE " + keyCollum + " = " + key + " SET ";
+            string text = "UPDATE " + table + " WHERE " + keyColumn + " = " + key + " SET ";
             for (int i = 0; i < value.Count(); i++)
             {
-                text += targetCollum[i] + " = " + value[i];
+                text += targetColumn[i] + " = " + value[i];
 
                 if(value.Count()-1 != i)
                 {
@@ -188,11 +182,11 @@ namespace Inventory_Management_System.MySql
         /// Gets a list of list of data from the database
         /// </summary>
         /// <param name="text">the text to send to the database</param>
-        /// <param name="numbersOfCollum">the numbers of collums you want back</param>
+        /// <param name="columnCount">the number of collums you want back</param>
         /// <returns>a list of list of data</returns>
-        public static List<List<string>> GetList(string text, int numbersOfCollum)
+        public static List<List<string>> GetList(string text, int columnCount)
         {
-            List<List<string>> ReaderList = new List<List<string>>();
+            List<List<string>> readerList = new List<List<string>>();
             try
             {
                 connection.Open();
@@ -202,18 +196,17 @@ namespace Inventory_Management_System.MySql
 
                 while (reader.Read())
                 {
-                    for (int i = 0; i < numbersOfCollum; i++)
+                    for (int i = 0; i < columnCount; i++)
                     {
-                        ReaderList.Add(new List<string>());
-                        ReaderList.Last().Add(reader.GetString(i));
+                        readerList.Add(new List<string>());
+                        readerList.Last().Add(reader.GetString(i));
                     }
-                    
                 }
             }
             catch (Exception)
             {
-
-                throw;
+#warning throw something, man
+                throw; 
             }
             finally
             {
@@ -221,9 +214,8 @@ namespace Inventory_Management_System.MySql
                 {
                     connection.Close();
                 }
-
             }
-            return ReaderList;
+            return readerList;
         }
         
 
@@ -231,13 +223,13 @@ namespace Inventory_Management_System.MySql
         /// Filter a list
         /// </summary>
         /// <param name="table">the name of the table</param>
-        /// <param name="keyCollum">the know collum</param>
+        /// <param name="keyColumn">the know collum</param>
         /// <param name="key">the known value</param>
         /// <param name="numbersOfCollums">numbers of collums you want back</param>
         /// <returns></returns>
-        public static List<List<string>> FilterList(string table, string keyCollum, string key, int numbersOfCollums)
+        public static List<List<string>> FilterList(string table, string keyColumn, string key, int numbersOfCollums)
         {
-            string text = "SELECT * FROM " + table + "WHERE " + keyCollum + " = " + key;
+            string text = "SELECT * FROM " + table + "WHERE " + keyColumn + " = " + key;
             return GetList(text,numbersOfCollums);
         }
 
@@ -245,23 +237,23 @@ namespace Inventory_Management_System.MySql
         /// Select all the data in the database
         /// </summary>
         /// <param name="table">the name of the table</param>
-        /// <param name="numbersOfCollums">the numbes of collums you wants back</param>
+        /// <param name="columnCount">the numbes of collums you wants back</param>
         /// <returns></returns>
-        public static List<List<string>> SelectAll(string table, int numbersOfCollums)
+        public static List<List<string>> SelectAll(string table, int columnCount)
         {
             string text = "SELECT * FROM " + table;
-            return GetList(text, numbersOfCollums);
+            return GetList(text, columnCount);
         }
 
         /// <summary>
         /// Delete a row in the database
         /// </summary>
         /// <param name="table">the table where the row is</param>
-        /// <param name="keyCollum"> the known collum</param>
+        /// <param name="keyColumn"> the known collum</param>
         /// <param name="key">the known value</param>
-        public static void Delete(string table, string keyCollum, string key)
+        public static void Delete(string table, string keyColumn, string key)
         {
-            string text = "DELETE FROM " + table + " WHERE " + keyCollum + " = " + key;
+            string text = "DELETE FROM " + table + " WHERE " + keyColumn + " = " + key;
             SendString(text);
         }
 
