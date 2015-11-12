@@ -16,7 +16,7 @@ namespace Inventory_Management_System
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{id}", // localhost:5000/api/Log/...
                 defaults: new { id = RouteParameter.Optional }
             );
         }

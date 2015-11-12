@@ -982,6 +982,7 @@
     <Compile Include="Controllers\InvEmpController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
+    <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Amount.cs" />
@@ -1031,6 +1032,12 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Exceptions\NotEqualException.cs" />
     <Compile Include="Utils\Guid.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\LogEntry.cs" />
+    <Compile Include="Utils\LogEvent.cs" />
+    <Compile Include="Utils\Logevent\LogEventMove.cs" />
+    <Compile Include="Utils\Logevent\LogEventSold.cs" />
+    <Compile Include="Utils\Logevent\LogEventStatusChange.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\TextParser.cs" />
   </ItemGroup>
