@@ -975,9 +975,11 @@
     <Content Include="Scripts\Message\module.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\CustomStyling.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\InvEmpController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
@@ -1056,6 +1058,9 @@
     <Content Include="Models\Employee\EmployeeData\EmployeeDiagram.cd" />
     <Content Include="Models\Employee\EmployeeResponsibilities\responsibilities_Diagram.cd" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\InvEmp\InvEmployee.cshtml" />
+    <Content Include="Views\InvEmp\AddProduct.cshtml" />
+    <Content Include="Styles\Etellerandetaandsvagt.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
