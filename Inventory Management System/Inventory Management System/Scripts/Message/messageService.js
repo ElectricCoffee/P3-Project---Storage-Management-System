@@ -10,16 +10,16 @@
 
     function MessageService($rootScope, $http) {
         // define aliases
-        var self = this,
+        var self    = this,
             message = $.connection.message, // define message hub
-            hub = $.connection.hub;
+            hub     = $.connection.hub;
 
         message.client.displayMessage = displayMessage;
         hub.start().done(hubDone);
 
         // exposable functions
         self.allMessages = [];
-        self.group = null;
+        self.group       = null;
         self.sendMessage = message.server.sendMessage;
 
         // What the hub should do when done loading
@@ -33,7 +33,7 @@
 
             // what to do when GET fails
             function httpFailure(response) {
-                console.log(response.data);
+                console.error(response.data);
             }
         }
 
@@ -51,6 +51,5 @@
             self.allMessages.push(msg);
             $rootScope.$apply();
         }
-
     }
 })();

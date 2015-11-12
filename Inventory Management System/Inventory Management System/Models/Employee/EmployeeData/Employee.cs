@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using ER = Inventory_Management_System.Models.EmployeeResponsibilities;
 using Inventory_Management_System.Utils;
+using Inventory_Management_System.MySql;
 
 namespace Inventory_Management_System.Models.EmployeeData
 {
@@ -43,6 +44,7 @@ namespace Inventory_Management_System.Models.EmployeeData
             Password = password;
             Username = username;
             Role = role;
+            MySqlCommunication.CreateUser(username, password, role, name);
         }
 
         public override string ToString()
@@ -53,14 +55,23 @@ namespace Inventory_Management_System.Models.EmployeeData
         /// <summary>
         /// Ved større ændringer - Indtast password
         /// </summary>
-        public void SetPassword(string userinput)
+        public void SetPassword(string oldPassword, string newPassword)
         {
-            Password = userinput;
+            if (Security.LogInCheck(this.Username, oldPassword))
+            {
+                Password = newPassword;
+                Security.ChangePassword(this.Username, oldPassword, newPassword);
+            }
         }
 
-        public void SetUsername(string userinput)
+        public void SetUsername(string newUsername, string password)
         {
-            Username = userinput;
+            if (Security.LogInCheck(this.Username, password))
+            {
+                MySqlCommunication.Update(MySqlCommunication.EmployeeTable, new List<string> { "UserName", "Password" }, new List<string> { newUsername, Security.HashPassword(newUsername, password) }, "UserName", this.Username);
+                
+                Username = newUsername;
+            }
         }
 
     }

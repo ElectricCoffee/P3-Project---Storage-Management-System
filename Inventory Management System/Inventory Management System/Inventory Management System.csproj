@@ -66,6 +66,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -1007,6 +1011,7 @@
     <Compile Include="Models\Product\Spares.cs" />
     <Compile Include="Models\Product\System.cs" />
     <Compile Include="Models\Product\TEMPProductLoader.cs" />
+    <Compile Include="MySql\MySqlCommunication.cs" />
     <Compile Include="Network\PacketStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
@@ -1022,6 +1027,7 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\Transit.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\WorldLocation.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\Exceptions\NotEqualException.cs" />
     <Compile Include="Utils\Guid.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\TextParser.cs" />

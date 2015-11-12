@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Inventory_Management_System.Models.EmployeeData;
 using Inventory_Management_System.Models.Message;
+using MySql = Inventory_Management_System.MySql;
 
 #warning replace this with concrete type!!
 using Target = System.Object;
@@ -44,6 +45,14 @@ namespace Inventory_Management_System.Controllers
         {
             Debug.WriteLine(">>> Getting Group");
             return "TestGroup";
+        }
+
+        [Route("api/message-group/{uname:alpha}")]
+        [HttpGet]
+        public string GetMessageGroup(string userName)
+        {
+            var tableName = MySql.MySqlCommunication.EmployeeTable;
+            return MySql.MySqlCommunication.Select(tableName, "Role", "UserName", userName);
         }
     }
 }
