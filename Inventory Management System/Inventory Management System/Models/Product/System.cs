@@ -9,32 +9,27 @@ using System.IO;
 
 namespace Inventory_Management_System.Models.Product
 {
-
-    public enum TransitType { Inbound, Outbound, None }
-
-    class System : Product
+    public class PSystem : Product
     {
-        public System(Id id, Location location, int amount, Price price, string acquisitor,
-            Status status, string documentDirectory, string documentName,
-            string specsheetDirectory, string specsheetName, string imageDirectory, string imageName)
-            : base(amount, id, price, location)
+        public PSystem(Id id, Location location, Price price,
+            Status status, Directories directories)
+            : base(id, price, location)
         {
             if (Security.AnyNullOrEmpty(id.ArticleNumber1, id.SerialNumber, id.Name, id.Tags,
                 id.Catagory, id.Model, id.ProductionYear, location.WorldLocation, location.InventoryLocation,
-                amount, price.AcquisitionPrice, price.SalesPrice, status.Transit, status.InventoryStatus,
-                status.SalesStatus, acquisitor))
+                location.Amount, price.AcquisitionPrice, price.SalesPrice, location.Transit, status.InventoryStatus,
+                status.SalesStatus, id.Acquisitor))
             {
                 throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
             }
 
             ArticleNumber2 = id.ArticleNumber2;
             SerialNumber = id.SerialNumber;
-            Transit = status.Transit;
             InventoryStatus = status.InventoryStatus;
             SalesStatus = status.SalesStatus;
             Model = id.Model;
             ProductionYear = id.ProductionYear;
-            Acquisitor = acquisitor;
+            Acquisitor = id.Acquisitor;
 
 
 #if DEBUG
@@ -54,6 +49,7 @@ namespace Inventory_Management_System.Models.Product
 #endif
         }
 
+
         private void loadDocument(string MainDirectory, string filename)
         {
             string filsti = MainDirectory + @"\" + filename + ".txt";
@@ -72,37 +68,57 @@ namespace Inventory_Management_System.Models.Product
             }
         }
 
-
-
-        public int ArticleNumber2 { get; set; }
-        public int SerialNumber { get; set; }
-        public TransitType Transit { get; set; }
+        public string ArticleNumber2 { get; set; }
+        public string SerialNumber { get; set; }
         public string InventoryStatus { get; set; }
         public string SalesStatus { get; set; }
         public string Model { get; set; }
         public int ProductionYear { get; set; }
-        public string Acquisitor { get; set; }
         public List<SparePart> Parts { get; set; }
         public Bitmap Images { get; set; }
         public List<string> SpecSheet { get; set; }
         public List<string> FDocuments { get; set; }
+        public string documentDirectory { get; set; }
+        public string documentName { get; set; }
+        public string specsheetDirectory { get; set; }
+        public string specsheetName { get; set; }
+        public string imageDirectory { get; set; }
+        public string imageName { get; set; }
 
-        #region Helper classes
-        public class Id : Label
+        public override string ToString()
         {
-            public int ArticleNumber2 { get; set; }
-            public int SerialNumber { get; set; }
-            public string Model { get; set; }
-            public int ProductionYear { get; set; }
+            if (ArticleNumber2 != null)
+            {
+                return ArticleNumber1 + ArticleNumber2 + SerialNumber + InventoryStatus + SalesStatus + Model + ProductionYear;
+            }
+
+            return ArticleNumber2 + SerialNumber + InventoryStatus + SalesStatus + Model + ProductionYear;
         }
 
-        public class Status
-        {
-            public TransitType Transit { get; set; }
-            public string InventoryStatus { get; set; }
-            public string SalesStatus { get; set; }
-        }
-
-        #endregion
     }
+    #region Helper classes
+    public class Id : Label
+    {
+        public string ArticleNumber2 { get; set; }
+        public string SerialNumber { get; set; }
+        public string Model { get; set; }
+        public int ProductionYear { get; set; }
+    }
+
+    public class Status
+    {
+        public string InventoryStatus { get; set; }
+        public string SalesStatus { get; set; }
+    }
+
+    public class Directories
+    {
+        public string documentDirectory { get; set; }
+        public string documentName { get; set; }
+        public string specsheetDirectory { get; set; }
+        public string specsheetName { get; set; }
+        public string imageDirectory { get; set; }
+        public string imageName { get; set; }
+    }
+    #endregion
 }
