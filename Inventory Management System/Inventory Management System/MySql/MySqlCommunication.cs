@@ -117,8 +117,8 @@ namespace Inventory_Management_System.MySql
         /// <param name="value">a list of values</param>
         public static void Insert(string table, List<string> column, List<string> value)
         {
-            var colStr = string.Join(",", column);
-            var valStr = string.Join("','", value);
+            var colStr = String.Join(",", column);
+            var valStr = String.Join("','", value);
             var text = String.Format("INSERT INTO {0} ({1}) VALUES('{2}')", table, colStr, valStr);
 
             SendString(text);
@@ -134,21 +134,13 @@ namespace Inventory_Management_System.MySql
         /// <param name="key">the value you know</param>
         public static void Update(string table, List<string> targetColumn, List<string> value, string keyColumn, string key)
         {
-            if (targetColumn.Count != value.Count())
-            {
-                throw new NotEqualException();
-            }
+            if (targetColumn.Count != value.Count) throw new NotEqualException();
 
-            string text = "UPDATE " + table + " WHERE " + keyColumn + " = " + key + " SET ";
-            for (int i = 0; i < value.Count(); i++)
-            {
-                text += targetColumn[i] + " = " + value[i];
+            var lrSet = targetColumn.Zip(value, (lhs, rhs) => lhs + " = " + rhs);
+            var resStr = String.Join(",", lrSet);
 
-                if (value.Count() - 1 != i)
-                {
-                    text += ", ";
-                }
-            }
+            String text = String.Format("Update {0} WHERE {1} = {2} SET {3}", table, keyColumn, key, resStr);
+
             SendString(text);
         }
 
@@ -160,35 +152,45 @@ namespace Inventory_Management_System.MySql
         /// <returns>a list of list of data</returns>
         public static List<List<string>> GetList(string text, int columnCount)
         {
-            List<List<string>> readerList = new List<List<string>>();
-            try
-            {
-                connection.Open();
-                cmd = connection.CreateCommand();
-                cmd.CommandText = text;
-                MySqlDataReader reader = cmd.ExecuteReader();
+            var readerList = new List<List<string>>();
+            //            try
+            //            {
+            //                connection.Open();
+            //                cmd = connection.CreateCommand();
+            //                cmd.CommandText = text;
+            //                MySqlDataReader reader = cmd.ExecuteReader();
 
+            //                while (reader.Read())
+            //                {
+            //                    for (int i = 0; i < columnCount; i++)
+            //                    {
+            //                        readerList.Add(new List<string>());
+            //                        readerList.Last().Add(reader.GetString(i));
+            //                    }
+            //                }
+            //            }
+            //            catch (Exception)
+            //            {
+            //#warning throw something, man
+            //                throw;
+            //            }
+            //            finally
+            //            {
+            //                if (connection.State == System.Data.ConnectionState.Open)
+            //                {
+            //                    connection.Close();
+            //                }
+            //            }
+
+            SqlConnection(cmd =>
+            {
+                cmd.CommandText = text;
+                var reader = cmd.ExecuteReader();
                 while (reader.Read())
-                {
                     for (int i = 0; i < columnCount; i++)
-                    {
-                        readerList.Add(new List<string>());
-                        readerList.Last().Add(reader.GetString(i));
-                    }
-                }
-            }
-            catch (Exception)
-            {
-#warning throw something, man
-                throw;
-            }
-            finally
-            {
-                if (connection.State == System.Data.ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
+                        readerList.Add(new List<string> { reader.GetString(i) });
+            });
+
             return readerList;
         }
 
@@ -215,7 +217,7 @@ namespace Inventory_Management_System.MySql
         /// <returns></returns>
         public static List<List<string>> SelectAll(string table, int columnCount)
         {
-            string text = "SELECT * FROM " + table;
+            string text = String.Format("SELECT * FROM {0}", table);
             return GetList(text, columnCount);
         }
 
