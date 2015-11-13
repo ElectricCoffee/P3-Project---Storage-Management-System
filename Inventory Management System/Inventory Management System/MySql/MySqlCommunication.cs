@@ -243,16 +243,7 @@ namespace Inventory_Management_System.MySql
         public static List<string> GetColumnName(string table)
         {
             string text = "SHOW Columns FROM " + table;
-
-            List<List<string>> columns = GetList(text, 1);
-            List<string> ColumnNames = new List<string>();
-            for (int i = 0; i < columns.Count(); i++)
-            {
-                ColumnNames.Add(columns[i][0]);
-            }
-
-            return ColumnNames;
-
+            return GetList(text, 1).Select(e => e[0]).ToList();
         }
     }
 }
