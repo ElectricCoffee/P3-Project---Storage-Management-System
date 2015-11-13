@@ -187,8 +187,9 @@ namespace Inventory_Management_System.MySql
                 cmd.CommandText = text;
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
-                    for (int i = 0; i < columnCount; i++)
-                        readerList.Add(new List<string> { reader.GetString(i) });
+                    readerList.Add(new List<string>());
+                for (int i = 0; i < columnCount; i++)
+                    readerList.Last().Add(reader.GetString(i));
             });
 
             return readerList;
