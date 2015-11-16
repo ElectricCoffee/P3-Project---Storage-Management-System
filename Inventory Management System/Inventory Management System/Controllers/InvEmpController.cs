@@ -21,5 +21,9 @@ namespace Inventory_Management_System.Controllers
         {
             return View();
         }
+        public ActionResult InvEmpEdit()
+        {
+            return View();
+        }
     }
 }
