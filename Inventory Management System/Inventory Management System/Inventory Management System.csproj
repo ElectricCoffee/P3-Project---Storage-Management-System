@@ -1072,11 +1072,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Accountant\" />
-    <Folder Include="Views\Acquisitor\" />
-    <Folder Include="Views\InvMana\" />
-    <Folder Include="Views\Sales\" />
-    <Folder Include="Views\Technician\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
