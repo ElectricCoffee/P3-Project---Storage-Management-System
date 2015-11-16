@@ -13,8 +13,8 @@ namespace Inventory_Management_System.MySql
         private static MySqlConnection connection = new MySqlConnection(connectionstring);
         private static MySqlCommand cmd;
         public static string EmployeeTable = "employee_db";
-        public static string ProductTable = "product_db";
-        public static string RoleTable = "role_db";
+        public static string ProductTable  = "product_db";
+        public static string RoleTable     = "role_db";
 
         private static void SqlConnection(Action<MySqlCommand> body)
         {
@@ -33,13 +33,6 @@ namespace Inventory_Management_System.MySql
         /// <returns>the string that was send to the database</returns>
         public static string SendString(string text)
         {
-            //using (var conn = new MySqlConnection(connectionstring))
-            //{
-            //    var cmd = conn.CreateCommand();
-            //    cmd.CommandText = text;
-            //    cmd.ExecuteNonQuery();
-            //}
-
             SqlConnection(cmd =>
             {
                 cmd.CommandText = text;
@@ -153,34 +146,6 @@ namespace Inventory_Management_System.MySql
         public static List<List<string>> GetList(string text, int columnCount)
         {
             var readerList = new List<List<string>>();
-            //            try
-            //            {
-            //                connection.Open();
-            //                cmd = connection.CreateCommand();
-            //                cmd.CommandText = text;
-            //                MySqlDataReader reader = cmd.ExecuteReader();
-
-            //                while (reader.Read())
-            //                {
-            //                    for (int i = 0; i < columnCount; i++)
-            //                    {
-            //                        readerList.Add(new List<string>());
-            //                        readerList.Last().Add(reader.GetString(i));
-            //                    }
-            //                }
-            //            }
-            //            catch (Exception)
-            //            {
-            //#warning throw something, man
-            //                throw;
-            //            }
-            //            finally
-            //            {
-            //                if (connection.State == System.Data.ConnectionState.Open)
-            //                {
-            //                    connection.Close();
-            //                }
-            //            }
 
             SqlConnection(cmd =>
             {
