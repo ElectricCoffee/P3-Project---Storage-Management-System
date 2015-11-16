@@ -1053,6 +1053,11 @@
     <Content Include="Views\InvEmp\InvEmployee.cshtml" />
     <Content Include="Views\InvEmp\AddProduct.cshtml" />
     <Content Include="Styles\Etellerandetaandsvagt.scss" />
+    <Content Include="Views\SalesEmp\SalesEmp.cshtml" />
+    <Content Include="Views\SalesEmp\SalesMana.cshtml" />
+    <Content Include="Views\Technician\Technician.cshtml" />
+    <Content Include="Views\Acquisitor\Acquisitor.cshtml" />
+    <Content Include="Views\Accountant\Accountant.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
