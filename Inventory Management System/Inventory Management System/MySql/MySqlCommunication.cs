@@ -16,12 +16,17 @@ namespace Inventory_Management_System.MySql
         public static string ProductTable  = "product_db";
         public static string RoleTable     = "role_db";
 
+        /// <summary>
+        /// Wraps an SQL connection in a closure to allow minimal typing
+        /// </summary>
+        /// <param name="body"></param>
         private static void SqlConnection(Action<MySqlCommand> body)
         {
+            // automatically opens and closes a connection
             using (var conn = new MySqlConnection(connectionstring))
             {
                 var cmd = conn.CreateCommand();
-                body(cmd);
+                body(cmd); // the body of the lambda using the cmd (see use below)
             }
         }
 
@@ -33,6 +38,7 @@ namespace Inventory_Management_System.MySql
         /// <returns>the string that was send to the database</returns>
         public static string SendString(string text)
         {
+            // exposes the connection command in the lambda
             SqlConnection(cmd =>
             {
                 cmd.CommandText = text;
