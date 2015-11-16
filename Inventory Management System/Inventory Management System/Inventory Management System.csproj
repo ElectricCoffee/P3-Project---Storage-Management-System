@@ -1065,6 +1065,11 @@
     <Content Include="Views\Accountant\Accountant.cshtml" />
     <Content Include="Views\SalesEmp\SalesEmpEdit.cshtml" />
     <Content Include="Views\SalesEmp\SalesManaEdit.cshtml" />
+    <Content Include="Views\InvEmp\InvEmpEdit.cshtml" />
+    <Content Include="Views\Technician\TechnicianEdit.cshtml" />
+    <Content Include="Views\Accountant\AccountantEdit.cshtml" />
+    <Content Include="Views\Acquisitor\AcquisitorEdit.cshtml" />
+    <Content Include="Views\Acquisitor\AcquisitorAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

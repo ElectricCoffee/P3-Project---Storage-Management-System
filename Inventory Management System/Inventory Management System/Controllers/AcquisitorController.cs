@@ -13,5 +13,13 @@ namespace Inventory_Management_System.Controllers
         {
             return View();
         }
+        public ActionResult AcquisitorEdit()
+        {
+            return View();
+        }
+        public ActionResult AcquisitorAdd()
+        {
+            return View();
+        }
     }
 }
