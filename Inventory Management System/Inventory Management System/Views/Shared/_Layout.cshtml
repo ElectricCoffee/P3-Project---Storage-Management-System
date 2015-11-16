@@ -8,7 +8,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
-<body ng-app="messageSystem">
+<body ng-app="apiCommunication">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -33,18 +33,22 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/angular-resource.min.js"></script>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="~/Scripts/angular-signalr-hub.js">/*angular signalr library*/</script>
     <script src="~/signalr/hubs"></script>
-    <!--Message-System Includes-->
-    <script src="~/Scripts/Message/module.js"></script>
-    <script src="~/Scripts/Message/messageService.js"></script>
-    <script src="~/Scripts/Message/controller.js"></script>
-    <script src="~/Scripts/Message/directive.js"></script>
-    <!--End Message-System Includes-->
+    @*<!--Message-System Includes-->
+        <script src="~/Scripts/Message/module.js"></script>
+        <script src="~/Scripts/Message/messageService.js"></script>
+        <script src="~/Scripts/Message/controller.js"></script>
+        <script src="~/Scripts/Message/directive.js"></script>
+        <!--End Message-System Includes-->*@
+    
+    <script src="~/Scripts/ApiCommunication/module.js"></script>
+    <script src="~/Scripts/ApiCommunication/apiFactory.js"></script>
+    <script src="~/Scripts/ApiCommunication/controller.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
