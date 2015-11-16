@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace Inventory_Management_System.Controllers
 {
-    public class InvEmpController : Controller
+    public class SalesEmpController : Controller
     {
-        // GET: InvEmp
-        public ActionResult InvEmployee()
+        // GET: SalesEmp
+        public ActionResult SalesEmp()
         {
             return View();
         }
-        public ActionResult AddProduct()
-        {
-            return View();
-        }
-        public ActionResult InvMana()
+        public ActionResult SalesMana()
         {
             return View();
         }

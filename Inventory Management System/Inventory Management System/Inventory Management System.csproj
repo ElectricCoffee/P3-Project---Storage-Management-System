@@ -973,8 +973,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountantController.cs" />
+    <Compile Include="Controllers\AcquisitorController.cs" />
     <Compile Include="Controllers\InvEmpController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\TechnicianController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
@@ -1053,6 +1057,7 @@
     <Content Include="Views\InvEmp\InvEmployee.cshtml" />
     <Content Include="Views\InvEmp\AddProduct.cshtml" />
     <Content Include="Styles\Etellerandetaandsvagt.scss" />
+    <Content Include="Views\InvEmp\InvMana.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1062,6 +1067,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Accountant\" />
+    <Folder Include="Views\Acquisitor\" />
+    <Folder Include="Views\InvMana\" />
+    <Folder Include="Views\Sales\" />
+    <Folder Include="Views\Technician\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
