@@ -3,9 +3,9 @@
     angular.module('IMS')
         .controller('AccountantController', AccountantController);
 
-    AccountantController.$inject = [];
+    AccountantController.$inject = ['EmployeeService'];
 
-    function AccountantController() {
+    function AccountantController(EmployeeService) {
 
     }
 })();
