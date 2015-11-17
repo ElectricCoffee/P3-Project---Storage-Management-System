@@ -9,19 +9,19 @@ namespace Inventory_Management_System.Controllers
     public class InvEmpController : Controller
     {
         // GET: InvEmp
-        public ActionResult InvEmployee()
+        public ActionResult InventoryEmployee()
         {
             return View();
         }
-        public ActionResult AddProduct()
+        public ActionResult Add()
         {
             return View();
         }
-        public ActionResult InvMana()
+        public ActionResult InventoryManager()
         {
             return View();
         }
-        public ActionResult InvEmpEdit()
+        public ActionResult Edit()
         {
             return View();
         }

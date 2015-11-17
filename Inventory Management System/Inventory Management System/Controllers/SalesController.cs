@@ -9,19 +9,19 @@ namespace Inventory_Management_System.Controllers
     public class SalesEmpController : Controller
     {
         // GET: SalesEmp
-        public ActionResult SalesEmp()
+        public ActionResult Employee()
         {
             return View();
         }
-        public ActionResult SalesMana()
+        public ActionResult Manager()
         {
             return View();
         }
-        public ActionResult SalesManaEdit()
+        public ActionResult ManagerEdit()
         {
             return View();
         }
-        public ActionResult SalesEmpEdit()
+        public ActionResult EmployeeEdit()
         {
             return View();
         }

@@ -9,11 +9,11 @@ namespace Inventory_Management_System.Controllers
     public class AccountantController : Controller
     {
         // GET: Accountant
-        public ActionResult Accountant()
+        public ActionResult Index()
         {
             return View();
         }
-        public ActionResult AccountantEdit()
+        public ActionResult Edit()
         {
             return View();
         }

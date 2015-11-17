@@ -9,15 +9,15 @@ namespace Inventory_Management_System.Controllers
     public class AcquisitorController : Controller
     {
         // GET: Acquisitor
-        public ActionResult Acquisitor()
+        public ActionResult Index()
         {
             return View();
         }
-        public ActionResult AcquisitorEdit()
+        public ActionResult Edit()
         {
             return View();
         }
-        public ActionResult AcquisitorAdd()
+        public ActionResult Add()
         {
             return View();
         }

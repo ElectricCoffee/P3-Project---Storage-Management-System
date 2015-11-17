@@ -9,11 +9,11 @@ namespace Inventory_Management_System.Controllers
     public class TechnicianController : Controller
     {
         // GET: Technician
-        public ActionResult Technician()
+        public ActionResult Index()
         {
             return View();
         }
-        public ActionResult TechnicianEdit()
+        public ActionResult Edit()
         {
             return View();
         }

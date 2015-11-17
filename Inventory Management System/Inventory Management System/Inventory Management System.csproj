@@ -1054,22 +1054,22 @@
     <Content Include="Models\Employee\EmployeeData\EmployeeDiagram.cd" />
     <Content Include="Models\Employee\EmployeeResponsibilities\responsibilities_Diagram.cd" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\InvEmp\InvEmployee.cshtml" />
+    <Content Include="Views\InvEmp\InventoryEmployee.cshtml" />
     <Content Include="Views\InvEmp\AddProduct.cshtml" />
     <Content Include="Styles\Etellerandetaandsvagt.scss" />
-    <Content Include="Views\InvEmp\InvMana.cshtml" />
-    <Content Include="Views\SalesEmp\SalesEmp.cshtml" />
-    <Content Include="Views\SalesEmp\SalesMana.cshtml" />
-    <Content Include="Views\Technician\Technician.cshtml" />
-    <Content Include="Views\Acquisitor\Acquisitor.cshtml" />
-    <Content Include="Views\Accountant\Accountant.cshtml" />
-    <Content Include="Views\SalesEmp\SalesEmpEdit.cshtml" />
-    <Content Include="Views\SalesEmp\SalesManaEdit.cshtml" />
-    <Content Include="Views\InvEmp\InvEmpEdit.cshtml" />
-    <Content Include="Views\Technician\TechnicianEdit.cshtml" />
-    <Content Include="Views\Accountant\AccountantEdit.cshtml" />
-    <Content Include="Views\Acquisitor\AcquisitorEdit.cshtml" />
-    <Content Include="Views\Acquisitor\AcquisitorAdd.cshtml" />
+    <Content Include="Views\InvEmp\InventoryManager.cshtml" />
+    <Content Include="Views\SalesEmp\Employee.cshtml" />
+    <Content Include="Views\SalesEmp\Manager.cshtml" />
+    <Content Include="Views\Technician\Index.cshtml" />
+    <Content Include="Views\Acquisitor\Index.cshtml" />
+    <Content Include="Views\Accountant\Index.cshtml" />
+    <Content Include="Views\SalesEmp\EmployeeEdit.cshtml" />
+    <Content Include="Views\SalesEmp\ManagerEdit.cshtml" />
+    <Content Include="Views\InvEmp\Edit.cshtml" />
+    <Content Include="Views\Technician\Edit.cshtml" />
+    <Content Include="Views\Accountant\Edit.cshtml" />
+    <Content Include="Views\Acquisitor\Edit.cshtml" />
+    <Content Include="Views\Acquisitor\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
