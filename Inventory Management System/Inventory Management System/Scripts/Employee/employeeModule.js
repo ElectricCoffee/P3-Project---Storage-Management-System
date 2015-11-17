@@ -1,0 +1,3 @@
+﻿(function () {
+    // shit goes here
+})();
