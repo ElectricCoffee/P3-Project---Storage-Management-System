@@ -9,6 +9,8 @@
     ApiFactory.$inject = ['$http'];
 
     function ApiFactory($http) {
+        // controllerName is the name of the apiController in the uri
+        // calling "new ApiFactory("Product")" for example, creates a link to /api/Product
         return function (controllerName) {
             var url = '/api/' + controllerName;
             this.create = post;
