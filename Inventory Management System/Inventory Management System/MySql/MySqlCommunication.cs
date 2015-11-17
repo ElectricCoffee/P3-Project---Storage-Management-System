@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Inventory_Management_System.Models.Product;
 
 namespace Inventory_Management_System.MySql
 {
@@ -215,6 +216,18 @@ namespace Inventory_Management_System.MySql
         {
             string text = "SHOW Columns FROM " + table;
             return GetList(text, 1).Select(e => e[0]).ToList();
+        }
+
+        public static List<Product> GetAllProduct()
+        {
+            List<Product> ProductList = new List<Product>();
+            List<List<string>> DbList = SelectAll(ProductTable,1);
+            foreach (List<string> item in DbList)
+            {
+                ProductList.Add(new Product(new Label() { ArticleNumber1 = item[0] }, new Price(), new Location()));
+            }
+
+            return ProductList;
         }
     }
 }
