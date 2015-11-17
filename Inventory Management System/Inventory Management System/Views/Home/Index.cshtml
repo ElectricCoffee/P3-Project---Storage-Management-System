@@ -3,26 +3,41 @@
     ViewBag.Title = "Index";
 }
 
-@*<div ng-controller="MessageController as messageCtrl" class="panel panel-default">
+@*<div ng-controller="CustomController as custom" class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Angular test</h3></div>
+        <div class="panel-body">
+            <h2>Index</h2>
+            <h3>{{custom.greeting}}</h3>
+        </div>
+    </div>*@
+
+<!--<div ng-controller="MessageController as messageCtrl" class="panel panel-default">
     <div class="panel-heading"><h3 class="panel-title">Message test</h3></div>
     <div class="panel-body">
         <button type="submit" class="btn btn-default" ng-click="messageCtrl.sendMessage('foo', 'foomsg')">Hit Me!</button>
         <ul class="list-group">
-            <li ng-repeat="msg in messageCtrl.service.allMessages" class="list-group-item">
-                <message-popup type="success" sender="{{msg.Sender}}">{{msg.Message}}</message-popup>
-            </li>
+            <!-- ngRepeat: msg in messageCtrl.messages -->
+<!--
         </ul>
     </div>
-</div>*@
-
-<div ng-controller="TestController as test" class="panel panel-default">
-    <div class="panel-heading"><h3 class="panel-title">http test</h3></div>
-    <div class="panel-body">
-        <button type="submit" class="btn btn-default" ng-click="test.getData()">Hit Me!</button>
-        <ul class="list-group">
-            <li ng-repeat="product in test.products" class="list-group-item">
-                {{product}}
-            </li>
-        </ul>
+</div>-->
+<div class="button-div">
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/SalesEmp/Employee" class="button btn btn-primary" target="_blank">Sales Employee</a>
+    </div>
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/SalesEmp/Manager" class="button btn btn-primary" target="_blank">Sales Manager</a>
+    </div>
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/InvEmp/InventoryEmployee" class="button btn btn-primary" target="_blank">Inventory Employee</a>
+    </div>
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/Technician/Index" class="button btn btn-primary" target="_blank">Technician</a>
+    </div>
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/Acquisitor/Index" class="button btn btn-primary" target="_blank">Acquisitor</a>
+    </div>
+    <div class="col-md-4 button-div">
+        <a href="http://localhost:50309/Accountant/Index" class="button btn btn-primary" target="_blank">Accountant</a>
     </div>
 </div>

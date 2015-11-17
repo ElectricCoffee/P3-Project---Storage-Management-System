@@ -977,12 +977,19 @@
     <Content Include="Scripts\Message\module.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\CustomStyling.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\AccountantController.cs" />
+    <Compile Include="Controllers\AcquisitorController.cs" />
+    <Compile Include="Controllers\InvEmpController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\TechnicianController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
@@ -1060,6 +1067,22 @@
     <Content Include="Models\Employee\EmployeeData\EmployeeDiagram.cd" />
     <Content Include="Models\Employee\EmployeeResponsibilities\responsibilities_Diagram.cd" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\InvEmp\InventoryEmployee.cshtml" />
+    <Content Include="Views\InvEmp\AddProduct.cshtml" />
+    <Content Include="Styles\Etellerandetaandsvagt.scss" />
+    <Content Include="Views\InvEmp\InventoryManager.cshtml" />
+    <Content Include="Views\SalesEmp\Employee.cshtml" />
+    <Content Include="Views\SalesEmp\Manager.cshtml" />
+    <Content Include="Views\Technician\Index.cshtml" />
+    <Content Include="Views\Acquisitor\Index.cshtml" />
+    <Content Include="Views\Accountant\Index.cshtml" />
+    <Content Include="Views\SalesEmp\EmployeeEdit.cshtml" />
+    <Content Include="Views\SalesEmp\ManagerEdit.cshtml" />
+    <Content Include="Views\InvEmp\Edit.cshtml" />
+    <Content Include="Views\Technician\Edit.cshtml" />
+    <Content Include="Views\Accountant\Edit.cshtml" />
+    <Content Include="Views\Acquisitor\Edit.cshtml" />
+    <Content Include="Views\Acquisitor\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
