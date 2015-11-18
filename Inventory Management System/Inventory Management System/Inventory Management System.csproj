@@ -214,7 +214,13 @@
     <Content Include="Scripts\ApiCommunication\apiFactory.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Employee\employeeModule.js" />
+    <Content Include="Scripts\Employee\Accountant\controller.js" />
+    <Content Include="Scripts\Employee\Acquisitor\controller.js" />
+    <Content Include="Scripts\Employee\module.js" />
+    <Content Include="Scripts\Employee\Inventory\controller.js" />
+    <Content Include="Scripts\Employee\Sales\controller.js" />
+    <Content Include="Scripts\Employee\service.js" />
+    <Content Include="Scripts\Employee\Technician\controller.js" />
     <Content Include="Scripts\Message\controller.js" />
     <Content Include="Scripts\Message\directive.js" />
     <Content Include="Scripts\Message\message-directive.html" />
@@ -1093,11 +1099,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\Employee\Accountant\" />
-    <Folder Include="Scripts\Employee\Acquisitor\" />
-    <Folder Include="Scripts\Employee\Inventory\" />
-    <Folder Include="Scripts\Employee\Sales\" />
-    <Folder Include="Scripts\Employee\Technician\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
