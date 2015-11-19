@@ -36,116 +36,16 @@ namespace Inventory_Management_System.Models.Product
         }
 
         public string ArticleNumber1 { get; set; }
-        public string Name
-        {
-            get
-            {
-                return GetString("Name");
-            }
-            set 
-            {
-                SetString("Name", value);
-            }
-        }
-        public string WorldLocation
-        {
-            get
-            {
-                return GetString("WorldLocation");
-            }
-            set
-            {
-                SetString("WorldLocation", value);
-            }
-        }
-        public string InventoryLocation
-        {
-            get
-            {
-                return GetString("InventoryLocation");
-            }
-            set
-            {
-                SetString("InventoryLocation", value);
-            }
-        }
-        public int Amount
-        {
-            get
-            {
-                return GetInt("Amount");
-            }
-            set
-            {
-                SetInt("Amount", value);
-            }
-        }
-        public int AcquisitionPrice
-        {
-            get
-            {
-                return GetInt("A-Price");
-            }
-            set
-            {
-                SetInt("A-Price", value);
-            }
-        }
-        public string Tags
-        {
-            get
-            {
-                return GetString("Tags");
-            }
-            set
-            {
-                SetString("Tags", value);
-            }
-        }
-        public string Catagory
-        {
-            get
-            {
-                return GetString("Catagory");
-            }
-            set
-            {
-                SetString("Catagory", value);
-            }
-        }
-        public int SalesPrice
-        {
-            get
-            {
-                return GetInt("SalesPrice");
-            }
-            set
-            {
-                SetInt("SalesPrice", value);
-            }
-        }
-        public string Acquisitor
-        {
-            get
-            {
-                return GetString("Acquisitor");
-            }
-            set
-            {
-                SetString("Acquisitor", value);
-            }
-        }
-        public string Transit
-        {
-            get
-            {
-                return GetString("Transit");
-            }
-            set
-            {
-                SetString("Transit", value);
-            }
-        }
+        public string Name { get; set; }
+        public string WorldLocation { get; set; }
+        public string InventoryLocation { get; set; }
+        public int Amount { get; set; }
+        public int AcquisitionPrice { get; set; }
+        public string Tags { get; set; }
+        public string Catagory { get; set; }
+        public int SalesPrice { get; set; }
+        public string Acquisitor { get; set; }
+        public string Transit { get; set; }
 
         private string GetString(string name)
         {

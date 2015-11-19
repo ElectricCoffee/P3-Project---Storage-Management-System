@@ -5,14 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Inventory_Management_System.Models.Product;
+using System.Diagnostics;
 
 namespace Inventory_Management_System.MySql
 {
     public static class MySqlCommunication
     {
-        private static string connectionstring = "Server=localhost; Port=50309; Database=lbn_medical_db; Uid=root; Pwd=DS309e15LS;"; //fastkodning ikke en god ide
-        private static MySqlConnection connection = new MySqlConnection(connectionstring);
-        private static MySqlCommand cmd;
+        private static string connectionstring = "Server=localhost; Port=4000; Database=lbn_medical_db; Uid=root; Pwd=DS309e15LS;"; //fastkodning ikke en god ide
+        //private static MySqlConnection connection = new MySqlConnection(connectionstring);
+        //private static MySqlCommand cmd;
         public static string EmployeeTable = "employee_db";
         public static string ProductTable  = "product_db";
         public static string RoleTable     = "role_db";
@@ -26,8 +27,12 @@ namespace Inventory_Management_System.MySql
             // automatically opens and closes a connection
             using (var conn = new MySqlConnection(connectionstring))
             {
+                conn.Open();
+                Debug.WriteLine(conn.State);
+                
                 var cmd = conn.CreateCommand();
                 body(cmd); // the body of the lambda using the cmd (see use below)
+                conn.Close();
             }
         }
 
@@ -77,7 +82,7 @@ namespace Inventory_Management_System.MySql
         /// <param name="name">The Name</param>
         public static void CreateUser(string Username, string password, string role, string name)
         {
-            var text = String.Format("INSERT INTO {0} (Username, Password, Role, Name, ActivationDate) VALUES('{1}','{2}','{3}', '{4}', '{5}')",
+            var text = String.Format("INSERT INTO {0} (UserName, Password, Role, Name, ActivationDate) VALUES('{1}','{2}','{3}', '{4}', '{5}')",
                 EmployeeTable, Username, Security.HashPassword(Username, password), role, name, DateTime.Now.ToString());
             SendString(text);
         }
@@ -89,7 +94,7 @@ namespace Inventory_Management_System.MySql
         /// <returns>the hashed password</returns>
         public static string GetHashedPassword(string Username)
         {
-            string text = String.Format("SELECT Password FROM {0} WHERE Username = {1}",
+            string text = String.Format("SELECT Password FROM {0} WHERE UserName = '{1}'",
                 EmployeeTable, Username);
             return GetString(text);
         }
@@ -104,7 +109,7 @@ namespace Inventory_Management_System.MySql
         /// <returns>Data from the database</returns>
         public static string Select(string table, string targetColumn, string keyColumn, string key)
         {
-            string text = String.Format("SELECT {0} FROM {1} WHERE {2} = {3}",
+            string text = String.Format("SELECT {0} FROM {1} WHERE {2} = '{3}'",
                 targetColumn, table, keyColumn, key);
             return GetString(text);
         }
@@ -136,10 +141,10 @@ namespace Inventory_Management_System.MySql
         {
             if (targetColumn.Count != value.Count) throw new NotEqualException();
 
-            var lrSet = targetColumn.Zip(value, (lhs, rhs) => lhs + " = " + rhs);
+            var lrSet = targetColumn.Zip(value, (lhs, rhs) => lhs + " = '" + rhs + "'");
             var resStr = String.Join(",", lrSet);
 
-            String text = String.Format("Update {0} WHERE {1} = {2} SET {3}", table, keyColumn, key, resStr);
+            String text = String.Format("UPDATE {0} SET {3} WHERE {1} = '{2}'", table, keyColumn, key, resStr);
 
             SendString(text);
         }
@@ -159,9 +164,13 @@ namespace Inventory_Management_System.MySql
                 cmd.CommandText = text;
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
+                {
                     readerList.Add(new List<string>());
-                for (int i = 0; i < columnCount; i++)
-                    readerList.Last().Add(reader.GetString(i));
+                    for (int i = 0; i < columnCount; i++)
+                    {
+                        readerList.Last().Add(reader.GetString(i));
+                    }
+                }
             });
 
             return readerList;
@@ -178,7 +187,7 @@ namespace Inventory_Management_System.MySql
         /// <returns></returns>
         public static List<List<string>> FilterList(string table, string keyColumn, string key, int numbersOfCollums)
         {
-            string text = "SELECT * FROM " + table + "WHERE " + keyColumn + " = " + key;
+            string text = "SELECT * FROM " + table + " WHERE " + keyColumn + " = '" + key + "'";
             return GetList(text, numbersOfCollums);
         }
 
@@ -202,7 +211,7 @@ namespace Inventory_Management_System.MySql
         /// <param name="key">the known value</param>
         public static void Delete(string table, string keyColumn, string key)
         {
-            string text = "DELETE FROM " + table + " WHERE " + keyColumn + " = " + key;
+            string text = "DELETE FROM " + table + " WHERE " + keyColumn + " = '" + key+"'";
             SendString(text);
         }
 
@@ -221,10 +230,10 @@ namespace Inventory_Management_System.MySql
         public static List<Product> GetAllProduct()
         {
             List<Product> ProductList = new List<Product>();
-            List<List<string>> DbList = SelectAll(ProductTable,1);
+            List<List<string>> DbList = SelectAll(ProductTable,19);
             foreach (List<string> item in DbList)
             {
-                ProductList.Add(new Product(new Label() { ArticleNumber1 = item[0] }, new Price(), new Location()));
+                ProductList.Add(new Product(new Label() { ArticleNumber1 = item[0], Acquisitor = item[16], Catagory = item[11], Name = item[1], Tags = item[10]  }, new Price() { AcquisitionPrice = int.Parse(item[12]), SalesPrice = int.Parse(item[20]) }, new Location() {Amount = int.Parse(item[11]), InventoryLocation = item[4], Transit = item[5], WorldLocation = item[3] }));
             }
 
             return ProductList;

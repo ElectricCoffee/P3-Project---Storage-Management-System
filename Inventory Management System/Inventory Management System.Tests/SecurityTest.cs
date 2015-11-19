@@ -22,7 +22,9 @@ namespace Inventory_Management_System.Tests
         [TestMethod]
         public void TestLoginCheck()
         {
+            MySql.MySqlCommunication.CreateUser("username", "password", "test", "test");
             Assert.AreEqual(true, Security.LogInCheck("username", "password"));
+            MySql.MySqlCommunication.Delete(MySql.MySqlCommunication.EmployeeTable, "UserName", "username");
         }
     }
 }
