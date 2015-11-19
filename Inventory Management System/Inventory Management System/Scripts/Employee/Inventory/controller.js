@@ -3,9 +3,9 @@
     angular.module('IMS')
         .controller('InventoryController', InventoryController);
 
-    InventoryController.$inject = ['EmployeeService'];
+    InventoryController.$inject = ['EmployeeService', 'ProductService'];
 
-    function InventoryController(EmployeeService) {
-
+    function InventoryController(EmployeeService, ProductService) {
+        this.productService = ProductService;
     }
 })();

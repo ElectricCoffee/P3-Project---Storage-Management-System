@@ -1,46 +1,48 @@
-﻿<div class="container-fluid">
-    <div class="row">
-       
-        <div class="col-md-8"><!--add stuff here--></div>
+﻿<div ng-controller="InventoryController as ic"
+     ng-init="ic.productService.getTableData()">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-8"><!--add stuff here--></div>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Article Number</th>
+            <th>Name</th>
+            <th>Serial Number</th>
+            <th>Inventory Locatione</th>
+            <th>World Locatione</th>
+            <th>Transit</th>
+            <th>Inventory Status</th>
+            <th>Model</th>
+            <th>Category</th>
+            <th>Tags</th>
+            <th>Acquisitor</th>
+            <th>Sales Status</th>
+            <th>Number of Files</th>
+        </tr>
+        <tr ng-repeat="data in ic.tableData">
+            <td>{{data.ArticleNumber}}</td>
+            <td>{{data.Name}}</td>
+            <td>{{data.SerialNumber}}</td>
+            <td>{{data.InventoryLocation}}</td>
+            <td>{{data.WorldLocation}}</td>
+            <td>{{dta.tTansit}}</td>
+            <td>{{data.InventoryStatus}}</td>
+            <td>{{data.Model}}</td>
+            <td>{{data.Category}}</td>
+            <td>{{data.Tags}}</td>
+            <td>{{data.Acquisitor}}</td>
+            <td>{{data.SalesStatus}}</td>
+            <td>{{data.NumberOfFiles}}</td>
+        </tr>
+    </table>
+    <div class="col-md-4">
+        <a href="/InvEmp/AddProduct" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
+    </div>
+    <div class="col-md-4">
+        <a href="/InvEmp/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
     </div>
 </div>
-
-<table class="table table-bordered">
-    <tr>
-        <th>Article Number</th>
-        <th>Name</th>
-        <th>Serial Number</th>
-        <th>Inventory Locatione</th>
-        <th>World Locatione</th>
-        <th>Transit</th>
-        <th>Inventory Status</th>
-        <th>Model</th>
-        <th>Category</th>
-        <th>Tags</th>
-        <th>Acquisitor</th>
-        <th>Sales Status</th>
-        <th>Number of Files</th>
-    </tr>
-    <tr ng-repeat="data in ac.tableData">
-        <td>{{data.ArticleNumber}}</td>
-        <td>{{data.Name}}</td>
-        <td>{{data.SerialNumber}}</td>
-        <td>{{data.InventoryLocation}}</td>
-        <td>{{data.WorldLocation}}</td>
-        <td>{{dta.tTansit}}</td>
-        <td>{{data.InventoryStatus}}</td>
-        <td>{{data.Model}}</td>
-        <td>{{data.Category}}</td>
-        <td>{{data.Tags}}</td>
-        <td>{{data.Acquisitor}}</td>
-        <td>{{data.SalesStatus}}</td>
-        <td>{{data.NumberOfFiles}}</td>
-    </tr>
-</table>
-<div class="col-md-4">
-    <a href="/InvEmp/AddProduct" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
-</div>
-<div class="col-md-4">
-    <a href="/InvEmp/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
-</div>
-
