@@ -30,9 +30,6 @@ namespace Inventory_Management_System.Models.Product
             SalesPrice = price.SalesPrice;
             Transit = location.Transit;
 
-            List<string> Values = new List<string> { ArticleNumber1, Name, "", WorldLocation, InventoryLocation, Transit, Amount.ToString(), AcquisitionPrice.ToString(), "", "", Tags, Catagory, "", "", "", Acquisitor, "", "", SalesPrice.ToString() };
-
-            MySqlCommunication.Insert(MySqlCommunication.ProductTable, MySqlCommunication.GetColumnName(MySqlCommunication.ProductTable), Values);
         }
 
         public string ArticleNumber1 { get; set; }
@@ -47,28 +44,6 @@ namespace Inventory_Management_System.Models.Product
         public string Acquisitor { get; set; }
         public string Transit { get; set; }
 
-        private string GetString(string name)
-        {
-            return MySqlCommunication.Select(MySqlCommunication.ProductTable, name, "ArticleNumber", ArticleNumber1);
-        }
-        private void SetString(string name, string value)
-        {
-            MySqlCommunication.Update(MySqlCommunication.ProductTable, new List<string> { name }, new List<string> { value.ToString() }, "ArticleNumber", ArticleNumber1);
-        }
-
-        private int GetInt(string name)
-        {
-            int value;
-            if (int.TryParse(MySqlCommunication.Select(MySqlCommunication.ProductTable, name, "ArticleNumber", ArticleNumber1), out value))
-                return value;
-            else
-                return 0;
-        }
-
-        private void SetInt(string name, int value)
-        {
-            MySqlCommunication.Update(MySqlCommunication.ProductTable, new List<string> { name }, new List<string> { value.ToString() }, "ArticleNumber", ArticleNumber1);
-        }
     }
 
     #region helper classes
