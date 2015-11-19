@@ -1,27 +1,43 @@
-﻿<div class="container-fluid">
-    <div class="row">
+﻿<div ng-controller="AccountantController as ac">
+    <div class="container-fluid">
+        <div class="row">
 
-        <div class="col-md-8"><!--add stuff here--></div>
+            <div class="col-md-8"><!--add stuff here--></div>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Article Number</th>
+            <th>Name</th>
+            <th>Serial Number</th>
+            <th>Sales Price</th>
+            <th>Sales Status</th>
+            <th>Amount</th>
+            <th>Acquisitor</th>
+            <th>Acquisition Price</th>
+            <th>Category</th>
+            <th>Model</th>
+            <th>Tags</th>
+        </tr>
+        <tr ng-repeat="data in ac.tableData">
+            <td>{{data.articleNumber}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.serialNumber}}</td>
+            <td>{{data.salesPrice}}</td>
+            <td>{{data.salesStatus}}</td>
+            <td>{{data.amount}}</td>
+            <td>{{data.acquisitor}}</td>
+            <td>{{data.acquisitionPrice}}</td>
+            <td>{{data.category}}</td>
+            <td>{{data.model}}</td>
+            <td>{{data.tags}}</td>
+        </tr>
+    </table>
+
+    <div class="col-md-4">
+        <a href="/Accountant/Edit"
+           class="button btn btn-primary button-gui"
+           target="_blank">Edit Product</a>
     </div>
 </div>
-
-<table class="table table-bordered">
-    <tr>
-        <th>Article Number</th>
-        <th>Name</th>
-        <th>Serial Number</th>
-        <th>Sales Price</th>
-        <th>Sales Status</th>
-        <th>Amount</th>
-        <th>Acquisitor</th>
-        <th>Acquisition Price</th>
-        <th>Category</th>
-        <th>Model</th>
-        <th>Tags</th>
-
-    </tr>
-</table>
-<div class="col-md-4">
-    <a href="http://localhost:50309/Accountant/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
-</div>
-
