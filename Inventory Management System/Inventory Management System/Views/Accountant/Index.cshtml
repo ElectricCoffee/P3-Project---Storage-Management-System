@@ -1,11 +1,10 @@
-﻿<div ng-controller="AccountantController as ac">
+﻿<div ng-controller="AccountantController as ac" ng-init="ac.getTableData()">
     <div class="container-fluid">
         <div class="row">
 
             <div class="col-md-8"><!--add stuff here--></div>
         </div>
     </div>
-
     <table class="table table-bordered">
         <tr>
             <th>Article Number</th>
@@ -21,17 +20,17 @@
             <th>Tags</th>
         </tr>
         <tr ng-repeat="data in ac.tableData">
-            <td>{{data.articleNumber}}</td>
-            <td>{{data.name}}</td>
-            <td>{{data.serialNumber}}</td>
-            <td>{{data.salesPrice}}</td>
-            <td>{{data.salesStatus}}</td>
-            <td>{{data.amount}}</td>
-            <td>{{data.acquisitor}}</td>
-            <td>{{data.acquisitionPrice}}</td>
-            <td>{{data.category}}</td>
-            <td>{{data.model}}</td>
-            <td>{{data.tags}}</td>
+            <td>{{data.ArticleNumber}}</td>
+            <td>{{data.Name}}</td>
+            <td>{{data.SerialNumber}}</td>
+            <td>{{data.SalesPrice}}</td>
+            <td>{{data.SalesStatus}}</td>
+            <td>{{data.Amount}}</td>
+            <td>{{data.Acquisitor}}</td>
+            <td>{{data.AcquisitionPrice}}</td>
+            <td>{{data.Category}}</td>
+            <td>{{data.Model}}</td>
+            <td>{{data.Tags}}</td>
         </tr>
     </table>
 
