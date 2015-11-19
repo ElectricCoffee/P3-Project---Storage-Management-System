@@ -21,11 +21,26 @@
         <th>Sales Status</th>
         <th>Number of Files</th>
     </tr>
+    <tr ng-repeat="data in ac.tableData">
+        <td>{{data.articleNumber}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.serialNumber}}</td>
+        <td>{{data.inventoryLocation}}</td>
+        <td>{{data.worldLocation}}</td>
+        <td>{{dta.transit}}</td>
+        <td>{{data.inventoryStatus}}</td>
+        <td>{{data.model}}</td>
+        <td>{{data.category}}</td>
+        <td>{{data.tags}}</td>
+        <td>{{data.acquisitor}}</td>
+        <td>{{data.salesStatus}}</td>
+        <td>{{data.numberOfFiles}}</td>
+    </tr>
 </table>
 <div class="col-md-4">
-    <a href="http://localhost:50309/InvEmp/AddProduct" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
+    <a href="/InvEmp/AddProduct" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
 </div>
 <div class="col-md-4">
-    <a href="http://localhost:50309/InvEmp/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
+    <a href="/InvEmp/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
 </div>
 

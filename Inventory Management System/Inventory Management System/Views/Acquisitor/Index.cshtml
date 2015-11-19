@@ -16,13 +16,23 @@
         <th>Production Year</th>
         <th>Category</th>
         <th>Tags</th>
-
+    </tr>
+    <tr ng-repeat="data in ac.tableData">
+        <td>{{data.articleNumber}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.serialNumber}}</td>
+        <td>{{data.amount}}</td>
+        <td>{{data.acquisitionPrice}}</td>
+        <td>{{data.model}}</td>
+        <td>{{data.productionYear}}</td>
+        <td>{{data.category}}</td>
+        <td>{{data.tags}}</td>
     </tr>
 </table>
 <div class="col-md-4">
-    <a href="http://localhost:50309/Acquisitor/Add" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
+    <a href="/Acquisitor/Add" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
 </div>
 <div class="col-md-4">
-    <a href="http://localhost:50309/Acquisitor/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
+    <a href="/Acquisitor/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
 </div>
 

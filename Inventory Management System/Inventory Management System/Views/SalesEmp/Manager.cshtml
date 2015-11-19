@@ -13,16 +13,31 @@
         <th>Sales Status</th>
         <th>Sales Price</th>
         <th>Model</th>
+        <th>Amount</th>
         <th>Category</th>
         <th>Tags</th>
         <th>Number of Files</th>
         <th>Images</th>
         <th>Documents</th>
         <th>Spec Sheet</th>
-
+    </tr>
+    <tr ng-repeat="data in ac.tableData">
+        <td>{{data.articleNumber}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.serialNumber}}</td>
+        <td>{{data.salesStatus}}</td>
+        <td>{{data.salesPrice}}</td>
+        <td>{{data.model}}</td>
+        <td>{{data.amount}}</td>
+        <td>{{data.category}}</td>
+        <td>{{data.tags}}</td>
+        <td>{{data.numberOfFiles}}</td>
+        <td>{{data.images}}</td>
+        <td>{{data.documents}}</td>
+        <td>{{specSheets}}</td>
     </tr>
 </table>
 <div class="col-md-4">
-    <a href="http://localhost:50309/SalesEmp/ManagerEdit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
+    <a href="/SalesEmp/ManagerEdit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
 </div>
 
