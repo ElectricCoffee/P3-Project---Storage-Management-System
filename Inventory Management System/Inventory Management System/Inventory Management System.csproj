@@ -219,7 +219,7 @@
     <Content Include="Scripts\Employee\module.js" />
     <Content Include="Scripts\Employee\Inventory\controller.js" />
     <Content Include="Scripts\Employee\Sales\controller.js" />
-    <Content Include="Scripts\Employee\service.js" />
+    <Content Include="Scripts\Employee\employeeService.js" />
     <Content Include="Scripts\Employee\Technician\controller.js" />
     <Content Include="Scripts\Message\controller.js" />
     <Content Include="Scripts\Message\directive.js" />
@@ -984,6 +984,7 @@
     <Content Include="Scripts\Message\module.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Employee\productService.js" />
     <Content Include="Styles\CustomStyling.css" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -1,7 +1,7 @@
-﻿<div ng-controller="AccountantController as ac" ng-init="ac.getTableData()">
+﻿<div ng-controller="AccountantController as ac" 
+     ng-init="ac.productService.getTableData()">
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-md-8"><!--add stuff here--></div>
         </div>
     </div>
@@ -19,7 +19,7 @@
             <th>Model</th>
             <th>Tags</th>
         </tr>
-        <tr ng-repeat="data in ac.tableData">
+        <tr ng-repeat="data in ac.productService.tableData">
             <td>{{data.ArticleNumber}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
@@ -33,7 +33,6 @@
             <td>{{data.Tags}}</td>
         </tr>
     </table>
-
     <div class="col-md-4">
         <a href="/Accountant/Edit"
            class="button btn btn-primary button-gui"
