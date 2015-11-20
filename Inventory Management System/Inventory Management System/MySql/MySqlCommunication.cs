@@ -233,7 +233,26 @@ namespace Inventory_Management_System.MySql
             List<List<string>> DbList = SelectAll(ProductTable,19);
             foreach (List<string> item in DbList)
             {
-                ProductList.Add(new Product(new Label() { ArticleNumber1 = item[0], Acquisitor = item[16], Catagory = item[11], Name = item[1], Tags = item[10]  }, new Price() { AcquisitionPrice = int.Parse(item[12]), SalesPrice = int.Parse(item[20]) }, new Location() {Amount = int.Parse(item[11]), InventoryLocation = item[4], Transit = item[5], WorldLocation = item[3] }));
+                ProductList.Add(new Product(new Label()
+                {
+                    ArticleNumber1 = item[0],
+                    Acquisitor = item[15],
+                    Catagory = item[10],
+                    Name = item[1],
+                    Tags = item[9]
+                },
+                    new Price()
+                    {
+                        AcquisitionPrice = int.Parse(item[7]),
+                        SalesPrice = int.Parse(item[18])
+                    },
+                    new Location()
+                    {
+                        Amount = int.Parse(item[6]),
+                        InventoryLocation = item[4],
+                        Transit = item[5],
+                        WorldLocation = item[3]
+                    }));
             }
 
             return ProductList;
