@@ -6,6 +6,18 @@
     AcquisitorController.$inject = ['EmployeeService', 'ProductService'];
 
     function AcquisitorController(EmployeeService, ProductService) {
-        this.productService = ProductService;
+        var self = this;
+        self.productService = ProductService;
+        self.addProduct = ProductService.addNewProduct;
+
+        self.product = {
+            Articlenumber: "",
+            Name: "",
+            SerialNumber: "",
+            Model: "",
+            Category: "",
+            Tags: "",
+            Comments: ""
+        }
     }
 })();
