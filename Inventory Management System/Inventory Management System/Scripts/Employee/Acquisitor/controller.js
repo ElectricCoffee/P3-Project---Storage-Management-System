@@ -11,7 +11,7 @@
         self.addProduct = addProduct;
 
         self.product = {
-            Articlenumber: "",
+            ArticleNumber: "",
             Name: "",
             SerialNumber: "",
             Amount: "",
