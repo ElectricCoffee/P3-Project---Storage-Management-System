@@ -239,7 +239,7 @@ namespace Inventory_Management_System.MySql
                     Acquisitor = item[15],
                     Catagory = item[10],
                     Name = item[1],
-                    Tags = item[10]
+                    Tags = item[9]
                 },
                     new Price()
                     {
