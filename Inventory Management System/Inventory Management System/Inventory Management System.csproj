@@ -998,6 +998,7 @@
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\TechnicianController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
+    <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\Amount.cs" />
@@ -1031,6 +1032,10 @@
     <Compile Include="Models\Product\TEMPProductLoader.cs" />
     <Compile Include="MySql\MySqlCommunication.cs" />
     <Compile Include="Network\PacketStructure.cs" />
+    <Compile Include="Network\PacketHandler.cs" />
+    <Compile Include="Network\PacketStructure.cs" />
+    <Compile Include="Network\Packets\Message.cs" />
+    <Compile Include="Network\ServerSocket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Employee\EmployeeData\Salesmen.cs" />
     <Compile Include="Models\Employee\EmployeeData\SalesManager.cs" />
@@ -1047,6 +1052,12 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Exceptions\NotEqualException.cs" />
     <Compile Include="Utils\Guid.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\LogEntry.cs" />
+    <Compile Include="Utils\LogEvent.cs" />
+    <Compile Include="Utils\Logevent\LogEventMove.cs" />
+    <Compile Include="Utils\Logevent\LogEventSold.cs" />
+    <Compile Include="Utils\Logevent\LogEventStatusChange.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\TextParser.cs" />
   </ItemGroup>
@@ -1099,6 +1110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
