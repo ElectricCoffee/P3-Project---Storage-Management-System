@@ -14,6 +14,8 @@
             Articlenumber: "",
             Name: "",
             SerialNumber: "",
+            Amount: "",
+            AcquisitionPrice: "",
             Model: "",
             Category: "",
             Tags: "",
