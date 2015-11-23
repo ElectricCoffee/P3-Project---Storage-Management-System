@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Inventory_Management_System.MySql;
 using Inventory_Management_System.Models.Product;
+using System.Diagnostics;
 
 namespace Inventory_Management_System.Controllers
 {
@@ -49,25 +50,32 @@ namespace Inventory_Management_System.Controllers
             return MySqlCommunication.GetAllProduct();
         }
 
-        // GET: api/Product/5
-        public string Get(int id)
-        {
-            return "value with id: " + id;
-        }
+        //// GET: api/Product/5
+        //public string Get(int id)
+        //{
+        //    return "value with id: " + id;
+        //}
 
         // POST: api/Product
         public void Post([FromBody]string value)
         {
+            //MySqlCommunication.Create(value);
+
+            Debug.WriteLine("Got data {0}", value);
         }
 
-        // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// PUT: api/Product/foo
+        ////update
+        //public void Put(string id, [FromBody]Product value)
+        //{
+        //    MySqlCommunication.updatemedstortu(id, value);
+        //}
 
-        // DELETE: api/Product/5
-        public void Delete(int id)
-        {
-        }
+
+        //// DELETE: api/Product/5
+        //public void Delete(int id)
+        //{
+        //    MySqlCommunication.Delete(id);
+        //}
     }
 }
