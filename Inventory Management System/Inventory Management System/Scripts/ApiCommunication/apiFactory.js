@@ -13,10 +13,10 @@
         // calling "new ApiFactory("Product")" for example, creates a link to /api/Product
         return function (controllerName) {
             var url = '/api/' + controllerName;
-            this.create = post;
-            this.read   = get;
-            this.update = put;
-            this.remove = del; // called remove instead of delete to not clash with the delete keyword
+            this.post = post;
+            this.get   = get;
+            this.put = put;
+            this.delete = del; // called remove instead of delete to not clash with the delete keyword
 
             // sends a post request to the server at the specified URL
             // this will create a new entry in the specified database

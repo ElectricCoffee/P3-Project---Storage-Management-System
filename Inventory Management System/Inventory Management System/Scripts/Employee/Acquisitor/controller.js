@@ -8,7 +8,7 @@
     function AcquisitorController(EmployeeService, ProductService) {
         var self = this;
         self.productService = ProductService;
-        self.addProduct = ProductService.addNewProduct;
+        self.addProduct = addProduct;
 
         self.product = {
             Articlenumber: "",
@@ -18,6 +18,12 @@
             Category: "",
             Tags: "",
             Comments: ""
+        }
+
+        function addProduct() {
+            ProductService.service.post(self.product).success(function (response) {
+                alert("successfully posted" + JSON.stringify(self.product));
+            });
         }
     }
 })();

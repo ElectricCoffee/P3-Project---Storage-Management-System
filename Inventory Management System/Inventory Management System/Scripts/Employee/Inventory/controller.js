@@ -7,5 +7,15 @@
 
     function InventoryController(EmployeeService, ProductService) {
         this.productService = ProductService;
+
+        this.product = {
+            ArticleNumber: '',
+            Name: '',
+            SerialNumber: '',
+            Model: '',
+            Category: '',
+            Tags: '',
+            Comments: ''
+        };
     }
 })();
