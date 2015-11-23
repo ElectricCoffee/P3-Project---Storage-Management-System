@@ -257,5 +257,93 @@ namespace Inventory_Management_System.MySql
 
             return ProductList;
         }
+
+        public static void Create(Product data)
+        {
+            List<string> col = GetColumnName(ProductTable);
+            List<string> val = new List<string>
+            {
+                  data.ArticleNumber1
+                , data.Name
+                , ""//serialnumber
+                , data.WorldLocation
+                , data.InventoryLocation
+                , data.Transit
+                , data.Amount.ToString()
+                , data.AcquisitionPrice.ToString()
+                , "" //inventory status
+                , "" // sales status
+                , data.Tags
+                , data.Catagory
+                , "" //image
+                , "" //model
+                , "" //productionyear
+                , data.Acquisitor
+                , "" //Specsheet
+                , "" //documents
+                , data.SalesPrice.ToString()
+            };
+            
+            Insert(ProductTable, col, val);
+        }
+
+        public static void Update(Product data)
+        {
+            List<string> col = GetColumnName(ProductTable);
+            List<string> val = new List<string>
+            {
+                  data.ArticleNumber1
+                , data.Name
+                , ""//serialnumber
+                , data.WorldLocation
+                , data.InventoryLocation
+                , data.Transit
+                , data.Amount.ToString()
+                , data.AcquisitionPrice.ToString()
+                , "" //inventory status
+                , "" // sales status
+                , data.Tags
+                , data.Catagory
+                , "" //image
+                , "" //model
+                , "" //productionyear
+                , data.Acquisitor
+                , "" //Specsheet
+                , "" //documents
+                , data.SalesPrice.ToString()
+            };
+
+            Update(ProductTable, col, val, "ArticleNumber", data.ArticleNumber1);
+        }
+
+        public static void Delete(Product data)
+        {
+            Delete(ProductTable, "ArticleNumber", data.ArticleNumber1);
+        }
+
+        public static Product Read(string articleNumber)
+        {
+            List<string> item = GetList("SELECT * FROM " + ProductTable + " WHERE ArticleNumber = '" + articleNumber + "'", GetColumnName(ProductTable).Count())[0];
+            return new Product(new Label()
+                {
+                ArticleNumber1 = item[0],
+                    Acquisitor = item[15],
+                    Catagory = item[10],
+                    Name = item[1],
+                    Tags = item[10]
+                },
+                    new Price()
+                    {
+                        AcquisitionPrice = int.Parse(item[7]),
+                        SalesPrice = int.Parse(item[18])
+                    },
+                    new Location()
+                    {
+                        Amount = int.Parse(item[6]),
+                        InventoryLocation = item[4],
+                        Transit = item[5],
+                        WorldLocation = item[3]
+                    });
+        }
     }
 }
