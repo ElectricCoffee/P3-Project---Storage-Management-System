@@ -8,8 +8,8 @@
     function InventoryController(EmployeeService, ProductService) {
         var self = this;
         self.productService = ProductService;
-        self.addProduct = AddProduct;
-        self.editProduct = EditProduct;
+        self.addProduct = addProduct;
+        self.editProduct = editProduct;
 
         self.product = {
             ArticleNumber: '',
@@ -27,7 +27,7 @@
             Comments: ''
         };
 
-        function AddProduct() {
+        function addProduct() {
             ProductService.service.post(self.product)
                 .success(function (response) {
                     alert("successfully posted" + JSON.stringify(self.product));
@@ -36,7 +36,7 @@
                     alert("failed to post");
                 })
         }
-        function EditProduct() {
+        function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber
                 .success(function (response) {
                     alert("successfully put" + JSON.stringify(self.product));

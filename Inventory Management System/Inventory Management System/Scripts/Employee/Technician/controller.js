@@ -8,7 +8,7 @@
     function TechnicianController(EmployeeService, ProductService) {
         var self = this;
         self.productService = ProductService;
-        self.editProduct = EditProduct;
+        self.editProduct = editProduct;
 
         self.product = {
             ArticleNumber: '',
@@ -27,7 +27,7 @@
             SpecSheet: ""
         };
 
-        function EditProduct() {
+        function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber
                 .success(function (response) {
                     alert("successfully put" + JSON.stringify(self.product));
