@@ -11,6 +11,8 @@
         self.service = productApi;
         self.tableData = [];
         self.getTableData = getTableData;
+        self.addNewProduct = addNewProduct;
+
 
         function getTableData() {
             productApi.get().then(success, failure);
@@ -24,6 +26,16 @@
                 console.error("failed to fetch data");
                 console.error(response.data);
             }
+        }
+
+        function addNewProduct() {
+            productApi.create(self.data)
+                .success(function (response) {
+                    alert("Successfully posted " + self.data);
+                })
+                .failure(function (response) {
+                    alert("Failed to post");
+                });
         }
     }
 })();
