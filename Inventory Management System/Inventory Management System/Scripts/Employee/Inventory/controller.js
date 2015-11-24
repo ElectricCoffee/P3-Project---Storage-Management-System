@@ -15,9 +15,15 @@
             ArticleNumber: '',
             Name: '',
             SerialNumber: '',
+            InventoryLocation: '',
+            WorldLocation: '',
+            Transit: '',
+            InventoryStatus: '',
             Model: '',
             Category: '',
             Tags: '',
+            Acquisitor: '',
+            SalesStatus: '',
             Comments: ''
         };
 
