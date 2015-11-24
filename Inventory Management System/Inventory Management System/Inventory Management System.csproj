@@ -218,6 +218,7 @@
     <Content Include="Scripts\Employee\Acquisitor\controller.js" />
     <Content Include="Scripts\Employee\module.js" />
     <Content Include="Scripts\Employee\Inventory\controller.js" />
+    <Content Include="Scripts\Employee\SalesMng\controller.js" />
     <Content Include="Scripts\Employee\Sales\controller.js" />
     <Content Include="Scripts\Employee\employeeService.js" />
     <Content Include="Scripts\Employee\Technician\controller.js" />
