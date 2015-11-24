@@ -3,33 +3,33 @@
 </div>
 
 
-<form name="editForm" ng-controller="TechnicianController as ac" ng-submit="ac.editProduct()" class="form-horizontal">
+<form name="editForm" ng-controller="TechnicianController as tc" ng-submit="tc.editProduct()" class="form-horizontal">
     <div class="form-group">
         <label for="InventoryStatus" class="col-sm-2 control-label">Inventory Status</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="InventoryStatus" placeholder="inventorystatus" 
-                   ng-model="ac.product.InventoryStatus">
+                   ng-model="tc.product.InventoryStatus">
         </div>
     </div>
 
     <div class="form-group">
         <label for="Model" class="col-sm-2 control-label">Model</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Model" placeholder="Model" ng-model="ac.product.Model>
+            <input type="text" class="form-control" id="Model" placeholder="Model" ng-model="tc.product.Model">
         </div>
     </div>
 
     <div class="form-group">
         <label for="Tags" class="col-sm-2 control-label">Tags</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Tags" placeholder="Tags" ng-model="ac.product.Tags">
+            <input type="text" class="form-control" id="Tags" placeholder="Tags" ng-model="tc.product.Tags">
         </div>
     </div>
 
     <div class="form-group">
         <label for="Comments" class="col-sm-2 control-label">Comments</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Comments" placeholder="Comments" ng-model="ac.product.Comments">
+            <input type="text" class="form-control" id="Comments" placeholder="Comments" ng-model="tc.product.Comments">
         </div>
     </div>
 
