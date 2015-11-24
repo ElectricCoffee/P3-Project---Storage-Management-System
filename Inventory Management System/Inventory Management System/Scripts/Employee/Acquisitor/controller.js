@@ -7,25 +7,29 @@
 
     function AcquisitorController(EmployeeService, ProductService) {
         var self = this;
-        self.productService = ProductService;
         self.addProduct = addProduct;
+        self.productService = ProductService;
 
         self.product = {
-            ArticleNumber: "",
-            Name: "",
-            SerialNumber: "",
-            Amount: "",
-            AcquisitionPrice: "",
-            Model: "",
-            Category: "",
-            Tags: "",
-            Comments: ""
-        }
+            ArticleNumber: '',
+            Name: '',
+            SerialNumber: '',
+            Amount: 0,
+            AcquisitionPrice: 0,
+            Model: '',
+            Category: '',
+            Tags: '',
+            Comments: ''
+        };
 
         function addProduct() {
-            ProductService.service.post(self.product).success(function (response) {
-                alert("successfully posted" + JSON.stringify(self.product));
-            });
+            ProductService.service.post(self.product)
+                .success(function (response) {
+                    alert("successfully posted" + JSON.stringify(self.product));
+                })
+                .failure(function (response) {
+                    alert("failed to post");
+                })
         }
     }
 })();
