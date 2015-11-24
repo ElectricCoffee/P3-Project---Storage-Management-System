@@ -3,9 +3,16 @@
     angular.module('IMS')
         .controller('TechnicianController', TechnicianController);
 
-    TechnicianController.$inject = ['EmployeeService'];
+    TechnicianController.$inject = ['EmployeeService', 'ProductService'];
 
-    function TechnicianController(EmployeeService) {
-
+    function TechnicianController(EmployeeService, ProductService) {
+        var self = this;
+        self.productServices = ProductService;
+        self.editProduct = editProduct;
+    }
+    function editProduct() {
+        ProductService.service.post(self.product).success(function (response) {
+            alert("successfully posted" + JSON.stringify(self.product));
+        })
     }
 })();
