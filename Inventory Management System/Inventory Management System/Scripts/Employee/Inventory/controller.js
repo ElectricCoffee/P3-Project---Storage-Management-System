@@ -20,23 +20,24 @@
             Tags: '',
             Comments: ''
         };
-    }
-    function AddProduct() {
-        ProductService.service.post(self.product)
-            .success(function (response) {
-                alert("successfully posted" + JSON.stringify(self.product));
-            })
-            .failure(function (response) {
-                alert("failed to post");
-            })
-    }
-    function EditProduct() {
-        ProductService.service.put(id, self.product) ///id === articlenumber
-            .success(function (response) {
-                alert("successfully put" + JSON.stringify(self.product));
-            })
-            .failure(function (response) {
-                alert("failed to put");
-            })
+
+        function AddProduct() {
+            ProductService.service.post(self.product)
+                .success(function (response) {
+                    alert("successfully posted" + JSON.stringify(self.product));
+                })
+                .failure(function (response) {
+                    alert("failed to post");
+                })
+        }
+        function EditProduct() {
+            ProductService.service.put(id, self.product) ///id === articlenumber
+                .success(function (response) {
+                    alert("successfully put" + JSON.stringify(self.product));
+                })
+                .failure(function (response) {
+                    alert("failed to put");
+                })
+        }
     }
 })();
