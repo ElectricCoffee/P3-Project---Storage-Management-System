@@ -7,7 +7,7 @@
 
     function TechnicianController(EmployeeService, ProductService) {
         var self = this;
-        self.productServices = ProductService;
+        self.productService = ProductService;
         self.editProduct = editProduct;
 
         self.product = {
@@ -32,8 +32,8 @@
                 .success(function (response) {
                     alert("successfully put" + JSON.stringify(self.product));
                 })
-            .failure(function (response) {
-                alert("failed to put");
+                .failure(function (response) {
+                    alert("failed to put");
             })
         }
     }
