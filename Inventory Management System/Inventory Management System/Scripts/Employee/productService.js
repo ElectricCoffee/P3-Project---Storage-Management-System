@@ -37,5 +37,15 @@
                     alert("Failed to post");
                 });
         }
+
+        function editExistingProduct() {
+            productApi.put(id, self.data)
+                .succes(function (response) {
+                    alert("Succesfully put " + self.data);
+                })
+                .failure(function (response) {
+                    alert("Failed to put");
+                });
+        }
     }
 })();

@@ -11,8 +11,12 @@
         self.editProduct = editProduct;
     }
     function editProduct() {
-        ProductService.service.post(self.product).success(function (response) {
-            alert("successfully posted" + JSON.stringify(self.product));
-        })
+        ProductService.service.put(id, self.product) ///id === articlenumber
+            .success(function (response) {
+                alert("successfully put" + JSON.stringify(self.product));
+            })
+            .failure(function (response) {
+                alert("failed to put");
+            })
     }
 })();
