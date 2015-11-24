@@ -12,8 +12,8 @@
             <th>Article Number</th>
             <th>Name</th>
             <th>Serial Number</th>
-            <th>Inventory Locatione</th>
-            <th>World Locatione</th>
+            <th>Inventory Location</th>
+            <th>World Location</th>
             <th>Transit</th>
             <th>Inventory Status</th>
             <th>Model</th>
@@ -23,7 +23,7 @@
             <th>Sales Status</th>
             <th>Number of Files</th>
         </tr>
-        <tr ng-repeat="data in ic.tableData">
+        <tr ng-repeat="data in ic.productService.tableData">
             <td>{{data.ArticleNumber1}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
