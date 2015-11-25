@@ -21,8 +21,8 @@
             // sends a post request to the server at the specified URL
             // this will create a new entry in the specified database
             function post(obj) {
-                alert("I smell something fishy")
-                return $http.post(url, obj);
+                var temp = JSON.stringify(obj)
+                return $http.post(url, temp);
             }
 
             // gets data from the server, if called without an argument it gets everything

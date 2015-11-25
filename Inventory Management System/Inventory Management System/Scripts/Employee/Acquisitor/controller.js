@@ -23,6 +23,7 @@
         };
 
         function addProduct() {
+            alert("There should be something here: " + self.product);
             ProductService.service.post(self.product)
                 .success(function (response) {
                     alert("successfully posted" + JSON.stringify(self.product));

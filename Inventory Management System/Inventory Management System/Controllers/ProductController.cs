@@ -7,6 +7,7 @@ using System.Web.Http;
 using Inventory_Management_System.MySql;
 using Inventory_Management_System.Models.Product;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Inventory_Management_System.Controllers
 {
@@ -25,10 +26,10 @@ namespace Inventory_Management_System.Controllers
         //}
 
         // POST: api/Product
-        public void Post([FromBody]Product value)
+        public void Post([FromBody]string value)
         {
-            Debug.WriteLine("Oh well we got this far");
-            MySqlCommunication.Create(value);
+           var temp = JsonConvert.DeserializeObject<Product>(value);
+            MySqlCommunication.Create(temp);
         }
 
         // PUT: api/Product/foo
