@@ -32,6 +32,20 @@ namespace Inventory_Management_System.Models.Product
 
         }
 
+        public Product(acquisitorProduct q)
+        {
+            ArticleNumber1 = q.ArticleNumber1;
+            Name = q.Name;
+            SerialNumber = q.SerialNumber;
+            Amount = q.Amount;
+            AcquisitionPrice = q.AcquisitionPrice;
+            Model = q.model;
+            Catagory = q.Category;
+            Tags = q.Tags;
+            Comment = q.comments;
+
+        }
+
         public string ArticleNumber1 { get; set; }
         public string Name { get; set; }
         public string WorldLocation { get; set; }
@@ -43,6 +57,9 @@ namespace Inventory_Management_System.Models.Product
         public int SalesPrice { get; set; }
         public string Acquisitor { get; set; }
         public string Transit { get; set; }
+        public string SerialNumber { get; set; }
+        public string Model { get; set; }
+        public string Comment { get; set; }
 
     }
 
@@ -70,7 +87,19 @@ namespace Inventory_Management_System.Models.Product
         public string Acquisitor { get; set; }
     }
 
+    public class acquisitorProduct
+    {
+        public string ArticleNumber1 { get; set; }
+        public string Name { get; set; }
+        public string SerialNumber { get; set; }
+        public int Amount { get; set; }
+        public int AcquisitionPrice { get; set; }
+        public string model { get; set; }
+        public string Category { get; set; }
+        public string Tags { get; set; }
+        public string comments { get; set; }
+    }
     #endregion
 
-    
+
 }

@@ -258,6 +258,16 @@ namespace Inventory_Management_System.MySql
             return ProductList;
         }
 
+        //ArticleNumber1 = q.ArticleNumber1;
+        //    Name = q.Name;
+        //    SerialNumber = q.SerialNumber;
+        //    Amount = q.Amount;
+        //    AcquisitionPrice = q.AcquisitionPrice;
+        //    Model = q.model;
+        //    Catagory = q.Category;
+        //    Tags = q.Tags;
+        //    Comment = q.comments;
+
         public static void Create(Product data)
         {
             List<string> col = GetColumnName(ProductTable);
