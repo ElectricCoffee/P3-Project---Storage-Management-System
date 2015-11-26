@@ -31,7 +31,6 @@ namespace Inventory_Management_System.Models.Product
             Catagory = label.Catagory;
             SalesPrice = price.SalesPrice;
             Transit = location.Transit;
-
         }
 
         public Product(acquisitorProduct q)
@@ -48,6 +47,23 @@ namespace Inventory_Management_System.Models.Product
 
         }
 
+        public Product(inventoryImployeeProduct q)
+        {
+            ArticleNumber1 = q.ArticleNumber1;
+            Name = q.Name;
+            SerialNumber = q.SerialNumber;
+            InventoryLocation = q.InventoryLocation;
+            WorldLocation = q.WorldLocation;
+            Transit = q.Transit;
+            InventoryStatus = q.InventoryStatus;
+            Model = q.Model;
+            Catagory = q.Category;
+            Tags = q.Tags;
+            Acquisitor = q.Acquisitor;
+            SalesStatus = q.SalesStatus;
+            Comment = q.Comments;
+        }
+
         public string ArticleNumber1 { get; set; }
         public string Name { get; set; }
         public string WorldLocation { get; set; }
@@ -62,7 +78,8 @@ namespace Inventory_Management_System.Models.Product
         public string SerialNumber { get; set; }
         public string Model { get; set; }
         public string Comment { get; set; }
-
+        public string InventoryStatus { get; set; }
+        public string SalesStatus { get; set; }
     }
 
     #region helper classes
@@ -99,6 +116,23 @@ namespace Inventory_Management_System.Models.Product
         public string Model { get; set; }
         public string Category { get; set; }
         public string Tags { get; set; }
+        public string Comments { get; set; }
+    }
+
+    public class inventoryImployeeProduct
+    {
+        public string ArticleNumber1 { get; set; }
+        public string Name { get; set; }
+        public string SerialNumber { get; set; }
+        public string InventoryLocation { get; set; }
+        public string WorldLocation { get; set; }
+        public string Transit { get; set; }
+        public string InventoryStatus { get; set; }
+        public string Model { get; set; }
+        public string Category { get; set; }
+        public string Tags { get; set; }
+        public string Acquisitor { get; set; }
+        public string SalesStatus { get; set; }
         public string Comments { get; set; }
     }
     #endregion
