@@ -11,13 +11,15 @@ namespace Inventory_Management_System.Models.Product
 
     public class Product
     {
+        public Product() { }
+
         public Product(Label label, Price price, Location location)
         {
-            if (Security.AnyNullOrEmpty(label.ArticleNumber1, label.Name, location.WorldLocation,
+            /*if (Security.AnyNullOrEmpty(label.ArticleNumber1, label.Name, location.WorldLocation,
                 location.InventoryLocation, location.Amount, label.Tags, label.Catagory, price.AcquisitionPrice, price.SalesPrice, label.Acquisitor))
             {
                 throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
-            }
+            }*/
             ArticleNumber1 = label.ArticleNumber1;
             Name = label.Name;
             WorldLocation = location.WorldLocation;

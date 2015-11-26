@@ -287,7 +287,7 @@ namespace Inventory_Management_System.MySql
                 , data.Catagory
                 , "" //image
                 , "" //model
-                , "" //productionyear
+                , "0" //productionyear
                 , data.Acquisitor
                 , "" //Specsheet
                 , "" //documents
