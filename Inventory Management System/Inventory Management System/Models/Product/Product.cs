@@ -39,10 +39,10 @@ namespace Inventory_Management_System.Models.Product
             SerialNumber = q.SerialNumber;
             Amount = q.Amount;
             AcquisitionPrice = q.AcquisitionPrice;
-            Model = q.model;
+            Model = q.Model;
             Catagory = q.Category;
             Tags = q.Tags;
-            Comment = q.comments;
+            Comment = q.Comments;
 
         }
 
@@ -94,10 +94,10 @@ namespace Inventory_Management_System.Models.Product
         public string SerialNumber { get; set; }
         public int Amount { get; set; }
         public int AcquisitionPrice { get; set; }
-        public string model { get; set; }
+        public string Model { get; set; }
         public string Category { get; set; }
         public string Tags { get; set; }
-        public string comments { get; set; }
+        public string Comments { get; set; }
     }
     #endregion
 
