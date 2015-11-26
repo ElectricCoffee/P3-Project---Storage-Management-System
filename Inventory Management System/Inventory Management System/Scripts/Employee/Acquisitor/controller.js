@@ -24,13 +24,13 @@
 
         function addProduct() {
             alert("There should be something here: " + self.product);
-            ProductService.service.post(self.product)
-                .success(function (response) {
+            ProductService.service.post(self.product).then(
+                function success(response) {
                     alert("successfully posted" + JSON.stringify(self.product));
-                })
-                .failure(function (response) {
+                },
+                function failure(response) {
                     alert("failed to post");
-                })
+                });
         }
     }
 })();
