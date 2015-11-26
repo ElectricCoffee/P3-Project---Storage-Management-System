@@ -11,30 +11,31 @@
         self.addProduct = addProduct;
         self.editProduct = editProduct;
 
-        self.product = {
-            ArticleNumber: '',
-            Name: '',
-            SerialNumber: '',
-            InventoryLocation: '',
-            WorldLocation: '',
-            Transit: '',
-            InventoryStatus: '',
-            Model: '',
-            Category: '',
-            Tags: '',
-            Acquisitor: '',
-            SalesStatus: '',
-            Comments: ''
-        };
+        //self.product = {
+        //    ArticleNumber: '',
+        //    Name: '',
+        //    SerialNumber: '',
+        //    InventoryLocation: '',
+        //    WorldLocation: '',
+        //    Transit: '',
+        //    InventoryStatus: '',
+        //    Model: '',
+        //    Category: '',
+        //    Tags: '',
+        //    Acquisitor: '',
+        //    SalesStatus: '',
+        //    Comments: ''
+        //};
 
         function addProduct() {
-            ProductService.service.post(self.product)
-                .success(function (response) {
+            alert("There should be something here: " + self.product.Name);
+            ProductService.service.post(self.product).then(
+                function success(response) {
                     alert("successfully posted" + JSON.stringify(self.product));
-                })
-                .failure(function (response) {
+                },
+                function failure(response) {
                     alert("failed to post");
-                })
+                });
         }
         function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber

@@ -27,16 +27,16 @@ namespace Inventory_Management_System.Controllers
         //}
 
         // POST: api/Product
-        public void Post([FromBody]acquisitorProduct value)
+        public void Post([FromBody]Product value)
         {
-            var temp = new Product(value); 
-            MySqlCommunication.Create(temp);
+            //var temp = new Product(value); 
+            MySqlCommunication.Create(value);
         }
-        public void Post([FromBody]inventoryImployeeProduct value)
-        {
-            var temp = new Product(value);
-            MySqlCommunication.Create(temp);
-        }
+        //public void Post([FromBody]inventoryEmployeeProduct value)
+        //{
+        //    var temp = new Product(value);
+        //    MySqlCommunication.Create(temp);
+        //}
 
         // PUT: api/Product/foo
         //update

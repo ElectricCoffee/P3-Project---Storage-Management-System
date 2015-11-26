@@ -33,36 +33,36 @@ namespace Inventory_Management_System.Models.Product
             Transit = location.Transit;
         }
 
-        public Product(acquisitorProduct q)
-        {
-            ArticleNumber1 = q.ArticleNumber1;
-            Name = q.Name;
-            SerialNumber = q.SerialNumber;
-            Amount = q.Amount;
-            AcquisitionPrice = q.AcquisitionPrice;
-            Model = q.Model;
-            Catagory = q.Category;
-            Tags = q.Tags;
-            Comment = q.Comments;
+        //public Product(acquisitorProduct q)
+        //{
+        //    ArticleNumber1 = q.ArticleNumber1;
+        //    Name = q.Name;
+        //    SerialNumber = q.SerialNumber;
+        //    Amount = q.Amount;
+        //    AcquisitionPrice = q.AcquisitionPrice;
+        //    Model = q.Model;
+        //    Catagory = q.Category;
+        //    Tags = q.Tags;
+        //    Comment = q.Comments;
 
-        }
+        //}
 
-        public Product(inventoryImployeeProduct q)
-        {
-            ArticleNumber1 = q.ArticleNumber1;
-            Name = q.Name;
-            SerialNumber = q.SerialNumber;
-            InventoryLocation = q.InventoryLocation;
-            WorldLocation = q.WorldLocation;
-            Transit = q.Transit;
-            InventoryStatus = q.InventoryStatus;
-            Model = q.Model;
-            Catagory = q.Category;
-            Tags = q.Tags;
-            Acquisitor = q.Acquisitor;
-            SalesStatus = q.SalesStatus;
-            Comment = q.Comments;
-        }
+        //public Product(inventoryEmployeeProduct q)
+        //{
+        //    ArticleNumber1 = q.ArticleNumber1;
+        //    Name = q.Name;
+        //    SerialNumber = q.SerialNumber;
+        //    InventoryLocation = q.InventoryLocation;
+        //    WorldLocation = q.WorldLocation;
+        //    Transit = q.Transit;
+        //    InventoryStatus = q.InventoryStatus;
+        //    Model = q.Model;
+        //    Catagory = q.Category;
+        //    Tags = q.Tags;
+        //    Acquisitor = q.Acquisitor;
+        //    SalesStatus = q.SalesStatus;
+        //    Comment = q.Comments;
+        //}
 
         public string ArticleNumber1 { get; set; }
         public string Name { get; set; }
@@ -106,35 +106,35 @@ namespace Inventory_Management_System.Models.Product
         public string Acquisitor { get; set; }
     }
 
-    public class acquisitorProduct
-    {
-        public string ArticleNumber1 { get; set; }
-        public string Name { get; set; }
-        public string SerialNumber { get; set; }
-        public int Amount { get; set; }
-        public int AcquisitionPrice { get; set; }
-        public string Model { get; set; }
-        public string Category { get; set; }
-        public string Tags { get; set; }
-        public string Comments { get; set; }
-    }
+    //public class acquisitorProduct
+    //{
+    //    public string ArticleNumber1 { get; set; }
+    //    public string Name { get; set; }
+    //    public string SerialNumber { get; set; }
+    //    public int Amount { get; set; }
+    //    public int AcquisitionPrice { get; set; }
+    //    public string Model { get; set; }
+    //    public string Category { get; set; }
+    //    public string Tags { get; set; }
+    //    public string Comments { get; set; }
+    //}
 
-    public class inventoryImployeeProduct
-    {
-        public string ArticleNumber1 { get; set; }
-        public string Name { get; set; }
-        public string SerialNumber { get; set; }
-        public string InventoryLocation { get; set; }
-        public string WorldLocation { get; set; }
-        public string Transit { get; set; }
-        public string InventoryStatus { get; set; }
-        public string Model { get; set; }
-        public string Category { get; set; }
-        public string Tags { get; set; }
-        public string Acquisitor { get; set; }
-        public string SalesStatus { get; set; }
-        public string Comments { get; set; }
-    }
+    //public class inventoryEmployeeProduct
+    //{
+    //    public string ArticleNumber1 { get; set; }
+    //    public string Name { get; set; }
+    //    public string SerialNumber { get; set; }
+    //    public string InventoryLocation { get; set; }
+    //    public string WorldLocation { get; set; }
+    //    public string Transit { get; set; }
+    //    public string InventoryStatus { get; set; }
+    //    public string Model { get; set; }
+    //    public string Category { get; set; }
+    //    public string Tags { get; set; }
+    //    public string Acquisitor { get; set; }
+    //    public string SalesStatus { get; set; }
+    //    public string Comments { get; set; }
+    //}
     #endregion
 
 
