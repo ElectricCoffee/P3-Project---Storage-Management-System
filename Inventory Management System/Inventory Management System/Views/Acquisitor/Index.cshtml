@@ -19,8 +19,8 @@
             <th>Category</th>
             <th>Tags</th>
         </tr>
-        <tr ng-repeat="data in ac.productService.tableData">
-            <td>{{data.ArticleNumber1}}</td>
+        <tr ng-repeat="data in ac.productService.tableData" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+            <td>{{data.ArticleNumber}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
             <td>{{data.Amount}}</td>
