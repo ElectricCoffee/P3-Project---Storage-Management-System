@@ -11,7 +11,6 @@
         self.selectedRow = 0;
        self.setClickedRow = function setClickRow(index) {
            self.selectedRow = index;
-           alert(index);
 
         }
     }
