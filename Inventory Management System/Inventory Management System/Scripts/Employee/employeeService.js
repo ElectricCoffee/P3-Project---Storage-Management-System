@@ -6,9 +6,11 @@
     EmployeeService.$inject = ['ApiFactory'];
 
     function EmployeeService(ApiFactory) {
+        var self = this;
         var employeeApi = new ApiFactory('Employee');
-       this.setClickedRow = function setClickRow(index) {
-            selectedRow = index;
+       self.selectedRow = null;
+       self.setClickedRow = function setClickRow(index) {
+            self.selectedRow = index;
         }
     }
 })();
