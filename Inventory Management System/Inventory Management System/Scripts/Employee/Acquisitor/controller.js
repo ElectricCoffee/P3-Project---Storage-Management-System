@@ -9,7 +9,7 @@
         var self = this;
         self.addProduct = addProduct;
         self.productService = ProductService;
-
+        self.employeeService = EmployeeService;
         //self.product = {
         //    ArticleNumber1: '',
         //    Name: '',
