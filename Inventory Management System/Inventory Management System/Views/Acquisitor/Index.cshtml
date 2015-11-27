@@ -20,7 +20,7 @@
             <th>Category</th>
             <th>Tags</th>
         </tr>
-        <tr ng-repeat="data in ac.productService.tableData" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+        <tr ng-repeat="data in ac.productService.tableData" ng-class="{'selected':index == selectedRow}" ng-click="ac.employeeService.setClickedRow(index)">
             <td>{{data.ArticleNumber}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>

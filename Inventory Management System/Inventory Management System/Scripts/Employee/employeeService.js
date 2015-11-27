@@ -7,7 +7,7 @@
 
     function EmployeeService(ApiFactory) {
         var employeeApi = new ApiFactory('Employee');
-        function setClickRow(index) {
+       this.setClickedRow = function setClickRow(index) {
             selectedRow = index;
         }
     }
