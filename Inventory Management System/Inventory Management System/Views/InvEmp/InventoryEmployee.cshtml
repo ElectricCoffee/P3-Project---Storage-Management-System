@@ -23,7 +23,9 @@
             <th>Sales Status</th>
             <th>Number of Files</th>
         </tr>
-        <tr ng-repeat="data in ic.productService.tableData">
+        <tr ng-repeat="data in ic.productService.tableData" 
+            ng-class="{'selected': $index == ic.employeeService.selectedRow}" 
+            ng-click="ic.employeeService.setClickedRow($index)">
             <td>{{data.ArticleNumber1}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
@@ -40,9 +42,13 @@
         </tr>
     </table>
     <div class="col-md-4">
-        <a href="/InvEmp/Add" class="button btn btn-primary button-gui" target="_blank">Add Product</a>
+        <a href="/InvEmp/Add" 
+           class="button btn btn-primary button-gui" 
+           target="_blank">Add Product</a>
     </div>
     <div class="col-md-4">
-        <a href="/InvEmp/Edit" class="button btn btn-primary button-gui" target="_blank">Edit Product</a>
+        <a href="/InvEmp/Edit" 
+           class="button btn btn-primary button-gui" 
+           target="_blank">Edit Product</a>
     </div>
 </div>

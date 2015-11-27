@@ -11,19 +11,16 @@
         var self = this;
         self.productService = ProductService;
         self.editProduct = editProduct;
+        self.employeeService = EmployeeService;
 
-        self.product = {
-            SalesStatus: ''
-        };
-
-        function EditProduct() {
-            ProductService.service.put(id, self.product) ///id === articlenumber
-                .success(function (response) {
+        function editProduct() {
+            ProductService.service.put(id, self.product).then( ///id === articlenumber
+                function success(response) {
                     alert("successfully put" + JSON.stringify(self.product));
-                })
-                .failure(function (response) {
+                },
+                function failure(response) {
                     alert("failed to put");
-                })
+                });
         }
     }
 })();

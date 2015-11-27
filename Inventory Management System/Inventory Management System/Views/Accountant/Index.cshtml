@@ -19,7 +19,9 @@
             <th>Model</th>
             <th>Tags</th>
         </tr>
-        <tr ng-repeat="data in ac.productService.tableData">
+        <tr ng-repeat="data in ac.productService.tableData" 
+            ng-class="{'selected': $index == ac.employeeService.selectedRow}" 
+            ng-click="ac.employeeService.setClickedRow($index)">
             <td>{{data.ArticleNumber1}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
@@ -34,8 +36,8 @@
         </tr>
     </table>
     <div class="col-md-4">
-        <a href="/Accountant/Edit"
-           class="button btn btn-primary button-gui"
+        <a href="/Accountant/Edit" 
+           class="button btn btn-primary button-gui" 
            target="_blank">Edit Product</a>
     </div>
 </div>

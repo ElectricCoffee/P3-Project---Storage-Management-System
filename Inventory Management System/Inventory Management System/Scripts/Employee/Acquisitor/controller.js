@@ -10,18 +10,7 @@
         self.addProduct = addProduct;
         self.productService = ProductService;
         self.employeeService = EmployeeService;
-        //self.product = {
-        //    ArticleNumber1: '',
-        //    Name: '',
-        //    SerialNumber: '',
-        //    Amount: 0,
-        //    AcquisitionPrice: 0,
-        //    Model: '',
-        //    Category: '',
-        //    Tags: '',
-        //    Comments: ''
-        //};
-
+        
         function addProduct() {
             alert("There should be something here: " + self.product);
             ProductService.service.post(self.product).then(

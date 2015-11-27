@@ -7,12 +7,9 @@
 
     function SalesController(EmployeeService, ProductService) {
         var self = this;
-        this.productService = ProductService;
-        this.editProduct = editProduct;
-
-        self.product = {
-            SalesStatus: ''
-        };
+        self.productService = ProductService;
+        self.editProduct = editProduct;
+        self.employeeService = EmployeeService;
 
         function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber

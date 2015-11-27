@@ -10,22 +10,7 @@
         self.productService = ProductService;
         self.addProduct = addProduct;
         self.editProduct = editProduct;
-
-        //self.product = {
-        //    ArticleNumber: '',
-        //    Name: '',
-        //    SerialNumber: '',
-        //    InventoryLocation: '',
-        //    WorldLocation: '',
-        //    Transit: '',
-        //    InventoryStatus: '',
-        //    Model: '',
-        //    Category: '',
-        //    Tags: '',
-        //    Acquisitor: '',
-        //    SalesStatus: '',
-        //    Comments: ''
-        //};
+        self.employeeService = EmployeeService;
 
         function addProduct() {
             alert("There should be something here: " + self.product.Name);

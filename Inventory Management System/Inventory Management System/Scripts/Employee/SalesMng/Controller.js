@@ -9,11 +9,7 @@
         var self = this;
         self.productService = ProductService;
         self.editProduct = editProduct;
-
-        self.product = {
-            SalesStatus: '',
-            SalesPrice: 0
-        };
+        self.employeeService = EmployeeService;
 
         function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber

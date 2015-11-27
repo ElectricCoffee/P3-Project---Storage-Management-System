@@ -9,23 +9,7 @@
         var self = this;
         self.productService = ProductService;
         self.editProduct = editProduct;
-
-        self.product = {
-            ArticleNumber: '',
-            Name: '',
-            SerialNumber: '',
-            InventoryLocation: "",
-            InventoryStatus: "",
-            Model: '',
-            ProductionYear: 0,
-            Category: '',
-            Tags: '',
-            Comments: '',
-            NumberOfFiles: 0,
-            Images: "",
-            DDocuments: "",
-            SpecSheet: ""
-        };
+        self.employeeService = EmployeeService;
 
         function editProduct() {
             ProductService.service.put(id, self.product) ///id === articlenumber
