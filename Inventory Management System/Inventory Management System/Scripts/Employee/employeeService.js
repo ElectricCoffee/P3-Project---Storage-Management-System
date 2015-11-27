@@ -8,9 +8,10 @@
     function EmployeeService(ApiFactory) {
         var self = this;
         var employeeApi = new ApiFactory('Employee');
-       self.selectedRow = null;
+        self.selectedRow = 0;
        self.setClickedRow = function setClickRow(index) {
-            self.selectedRow = index;
+           self.selectedRow = index;
+           alert([123])
         }
     }
 })();
