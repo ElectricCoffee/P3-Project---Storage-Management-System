@@ -16,7 +16,7 @@ namespace Inventory_Management_System.Models.Product
         public Product(Label label, Price price, Location location)
         {
             /*if (Security.AnyNullOrEmpty(label.ArticleNumber1, label.Name, location.WorldLocation,
-                location.InventoryLocation, location.Amount, label.Tags, label.Catagory, price.AcquisitionPrice, price.SalesPrice, label.Acquisitor))
+                location.InventoryLocation, location.Amount, label.Tags, label.Category, price.AcquisitionPrice, price.SalesPrice, label.Acquisitor))
             {
                 throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
             }*/
@@ -28,7 +28,7 @@ namespace Inventory_Management_System.Models.Product
             AcquisitionPrice = price.AcquisitionPrice;
             Acquisitor = label.Acquisitor;
             Tags = label.Tags;
-            Catagory = label.Catagory;
+            Category = label.Category;
             SalesPrice = price.SalesPrice;
             Transit = location.Transit;
         }
@@ -41,7 +41,7 @@ namespace Inventory_Management_System.Models.Product
         //    Amount = q.Amount;
         //    AcquisitionPrice = q.AcquisitionPrice;
         //    Model = q.Model;
-        //    Catagory = q.Category;
+        //    Category = q.Category;
         //    Tags = q.Tags;
         //    Comment = q.Comments;
 
@@ -57,7 +57,7 @@ namespace Inventory_Management_System.Models.Product
         //    Transit = q.Transit;
         //    InventoryStatus = q.InventoryStatus;
         //    Model = q.Model;
-        //    Catagory = q.Category;
+        //    Category = q.Category;
         //    Tags = q.Tags;
         //    Acquisitor = q.Acquisitor;
         //    SalesStatus = q.SalesStatus;
@@ -71,7 +71,7 @@ namespace Inventory_Management_System.Models.Product
         public int Amount { get; set; }
         public int AcquisitionPrice { get; set; }
         public string Tags { get; set; }
-        public string Catagory { get; set; }
+        public string Category { get; set; }
         public int SalesPrice { get; set; }
         public string Acquisitor { get; set; }
         public string Transit { get; set; }
@@ -101,7 +101,7 @@ namespace Inventory_Management_System.Models.Product
     {
         public string ArticleNumber1 { get; set; }
         public string Tags { get; set; }
-        public string Catagory { get; set; }
+        public string Category { get; set; }
         public string Name { get; set; }
         public string Acquisitor { get; set; }
     }

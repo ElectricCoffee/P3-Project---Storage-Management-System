@@ -21,6 +21,7 @@
             // sends a post request to the server at the specified URL
             // this will create a new entry in the specified database
             function post(obj) {
+                alert("ApiFactory Post - " + obj  );
                 var temp = JSON.stringify(obj)
                 return $http.post(url, temp);
             }
