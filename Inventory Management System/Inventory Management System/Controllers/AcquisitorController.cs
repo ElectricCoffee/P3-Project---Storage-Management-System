@@ -14,9 +14,9 @@ namespace Inventory_Management_System.Controllers
         {
             return View();
         }
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(string articlenumber1)
         {
-            return View(product);
+            return View(articlenumber1);
         }
         public ActionResult Add()
         {
