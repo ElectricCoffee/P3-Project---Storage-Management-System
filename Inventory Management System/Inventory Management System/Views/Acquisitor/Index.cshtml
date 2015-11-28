@@ -37,7 +37,8 @@
            target="_blank">Add Product</a>
     </div>
     <div class="col-md-4">
-        <a ng-href="/Acquisitor/Edit/{{ac.productService.tableData[ac.employeeService.selectedRow].ArticleNumber1}}" 
+        <!--The # after Edit is there on purpose. Angular uses this to extract shit from URLs, don't touch!!-->
+        <a ng-href="/Acquisitor/Edit/#/{{ac.productService.tableData[ac.employeeService.selectedRow].ArticleNumber1}}" 
            class="button btn btn-primary button-gui" 
            target="_self">Edit Product</a>
     </div>

@@ -20,11 +20,11 @@ namespace Inventory_Management_System.Controllers
             return MySqlCommunication.GetAllProduct();
         }
 
-        //// GET: api/Product/5
-        //public string Get(int id)
-        //{
-        //    return "value with id: " + id;
-        //}
+        // GET: api/Product/5
+        public string Get(string articleNumber)
+        {
+            return "value with id: " + articleNumber;
+        }
 
         // POST: api/Product
         public void Post([FromBody]Product value)

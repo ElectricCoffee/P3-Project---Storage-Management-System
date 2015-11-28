@@ -3,27 +3,39 @@
     angular.module('IMS')
         .controller('AcquisitorController', AcquisitorController);
 
-    AcquisitorController.$inject = ['EmployeeService', 'ProductService', '$route','$routeParams'];
+    AcquisitorController.$inject = ['EmployeeService', 'ProductService', 'URLService'];
 
-    function AcquisitorController(EmployeeService, ProductService,$route, $routeParams) {
+    function AcquisitorController(EmployeeService, ProductService, URLService) {
         var self = this;
         self.addProduct = addProduct;
-        self.productService = ProductService;
+        self.articleNumber = null;
         self.employeeService = EmployeeService;
-        self.articlenumber = function () {
-            return $route.current.params;
-        }
-        
+        self.populateFields = populateFields;
+        self.productService = ProductService;
+        self.product = null
+
+        self.displayRoute = function () {
+            alert(URLService.getArgs());
+            self.articleNumber = URLService.getArgs();
+        };
+
         function addProduct() {
             alert("There should be something here: " + self.product);
-            ProductService.service.post(self.product).then(
-                function success(response) {
-                    alert("successfully posted" + JSON.stringify(self.product));
-                },
-                function failure(response) {
-                    alert("failed to post");
-                });
+            ProductService.service.post(self.product).then(success, failure);
+
+            function success() {
+                alert("successfully posted" + JSON.stringify(self.product));
+            }
+
+            function failure() {
+                alert("failed to post");
+            }
         }
-        
+
+        function populateFields() {
+            var id = URLService.getArgs();
+            ProductService.getWithId(id);
+            alert(JSON.stringify(ProductService.tableData));
+        }
     }
 })();

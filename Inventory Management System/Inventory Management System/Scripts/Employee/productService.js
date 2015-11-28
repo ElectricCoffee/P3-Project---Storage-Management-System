@@ -28,6 +28,20 @@
             }
         }
 
+        function getWithId(id) {
+            productApi.get(id).then(success, failure);
+
+            function success(response) {
+                console.log("successfully fetched data");
+                self.tableData = response.data;
+            }
+
+            function failure(response) {
+                console.error("failed to fetch data");
+                console.error(response.data);
+            }
+        }
+
         function addNewProduct() {
             productApi.create(self.data)
                 .success(function (response) {

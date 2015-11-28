@@ -222,6 +222,7 @@
     <Content Include="Scripts\Employee\Sales\controller.js" />
     <Content Include="Scripts\Employee\employeeService.js" />
     <Content Include="Scripts\Employee\Technician\controller.js" />
+    <Content Include="Scripts\Employee\urlService.js" />
     <Content Include="Scripts\Message\controller.js" />
     <Content Include="Scripts\Message\directive.js" />
     <Content Include="Scripts\Message\message-directive.html" />

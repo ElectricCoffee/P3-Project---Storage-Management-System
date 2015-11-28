@@ -9,8 +9,10 @@
         var self = this;
         var employeeApi = new ApiFactory('Employee');
         self.selectedRow = 0;
-       self.setClickedRow = function setClickRow(index) {
-           self.selectedRow = index;
+        self.setClickedRow = setClickRow;
+
+        function setClickRow(index) {
+            self.selectedRow = index;
 
         }
     }
