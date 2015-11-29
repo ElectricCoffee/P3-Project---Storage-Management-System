@@ -11,17 +11,19 @@ namespace Inventory_Management_System.Models.Product
 {
     public class PSystem : Product
     {
+        public PSystem() : base() { }
+
         public PSystem(Id id, Location location, Price price,
             Status status, Directories directories)
             : base(id, price, location)
         {
-            if (Security.AnyNullOrEmpty(id.ArticleNumber1, id.SerialNumber, id.Name, id.Tags,
-                id.Catagory, id.Model, id.ProductionYear, location.WorldLocation, location.InventoryLocation,
-                location.Amount, price.AcquisitionPrice, price.SalesPrice, location.Transit, status.InventoryStatus,
-                status.SalesStatus, id.Acquisitor))
-            {
-                throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
-            }
+            ////if (Security.AnyNullOrEmpty(id.ArticleNumber1, id.SerialNumber, id.Name, id.Tags,
+            //    id.Category, id.Model, id.ProductionYear, location.WorldLocation, location.InventoryLocation,
+            //    location.Amount, price.AcquisitionPrice, price.SalesPrice, location.Transit, status.InventoryStatus,
+            //    status.SalesStatus, id.Acquisitor))
+            //{
+            //    throw new ArgumentNullException("Du det dårligste menneske jeg kender.");
+            //}
 
             ArticleNumber2 = id.ArticleNumber2;
             SerialNumber = id.SerialNumber;
@@ -32,21 +34,21 @@ namespace Inventory_Management_System.Models.Product
             Acquisitor = id.Acquisitor;
 
 
-#if DEBUG
-#warning - Skal lige kvalitet checkes, da jeg ikke ved om dette er okay.
-            if (imageName != null && imageDirectory != null)
-            {
-                Images = (Bitmap)Image.FromFile(imageDirectory + @"\" + imageName);
-            }
-            if (specsheetDirectory != null && specsheetName != null)
-            {
-                loadspecsheet(specsheetDirectory, specsheetName);
-            }
-            if (documentDirectory != null && documentName != null)
-            {
-                loadDocument(documentDirectory, documentName);
-            }
-#endif
+//#if DEBUG
+//#warning - Skal lige kvalitet checkes, da jeg ikke ved om dette er okay.
+//            if (imageName != null && imageDirectory != null)
+//            {
+//                Images = (Bitmap)Image.FromFile(imageDirectory + @"\" + imageName);
+//            }
+//            if (specsheetDirectory != null && specsheetName != null)
+//            {
+//                loadspecsheet(specsheetDirectory, specsheetName);
+//            }
+//            if (documentDirectory != null && documentName != null)
+//            {
+//                loadDocument(documentDirectory, documentName);
+//            }
+//#endif
         }
 
 

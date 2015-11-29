@@ -15,7 +15,7 @@ namespace Inventory_Management_System.Controllers
     public class ProductController : ApiController
     {
         // GET: api/Product
-        public IEnumerable<Product> Get()
+        public IEnumerable<PSystem> Get()
         {
             return MySqlCommunication.GetAllProduct();
         }
@@ -27,8 +27,9 @@ namespace Inventory_Management_System.Controllers
         }
 
         // POST: api/Product
-        public void Post([FromBody]Product value)
+        public void Post([FromBody]PSystem value)
         {
+            Debug.WriteLine("Post function in productController");
             //var temp = new Product(value); 
             MySqlCommunication.Create(value);
         }
