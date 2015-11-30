@@ -13,6 +13,7 @@
         self.getTableData = getTableData;
         self.addNewProduct = addNewProduct;
         self.getProductById = getWithId;
+        self.editExistingProduct = editExistingProduct;
 
 
         function getTableData() {
@@ -34,23 +35,26 @@
         }
 
         function addNewProduct() {
-            productApi.create(self.data)
+            productApi.create(self.tableData)
                 .success(function (response) {
-                    alert("Successfully posted " + self.data);
+                    alert("Successfully posted " + self.tableData);
                 })
                 .failure(function (response) {
                     alert("Failed to post");
                 });
         }
 
-        function editExistingProduct() {
-            productApi.put(id, self.data)
-                .succes(function (response) {
-                    alert("Succesfully put " + self.data);
-                })
-                .failure(function (response) {
-                    alert("Failed to put");
-                });
+        function editExistingProduct(data) {
+            console.log("entering edit function");
+            alert(JSON.stringify(data));
+            productApi.put(data).then(success, failure);
+
+            function success (response) {
+                alert("Succesfully put " + data);
+            }
+            function failure(response) {
+                alert("Failed to put" + JSON.stringify(response));
+            }
         }
     }
 })();

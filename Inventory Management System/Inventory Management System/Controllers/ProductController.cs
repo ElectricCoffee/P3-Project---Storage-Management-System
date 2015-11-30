@@ -41,12 +41,11 @@ namespace Inventory_Management_System.Controllers
         //    MySqlCommunication.Create(temp);
         //}
 
-        // PUT: api/Product/foo
-        //update
-        //public void Put(string id, [FromBody]Product value)
-        //{
-        //    MySqlCommunication.Update();
-        //}
+        //PUT: api/Product/foo
+        public void Put([FromBody]PSystem value)
+        {
+            MySqlCommunication.Update(value);
+        }
 
 
         //// DELETE: api/Product/5

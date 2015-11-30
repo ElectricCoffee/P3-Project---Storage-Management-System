@@ -14,14 +14,14 @@
         return function (controllerName) {
             var url = '/api/' + controllerName;
             this.post = post;
-            this.get   = get;
+            this.get = get;
             this.put = put;
             this.delete = del; // called remove instead of delete to not clash with the delete keyword
 
             // sends a post request to the server at the specified URL
             // this will create a new entry in the specified database
             function post(obj) {
-                alert("ApiFactory Post - " + obj  );
+                alert("ApiFactory Post - " + obj);
                 var temp = JSON.stringify(obj)
                 return $http.post(url, temp);
             }
@@ -36,14 +36,14 @@
 
             // updates an item with the specified id on the server
             // if neither data nor id exist, an error will be thrown
-            function put(id, newData) {
-                var newUrl = url + '/' + id;
-                if (!id)
-                    throw new URIError('An id was not provided', 'apiFactory.js');
-                else if (!newData)
-                    throw new URIError('No data was provided', 'apiFactory.js');
-                else
-                    return $http.put(newUrl, newData);
+            function put(newData) {
+                //var newUrl = url + '/' + id;
+                //if (!id)
+                //    throw new URIError('An id was not provided', 'apiFactory.js');
+                //else if (!newData)
+                //    throw new URIError('No data was provided', 'apiFactory.js');
+                //else
+                return $http.put(url, JSON.stringify(newData));
             }
 
             // delete an item with the specified id from the server
