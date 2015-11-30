@@ -17,13 +17,15 @@ namespace Inventory_Management_System.Controllers
         // GET: api/Product
         public IEnumerable<PSystem> Get()
         {
+            Debug.WriteLine("Getting product WITHOUT article number");
             return MySqlCommunication.GetAllProduct();
         }
 
         // GET: api/Product/5
-        public string Get(string articleNumber)
+        public PSystem Get(string id)
         {
-            return "value with id: " + articleNumber;
+            Debug.WriteLine("Getting product by article number");
+            return MySqlCommunication.Read(id);
         }
 
         // POST: api/Product

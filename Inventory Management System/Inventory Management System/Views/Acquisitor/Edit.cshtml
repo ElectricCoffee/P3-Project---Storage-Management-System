@@ -1,17 +1,17 @@
 ﻿<div ng-controller="AcquisitorController as ac"
-     ng-init="ac.displayRoute()">
+     ng-init="ac.populateFields()">
     <div class="col-md-12 Product-Heading">
         <h2>Edit Product</h2>
     </div>
     <form class="form-horizontal"
           ng-submit="ac.editProduct">
         <div class="form-group">
-            <label for="ArticleNumber" class="col-sm-2 control-label">Article Number</label>
+            <label for="ArticleNumber1" class="col-sm-2 control-label">Article Number</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control"
-                       id="ArticleNumber"
-                       placeholder="{{ac.articleNumber}}"
-                       ng-model="ac.product.ArticleNumber">
+                       id="ArticleNumber1"
+                       placeholder="Article Number"
+                       ng-model="ac.product.ArticleNumber1">
             </div>
         </div>
         <div class="form-group">
@@ -24,14 +24,14 @@
         <div class="form-group">
             <label for="SerialNumber" class="col-sm-2 control-label">Serial Number</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="SerialNumber" 
-                       placeholder="Serial Number" ng-model="ac.product.SerialNuber">
+                <input type="text" class="form-control" id="SerialNumber"
+                       placeholder="Serial Number" ng-model="ac.product.SerialNumber">
             </div>
         </div>
         <div class="form-group">
             <label for="Model" class="col-sm-2 control-label">Model</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="Model" 
+                <input type="text" class="form-control" id="Model"
                        placeholder="Model" ng-model="ac.product.Model">
             </div>
         </div>
@@ -39,7 +39,7 @@
             <label for="category" class="col-sm-2 control-label">Category</label>
             <div class="col-sm-10">
                 <!-- !!!DROP DOWN MENU!!! -->
-                <select class="form-control" id="category" 
+                <select class="form-control" id="category"
                         ng-model="ac.product.Category">
                     <option>cat1</option>
                     <option>cat2</option>
@@ -50,21 +50,21 @@
         <div class="form-group">
             <label for="Tags" class="col-sm-2 control-label">Tags</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="Tags" 
+                <input type="text" class="form-control" id="Tags"
                        placeholder="Tags" ng-model="ac.product.Tags">
             </div>
         </div>
         <div class="form-group">
             <label for="Comments" class="col-sm-2 control-label">Comments</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="Comments" 
+                <input type="text" class="form-control" id="Comments"
                        placeholder="Comments" ng-model="ac.product.Comments">
             </div>
         </div>
-        <div class="´form-group">
+        <div class="form-group">
             <label class="col-sm-2 control-label">Files</label>
-            <input id="input-2" type="file" class="file" multiple="true" 
-                   data-show-upload="true" data-show-caption="true" 
+            <input id="input-2" type="file" class="file" multiple="true"
+                   data-show-upload="true" data-show-caption="true"
                    ng-model="ac.product.Files">
         </div>
         <div class="form-group">

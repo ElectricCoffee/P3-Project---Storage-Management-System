@@ -9,9 +9,10 @@
         var productApi = new ApiFactory('Product');
         var self = this;
         self.service = productApi;
-        self.tableData = [];
+        self.tableData = null;
         self.getTableData = getTableData;
         self.addNewProduct = addNewProduct;
+        self.getProductById = getWithId;
 
 
         function getTableData() {
@@ -29,17 +30,7 @@
         }
 
         function getWithId(id) {
-            productApi.get(id).then(success, failure);
-
-            function success(response) {
-                console.log("successfully fetched data");
-                self.tableData = response.data;
-            }
-
-            function failure(response) {
-                console.error("failed to fetch data");
-                console.error(response.data);
-            }
+            return productApi.get(id)
         }
 
         function addNewProduct() {

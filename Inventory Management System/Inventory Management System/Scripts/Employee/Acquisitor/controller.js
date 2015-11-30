@@ -14,11 +14,6 @@
         self.productService = ProductService;
         self.product = null
 
-        self.displayRoute = function () {
-            alert(URLService.getArgs());
-            self.articleNumber = URLService.getArgs();
-        };
-
         function addProduct() {
             alert("There should be something here: " + self.product);
             ProductService.service.post(self.product).then(success, failure);
@@ -33,9 +28,22 @@
         }
 
         function populateFields() {
+            //alert("populating fields");
             var id = URLService.getArgs();
-            ProductService.getWithId(id);
-            alert(JSON.stringify(ProductService.tableData));
+            ProductService.getProductById(id).then(success, failure);
+
+            function success(response) {
+                console.log("successfully fetched data");
+                console.log(JSON.stringify(response.data));
+                self.product = response.data;
+            }
+
+            function failure(response) {
+                console.error("failed to fetch data");
+                console.error(response.data);
+            };
+            //self.product = ProductService.tableData;
+            //alert(JSON.stringify(self.product));
         }
     }
 })();
