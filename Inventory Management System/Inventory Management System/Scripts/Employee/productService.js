@@ -11,10 +11,8 @@
         self.service = productApi;
         self.tableData = null;
         self.getTableData = getTableData;
-        self.addNewProduct = addNewProduct;
         self.getProductById = getWithId;
         self.editExistingProduct = editExistingProduct;
-
 
         function getTableData() {
             productApi.get().then(success, failure);
@@ -32,17 +30,6 @@
 
         function getWithId(id) {
             return productApi.get(id)
-        }
-
-        function addNewProduct() {
-            productApi.create(self.tableData).then(success, failure);
-
-            function success(response) {
-                console.log("Successfully posted " + self.tableData);
-            }
-            function failure(response) {
-                console.log("Failed to post");
-            }
         }
 
         function editExistingProduct(data) {
