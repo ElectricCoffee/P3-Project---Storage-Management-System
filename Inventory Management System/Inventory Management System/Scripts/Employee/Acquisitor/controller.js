@@ -11,7 +11,7 @@
         self.articleNumber   = null;
         self.employeeService = EmployeeService;
         self.editProduct = function () {
-            alert("submitting form with " + JSON.stringify(self.product));
+            console.log("submitting form with " + JSON.stringify(self.product));
             ProductService.editExistingProduct(self.product);
         };
         self.populateFields  = populateFields;
@@ -19,15 +19,15 @@
         self.product         = null
 
         function addProduct() {
-            alert("There should be something here: " + self.product);
+            //alert("There should be something here: " + self.product);
             ProductService.service.post(self.product).then(success, failure);
 
             function success() {
-                alert("successfully posted" + JSON.stringify(self.product));
+                console.log("successfully posted" + JSON.stringify(self.product));
             }
 
             function failure() {
-                alert("failed to post");
+                console.error("failed to post");
             }
         }
 

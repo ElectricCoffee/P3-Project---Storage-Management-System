@@ -35,25 +35,26 @@
         }
 
         function addNewProduct() {
-            productApi.create(self.tableData)
-                .success(function (response) {
-                    alert("Successfully posted " + self.tableData);
-                })
-                .failure(function (response) {
-                    alert("Failed to post");
-                });
+            productApi.create(self.tableData).then(success, failure);
+
+            function success(response) {
+                console.log("Successfully posted " + self.tableData);
+            }
+            function failure(response) {
+                console.log("Failed to post");
+            }
         }
 
         function editExistingProduct(data) {
-            console.log("entering edit function");
-            alert(JSON.stringify(data));
+            //console.log("entering edit function");
+            //alert(JSON.stringify(data));
             productApi.put(data).then(success, failure);
 
-            function success (response) {
-                alert("Succesfully put " + data);
+            function success(response) {
+                console.log("Succesfully put " + data);
             }
             function failure(response) {
-                alert("Failed to put" + JSON.stringify(response));
+                console.error("Failed to put" + JSON.stringify(response));
             }
         }
     }
