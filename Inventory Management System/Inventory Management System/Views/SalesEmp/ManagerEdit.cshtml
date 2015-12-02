@@ -1,25 +1,28 @@
-﻿<div class="col-md-12 Product-Heading">
-    <h2>Edit Product</h2>
+﻿<div ng-controller="ProductController as sc">
+    <div class="col-md-12 Product-Heading">
+        <h2>Edit Product</h2>
+    </div>
+    <form class="form-horizontal" ng-submit="sc.editProduct">
+        <div class="form-group">
+            <label for="SalesStatus" class="col-sm-2 control-label">Sales Status</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="SalesStatus" ng-model="sc.product.SalesStatus">
+                    <option>Ready</option>
+                    <option>Offered</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SalesPrice" class="col-sm-2 control-label">Sales Price</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="SalesPrice" 
+                       placeholder="Salesprice" ng-model="sc.product.SalesPrice">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+        </div>
+    </form>
 </div>
-<form class="form-horizontal" ng-controller="SalesMngController as sc" ng-submit="sc.editProduct">
-    <div class="form-group">
-        <label for="SalesStatus" class="col-sm-2 control-label">Sales Status</label>
-        <div class="col-sm-10">
-            <select class="form-control" id="SalesStatus" ng-model="sc.product.SalesStatus">
-                <option>Ready</option>
-                <option>Offered</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="SalesPrice" class="col-sm-2 control-label">Sales Price</label>
-        <div class="col-sm-10">
-            <input type="Salesprice" class="form-control" id="SalesPrice" placeholder="Salesprice" ng-model="sc.product.SalesPrice">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Save</button>
-        </div>
-    </div>
-</form>

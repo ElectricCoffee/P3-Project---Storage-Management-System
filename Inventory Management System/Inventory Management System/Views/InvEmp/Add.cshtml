@@ -1,29 +1,33 @@
 ﻿<div class="col-md-12 Product-Heading">
     <h2>Add Product</h2>
 </div>
-<form class="form-horizontal" ng-controller="InventoryController as ic" ng-submit="ic.addProduct()">
+<form class="form-horizontal" ng-controller="ProductController as ic" ng-submit="ic.addProduct()">
     <div class="form-group">
         <label for="ArticleNumber1" class="col-sm-2 control-label">Article Number</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="ArticleNumber1" placeholder="ArticleNumber1" ng-model="ic.product.ArticleNumber1">
+            <input type="text" class="form-control" id="ArticleNumber1" 
+                   placeholder="ArticleNumber1" ng-model="ic.product.ArticleNumber1">
         </div>
     </div>
     <div class="form-group">
         <label for="Name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Name" placeholder="Name" ng-model="ic.product.Name">
+            <input type="text" class="form-control" id="Name" 
+                   placeholder="Name" ng-model="ic.product.Name">
         </div>
     </div>
     <div class="form-group">
         <label for="SerialNumber" class="col-sm-2 control-label">Serial Number</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="SerialNumber" placeholder="Serial Number" ng-model="ic.product.SerialNumber">
+            <input type="text" class="form-control" id="SerialNumber" 
+                   placeholder="Serial Number" ng-model="ic.product.SerialNumber">
         </div>
     </div>
     <div class="form-group">
         <label for="InventoryLocation" class="col-sm-2 control-label">Inventory Location</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="InventoryLocation" placeholder="Inventory Location" ng-model="ic.product.InventoryLocation">
+            <input type="text" class="form-control" id="InventoryLocation" 
+                   placeholder="Inventory Location" ng-model="ic.product.InventoryLocation">
         </div>
     </div>
     <div class="form-group">
@@ -50,7 +54,8 @@
     <div class="form-group">
         <label for="Model" class="col-sm-2 control-label">Model</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Model" placeholder="Model" ng-model="ic.product.Model">
+            <input type="text" class="form-control" id="Model" 
+                   placeholder="Model" ng-model="ic.product.Model">
         </div>
     </div>
     <div class="form-group">
@@ -67,18 +72,21 @@
     <div class="form-group">
         <label for="Tags" class="col-sm-2 control-label">Tags</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Tags" placeholder="Tags" ng-model="ic.product.Tags">
+            <input type="text" class="form-control" id="Tags" 
+                   placeholder="Tags" ng-model="ic.product.Tags">
         </div>
     </div>
     <div class="form-group">
         <label for="Comments" class="col-sm-2 control-label">Comments</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="Comments" placeholder="Comments" ng-model="ic.product.Comments">
+            <input type="text" class="form-control" id="Comments" 
+                   placeholder="Comments" ng-model="ic.product.Comments">
         </div>
     </div>
     <div class="´form-group">
         <label class="col-sm-2 control-label">Files</label>
-        <input id="input-2" type="file" class="file" multiple="true" data-show-upload="true" data-show-caption="true">
+        <input id="input-2" type="file" class="file" multiple="true" 
+               data-show-upload="true" data-show-caption="true">
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

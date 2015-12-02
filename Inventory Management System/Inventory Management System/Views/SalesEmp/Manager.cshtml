@@ -1,49 +1,49 @@
-﻿<div ng-controller="SalesMngController as sc"
-     ng-init="sc.productService.getTableData()">
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-md-8"><!--add stuff here--></div>
+﻿<div ng-controller="ProductController as pc"
+     ng-init="pc.getTableData()">
+    <div ng-controller="TableController as tc">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8"><!--add stuff here--></div>
+            </div>
         </div>
-    </div>
-
-    <table class="table table-bordered">
-        <tr>
-            <th>Article Number</th>
-            <th>Name</th>
-            <th>Serial Number</th>
-            <th>Sales Status</th>
-            <th>Sales Price</th>
-            <th>Model</th>
-            <th>Amount</th>
-            <th>Category</th>
-            <th>Tags</th>
-            <th>Number of Files</th>
-            <th>Images</th>
-            <th>Documents</th>
-            <th>Spec Sheet</th>
-        </tr>
-        <tr ng-repeat="data in sc.productService.tableData" 
-            ng-class="{'selected':$index==sc.employeeService.selectedRow}" 
-            ng-click="sc.employeeService.setClickedRow($index)">
-            <td>{{data.ArticleNumber1}}</td>
-            <td>{{data.Name}}</td>
-            <td>{{data.SerialNumber}}</td>
-            <td>{{data.SalesStatus}}</td>
-            <td>{{data.SalesPrice}}</td>
-            <td>{{data.Model}}</td>
-            <td>{{data.Amount}}</td>
-            <td>{{data.Category}}</td>
-            <td>{{data.Tags}}</td>
-            <td>{{data.NumberOfFiles}}</td>
-            <td>{{data.Images}}</td>
-            <td>{{data.Documents}}</td>
-            <td>{{data.SpecSheets}}</td>
-        </tr>
-    </table>
-    <div class="col-md-4">
-        <a href="/SalesEmp/ManagerEdit" 
-           class="button btn btn-primary button-gui" 
-           target="_blank">Edit Product</a>
+        <table class="table table-bordered">
+            <tr>
+                <th>Article Number</th>
+                <th>Name</th>
+                <th>Serial Number</th>
+                <th>Sales Status</th>
+                <th>Sales Price</th>
+                <th>Model</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Tags</th>
+                <th>Number of Files</th>
+                <th>Images</th>
+                <th>Documents</th>
+                <th>Spec Sheet</th>
+            </tr>
+            <tr ng-repeat="data in pc.tableData"
+                ng-class="{'selected':$index == tc.selectedRow}"
+                ng-click="tc.setClickedRow($index)">
+                <td>{{data.ArticleNumber1}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.SerialNumber}}</td>
+                <td>{{data.SalesStatus}}</td>
+                <td>{{data.SalesPrice}}</td>
+                <td>{{data.Model}}</td>
+                <td>{{data.Amount}}</td>
+                <td>{{data.Category}}</td>
+                <td>{{data.Tags}}</td>
+                <td>{{data.NumberOfFiles}}</td>
+                <td>{{data.Images}}</td>
+                <td>{{data.Documents}}</td>
+                <td>{{data.SpecSheets}}</td>
+            </tr>
+        </table>
+        <div class="col-md-4">
+            <a href="/SalesEmp/ManagerEdit/#/{{pc.tableData[tc.selectedRow].ArticleNumber1}}"
+               class="button btn btn-primary button-gui"
+               target="_blank">Edit Product</a>
+        </div>
     </div>
 </div>
