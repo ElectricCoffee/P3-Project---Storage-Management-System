@@ -214,17 +214,9 @@
     <Content Include="Scripts\ApiCommunication\apiFactory.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Employee\Accountant\controller.js" />
-    <Content Include="Scripts\Employee\Acquisitor\controller.js" />
-    <Content Include="Scripts\Employee\formService.js" />
     <Content Include="Scripts\Employee\module.js" />
-    <Content Include="Scripts\Employee\Inventory\controller.js" />
     <Content Include="Scripts\Employee\productController.js" />
-    <Content Include="Scripts\Employee\SalesMng\controller.js" />
-    <Content Include="Scripts\Employee\Sales\controller.js" />
-    <Content Include="Scripts\Employee\employeeService.js" />
     <Content Include="Scripts\Employee\tableController.js" />
-    <Content Include="Scripts\Employee\Technician\controller.js" />
     <Content Include="Scripts\Employee\urlService.js" />
     <Content Include="Scripts\Message\controller.js" />
     <Content Include="Scripts\Message\directive.js" />
@@ -989,7 +981,6 @@
     <Content Include="Scripts\Message\module.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Employee\productService.js" />
     <Content Include="Styles\CustomStyling.css" />
     <Content Include="Web.config" />
   </ItemGroup>
