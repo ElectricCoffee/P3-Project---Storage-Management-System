@@ -13,10 +13,12 @@
         // public vars and methods
         self.addProduct     = addProduct;
         self.articleNumber  = null;
+        self.deleteItem     = deleteItem;
         self.editProduct    = editProduct;
         self.getTableData   = getTableData;
         self.populateFields = populateFields;
         self.product        = null;
+        self.rowArtNum      = rowArtNum;
         self.tableData      = null;
 
         // functions
@@ -30,6 +32,23 @@
 
             function failure() {
                 console.error("failed to post");
+            }
+        }
+
+        function deleteItem(row) {
+            var articleNumber = rowArtNum(row);
+
+            //alert("deleting item" + articleNumber);
+
+            productService.delete(articleNumber).then(success, failure);
+
+            function success() {
+                console.log("successfully deleted " + articleNumber);
+                getTableData(); // reload the fields
+            }
+
+            function failure() {
+                alert("Could not delete " + articleNumber);
             }
         }
 
@@ -73,6 +92,11 @@
                 console.error("failed to fetch data");
                 console.error(response.data);
             };
+        }
+
+        function rowArtNum(row) {
+            if (!self.tableData) return ''; // to keep it from bitching
+            else return self.tableData[row].ArticleNumber1;
         }
     }
 })();

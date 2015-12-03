@@ -48,10 +48,10 @@ namespace Inventory_Management_System.Controllers
         }
 
 
-        // DELETE: api/Product/5
+        // DELETE: api/Product/foobar
         public void Delete(string id)
         {
-            MySqlCommunication.Delete()
+            //MySqlCommunication.Delete(id);
         }
     }
 }

@@ -214,6 +214,7 @@
     <Content Include="Scripts\ApiCommunication\apiFactory.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\System\deleteButtonDirective.js" />
     <Content Include="Scripts\System\module.js" />
     <Content Include="Scripts\System\productController.js" />
     <Content Include="Scripts\System\searchBarDirective.js" />
