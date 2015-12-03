@@ -6,68 +6,52 @@ using System.Net.Http;
 using System.Web.Http;
 using Inventory_Management_System.MySql;
 using Inventory_Management_System.Models.Product;
+using System.Diagnostics;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace Inventory_Management_System.Controllers
 {
     public class ProductController : ApiController
     {
         // GET: api/Product
-        public IEnumerable<Product> Get()
+        public IEnumerable<PSystem> Get()
         {
-            //var dummy = new
-            //{
-            //    ArticleNumber = "f42",
-            //    Name = "Michael",
-            //    SerialNumber = "daniel19",
-            //    SalesPrice = 1234,
-            //    SalesStatus = "sold",
-            //    Amount = 4,
-            //    Acquisitor = "Mads",
-            //    AcquisitionPrice = 1111,
-            //    Category = "CT",
-            //    Model = "Hoomin",
-            //    Tags = "Briller"
-            //};
-
-            //var dummy2 = new
-            //{
-            //    ArticleNumber = "e234",
-            //    Name = "Jakob",
-            //    SerialNumber = "morten22",
-            //    SalesPrice = 2345,
-            //    SalesStatus = "available",
-            //    Amount = 3,
-            //    Acquisitor = "Daniel",
-            //    AcquisitionPrice = 2222,
-            //    Category = "MRI",
-            //    Model = "Animul",
-            //    Tags = "Hoars"
-            //};
-
-            //return new Object[] { dummy, dummy2 };
-
+            Debug.WriteLine("Getting product WITHOUT article number");
             return MySqlCommunication.GetAllProduct();
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public PSystem Get(string id)
         {
-            return "value with id: " + id;
+            Debug.WriteLine("Getting product by article number");
+            return MySqlCommunication.Read(id);
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public void Post([FromBody]PSystem value)
         {
+            Debug.WriteLine("Post function in productController");
+            //var temp = new Product(value); 
+            MySqlCommunication.Create(value);
+        }
+        //public void Post([FromBody]inventoryEmployeeProduct value)
+        //{
+        //    var temp = new Product(value);
+        //    MySqlCommunication.Create(temp);
+        //}
+
+        //PUT: api/Product/foo
+        public void Put([FromBody]PSystem value)
+        {
+            MySqlCommunication.Update(value);
         }
 
-        // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
 
-        // DELETE: api/Product/5
-        public void Delete(int id)
-        {
-        }
+        //// DELETE: api/Product/5
+        //public void Delete(int id)
+        //{
+        //    MySqlCommunication.Delete(id);
+        //}
     }
 }

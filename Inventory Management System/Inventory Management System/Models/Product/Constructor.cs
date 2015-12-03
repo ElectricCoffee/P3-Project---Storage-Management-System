@@ -18,7 +18,7 @@
 //                {
 //                    ArticleNumber1 = "",
 //                    Tags = "",
-//                    Catagory = "",
+//                    Category = "",
 //                    Name = "",
 //                    ArticleNumber2 = "",
 //                    SerialNumber = "",

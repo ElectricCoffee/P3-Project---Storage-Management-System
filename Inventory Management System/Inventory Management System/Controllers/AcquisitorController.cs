@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Inventory_Management_System.Models.Product;
 
 namespace Inventory_Management_System.Controllers
 {
@@ -13,9 +14,9 @@ namespace Inventory_Management_System.Controllers
         {
             return View();
         }
-        public ActionResult Edit()
+        public ActionResult Edit(string articlenumber1)
         {
-            return View();
+            return View(articlenumber1);
         }
         public ActionResult Add()
         {

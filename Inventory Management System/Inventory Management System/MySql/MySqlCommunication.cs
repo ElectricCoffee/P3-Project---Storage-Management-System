@@ -15,8 +15,8 @@ namespace Inventory_Management_System.MySql
         //private static MySqlConnection connection = new MySqlConnection(connectionstring);
         //private static MySqlCommand cmd;
         public static string EmployeeTable = "employee_db";
-        public static string ProductTable  = "product_db";
-        public static string RoleTable     = "role_db";
+        public static string ProductTable = "product_db";
+        public static string RoleTable = "role_db";
 
         /// <summary>
         /// Wraps an SQL connection in a closure to allow minimal typing
@@ -29,7 +29,7 @@ namespace Inventory_Management_System.MySql
             {
                 conn.Open();
                 Debug.WriteLine(conn.State);
-                
+
                 var cmd = conn.CreateCommand();
                 body(cmd); // the body of the lambda using the cmd (see use below)
                 conn.Close();
@@ -47,8 +47,15 @@ namespace Inventory_Management_System.MySql
             // exposes the connection command in the lambda
             SqlConnection(cmd =>
             {
-                cmd.CommandText = text;
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.CommandText = text;
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    Debug.WriteLine("Det Virker");
+                }
             });
 
             return text;
@@ -211,7 +218,7 @@ namespace Inventory_Management_System.MySql
         /// <param name="key">the known value</param>
         public static void Delete(string table, string keyColumn, string key)
         {
-            string text = "DELETE FROM " + table + " WHERE " + keyColumn + " = '" + key+"'";
+            string text = "DELETE FROM " + table + " WHERE " + keyColumn + " = '" + key + "'";
             SendString(text);
         }
 
@@ -227,86 +234,118 @@ namespace Inventory_Management_System.MySql
             return GetList(text, 1).Select(e => e[0]).ToList();
         }
 
-        public static List<Product> GetAllProduct()
+        public static List<PSystem> GetAllProduct()
         {
-            List<Product> ProductList = new List<Product>();
-            List<List<string>> DbList = SelectAll(ProductTable,19);
+            var ProductList = new List<PSystem>();
+            List<List<string>> DbList = SelectAll(ProductTable, 19);
             foreach (List<string> item in DbList)
             {
-                ProductList.Add(new Product(new Label()
-                {
-                    ArticleNumber1 = item[0],
-                    Acquisitor = item[15],
-                    Catagory = item[10],
-                    Name = item[1],
-                    Tags = item[10]
-                },
-                    new Price()
+                ProductList.Add(new PSystem(
+                    new Id()
                     {
-                        AcquisitionPrice = int.Parse(item[7]),
-                        SalesPrice = int.Parse(item[18])
+                        ArticleNumber1 = item[0],
+                        Name = item[1],
+                        //ArticleNumber2 = item[?]
+                        SerialNumber = item[2],
+                        Model = item[13],
+                        ProductionYear = Convert.ToInt32(item[14]),
+                        Tags = item[10],
+                        Category = item[11],
+                        Acquisitor = item[15]
+
                     },
                     new Location()
                     {
-                        Amount = int.Parse(item[6]),
+                        WorldLocation = item[3],
                         InventoryLocation = item[4],
-                        Transit = item[5],
-                        WorldLocation = item[3]
-                    }));
+                        Amount = Convert.ToInt32(item[6]),
+                        Transit = item[5]
+                    },
+                    new Price()
+                    {
+                        AcquisitionPrice = Convert.ToInt32(item[7]),
+                        SalesPrice = Convert.ToInt32(item[18])
+                    },
+                    new Status()
+                    {
+                        InventoryStatus = item[8],
+                        SalesStatus = item[9]
+                    },
+                    new Directories()
+                    {
+                        ////documentDirectory = item[],
+                        //documentName = item[],
+                        //specsheetDirectory = item[],
+                        //specsheetName = item[],
+                        //imageDirectory = item[],
+                        //imageName = item[]
+                    }
+                    ));
             }
 
             return ProductList;
         }
 
-        public static void Create(Product data)
+        //ArticleNumber1 = q.ArticleNumber1;
+        //    Name = q.Name;
+        //    SerialNumber = q.SerialNumber;
+        //    Amount = q.Amount;
+        //    AcquisitionPrice = q.AcquisitionPrice;
+        //    Model = q.model;
+        //    Category = q.Category;
+        //    Tags = q.Tags;
+        //    Comment = q.comments;
+
+        public static void Create(PSystem data)
         {
+            Debug.WriteLine("Mysql comm create functon + " + data.ArticleNumber1);
             List<string> col = GetColumnName(ProductTable);
             List<string> val = new List<string>
             {
                   data.ArticleNumber1
                 , data.Name
-                , ""//serialnumber
+                , data.SerialNumber
                 , data.WorldLocation
                 , data.InventoryLocation
                 , data.Transit
                 , data.Amount.ToString()
                 , data.AcquisitionPrice.ToString()
-                , "" //inventory status
-                , "" // sales status
+                , data.InventoryStatus
+                , data.SalesStatus
                 , data.Tags
-                , data.Catagory
+                , data.Category
                 , "" //image
-                , "" //model
-                , "" //productionyear
+                , data.Model
+                , data.ProductionYear.ToString()
                 , data.Acquisitor
                 , "" //Specsheet
                 , "" //documents
                 , data.SalesPrice.ToString()
             };
-            
+
             Insert(ProductTable, col, val);
         }
 
-        public static void Update(Product data)
+        public static void Update(PSystem data)
         {
             List<string> col = GetColumnName(ProductTable);
             List<string> val = new List<string>
             {
                   data.ArticleNumber1
                 , data.Name
-                , ""//serialnumber
+                , data.SerialNumber
                 , data.WorldLocation
                 , data.InventoryLocation
                 , data.Transit
                 , data.Amount.ToString()
                 , data.AcquisitionPrice.ToString()
-                , "" //inventory status
-                , "" // sales status
+                , data.InventoryStatus 
+                , data.SalesStatus 
                 , data.Tags
-                , data.Catagory
+                , data.Category
                 , "" //image
-                , "" //model
-                , "" //productionyear
+                , data.Model 
+                , data.ProductionYear.ToString() 
                 , data.Acquisitor
                 , "" //Specsheet
                 , "" //documents
@@ -316,34 +355,55 @@ namespace Inventory_Management_System.MySql
             Update(ProductTable, col, val, "ArticleNumber", data.ArticleNumber1);
         }
 
-        public static void Delete(Product data)
+        public static void Delete(PSystem data)
         {
             Delete(ProductTable, "ArticleNumber", data.ArticleNumber1);
         }
 
-        public static Product Read(string articleNumber)
+        public static PSystem Read(string articleNumber)
         {
             List<string> item = GetList("SELECT * FROM " + ProductTable + " WHERE ArticleNumber = '" + articleNumber + "'", GetColumnName(ProductTable).Count())[0];
-            return new Product(new Label()
-                {
-                ArticleNumber1 = item[0],
-                    Acquisitor = item[15],
-                    Catagory = item[10],
-                    Name = item[1],
-                    Tags = item[10]
-                },
-                    new Price()
+            return new PSystem(
+                new Id()
                     {
-                        AcquisitionPrice = int.Parse(item[7]),
-                        SalesPrice = int.Parse(item[18])
+                        ArticleNumber1 = item[0],
+                        Name = item[1],
+                        //ArticleNumber2 = item[?]
+                        SerialNumber = item[2],
+                        Model = item[13],
+                        ProductionYear = Convert.ToInt32(item[14]),
+                        Tags = item[10],
+                        Category = item[11],
+                        Acquisitor = item[15]
+
                     },
                     new Location()
                     {
-                        Amount = int.Parse(item[6]),
+                        WorldLocation = item[3],
                         InventoryLocation = item[4],
-                        Transit = item[5],
-                        WorldLocation = item[3]
-                    });
+                        Amount = Convert.ToInt32(item[6]),
+                        Transit = item[5]
+                    },
+                    new Price()
+                    {
+                        AcquisitionPrice = Convert.ToInt32(item[7]),
+                        SalesPrice = Convert.ToInt32(item[18])
+                    },
+                    new Status()
+                    {
+                        InventoryStatus = item[8],
+                        SalesStatus = item[9]
+                    },
+                    new Directories()
+                    {
+                        ////documentDirectory = item[],
+                        //documentName = item[],
+                        //specsheetDirectory = item[],
+                        //specsheetName = item[],
+                        //imageDirectory = item[],
+                        //imageName = item[]
+                    }
+            );
         }
     }
 }

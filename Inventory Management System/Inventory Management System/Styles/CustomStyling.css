@@ -19,3 +19,8 @@
 .Product-Heading{
 	
 }
+.selected{
+	background-color: Highlight;
+	color: white;
+	font-weight: bold;
+}

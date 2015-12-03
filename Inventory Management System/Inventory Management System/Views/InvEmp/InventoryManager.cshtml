@@ -1,12 +1,10 @@
-﻿<div ng-controller="InventoryController as ic"
-     ng-init="ic.productService.getTableData()">
-    <div class="container-fluid">
+﻿<div ng-controller="ProductController as pc"
+     ng-init="pc.getTableData()">
+    @*<div class="container-fluid">
         <div class="row">
-
             <div class="col-md-8"><!--add stuff here--></div>
         </div>
-    </div>
-
+    </div>*@
     <table class="table table-bordered">
         <tr>
             <th>Article Number</th>
@@ -27,7 +25,7 @@
             <th>Number of Files</th>
             <th>Spec Sheets</th>
         </tr>
-        <tr ng-repeat="data in ac.tableData">
+        <tr ng-repeat="data in pc.tableData">
             <td>{{data.ArticleNumber}}</td>
             <td>{{data.Name}}</td>
             <td>{{data.SerialNumber}}</td>
