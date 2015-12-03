@@ -355,9 +355,9 @@ namespace Inventory_Management_System.MySql
             Update(ProductTable, col, val, "ArticleNumber", data.ArticleNumber1);
         }
 
-        public static void Delete(PSystem data)
+        public static void Delete(string ArticleNumber)
         {
-            Delete(ProductTable, "ArticleNumber", data.ArticleNumber1);
+            Delete(ProductTable, "ArticleNumber", ArticleNumber);
         }
 
         public static PSystem Read(string articleNumber)
