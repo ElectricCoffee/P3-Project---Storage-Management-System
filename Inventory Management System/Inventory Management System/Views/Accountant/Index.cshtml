@@ -38,10 +38,13 @@
                 <td>{{data.Tags}}</td>
             </tr>
         </table>
-        <div class="col-md-4">
-            <a href="/Accountant/Edit/#/{{pc.tableData[tc.selectedRow].ArticleNumber1}}"
+        <div class="col-md-2">
+            <a href="/Accountant/Edit/#/{{pc.rowArtNum(tc.selectedRow)}}"
                class="button btn btn-primary button-gui"
                target="_blank">Edit Product</a>
+        </div>
+        <div class="col-md-2">
+            <delete-button on-click="pc.deleteItem(tc.selectedRow)">Delete</delete-button>
         </div>
     </div>
 </div>

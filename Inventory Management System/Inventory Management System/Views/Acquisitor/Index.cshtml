@@ -37,11 +37,14 @@
                class="button btn btn-primary button-gui"
                target="_blank">Add Product</a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <!--The # after Edit is there on purpose. Angular uses this to extract shit from URLs, don't touch!!-->
-            <a ng-href="/Acquisitor/Edit/#/{{pc.tableData[tc.selectedRow].ArticleNumber1}}"
+            <a ng-href="/Acquisitor/Edit/#/{{pc.rowArtNum(tc.selectedRow)}}"
                class="button btn btn-primary button-gui"
                target="_self">Edit Product</a>
+        </div>
+        <div class="col-md-2">
+            <delete-button on-click="pc.deleteItem(tc.selectedRow)">Delete</delete-button>
         </div>
     </div>
 </div>
