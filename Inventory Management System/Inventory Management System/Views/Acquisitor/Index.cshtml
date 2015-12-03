@@ -3,7 +3,7 @@
     <div ng-controller="TableController as tc">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8"><!--add stuff here--></div>
+                <div class="col-md-8"><search-bar></search-bar></div>
             </div>
         </div>
         <table class="table table-bordered">
@@ -18,8 +18,8 @@
                 <th>Category</th>
                 <th>Tags</th>
             </tr>
-            <tr ng-repeat="data in pc.tableData"
-                ng-class="{'selected':$index==tc.selectedRow}"
+            <tr ng-repeat="data in pc.tableData | filter: query"
+                ng-class="{'selected':$index == tc.selectedRow}"
                 ng-click="tc.setClickedRow($index)">
                 <td>{{data.ArticleNumber1}}</td>
                 <td>{{data.Name}}</td>

@@ -216,6 +216,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\System\module.js" />
     <Content Include="Scripts\System\productController.js" />
+    <Content Include="Scripts\System\searchBarDirective.js" />
     <Content Include="Scripts\System\tableController.js" />
     <Content Include="Scripts\System\urlService.js" />
     <Content Include="Scripts\Message\controller.js" />
