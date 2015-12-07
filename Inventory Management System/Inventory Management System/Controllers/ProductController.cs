@@ -35,11 +35,6 @@ namespace Inventory_Management_System.Controllers
             //var temp = new Product(value); 
             MySqlCommunication.Create(value);
         }
-        //public void Post([FromBody]inventoryEmployeeProduct value)
-        //{
-        //    var temp = new Product(value);
-        //    MySqlCommunication.Create(temp);
-        //}
 
         //PUT: api/Product/foo
         public void Put([FromBody]PSystem value)
