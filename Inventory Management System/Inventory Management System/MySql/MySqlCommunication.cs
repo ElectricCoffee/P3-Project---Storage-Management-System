@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Inventory_Management_System.Models.Product;
 using System.Diagnostics;
+using Inventory_Management_System.Models.EmployeeData;
+using Inventory_Management_System.BigBrother;
 
 namespace Inventory_Management_System.MySql
 {
@@ -17,6 +19,7 @@ namespace Inventory_Management_System.MySql
         public static string EmployeeTable = "employee_db";
         public static string ProductTable = "product_db";
         public static string RoleTable = "role_db";
+        public static string LogTable = "log_table";
 
         /// <summary>
         /// Wraps an SQL connection in a closure to allow minimal typing
@@ -322,7 +325,7 @@ namespace Inventory_Management_System.MySql
                 , "" //documents
                 , data.SalesPrice.ToString()
             };
-
+            SQLLogWriter.tempCreateProductLog(data);
             Insert(ProductTable, col, val);
         }
 
@@ -351,12 +354,13 @@ namespace Inventory_Management_System.MySql
                 , "" //documents
                 , data.SalesPrice.ToString()
             };
-
+            SQLLogWriter.tempUpdateProductLog(data);
             Update(ProductTable, col, val, "ArticleNumber", data.ArticleNumber1);
         }
 
         public static void Delete(string ArticleNumber)
         {
+            SQLLogWriter.tempdeleteProductLog(ArticleNumber);
             Delete(ProductTable, "ArticleNumber", ArticleNumber);
         }
 
@@ -404,6 +408,16 @@ namespace Inventory_Management_System.MySql
                         //imageName = item[]
                     }
             );
+        }
+
+        public static void CreateLog(Employee e, string commment)
+        {
+            Insert(LogTable, new List<string>() { "employee", "comment", "date" }, new List<string>() { e.Username, commment, DateTime.Now.ToString() });
+        }
+
+        public static List<List<string>> GetLog()
+        {
+           return GetList("SELECT * FROM log_table", 4);
         }
     }
 }
