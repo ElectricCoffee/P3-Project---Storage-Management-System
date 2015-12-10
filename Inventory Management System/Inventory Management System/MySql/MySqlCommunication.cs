@@ -417,7 +417,7 @@ namespace Inventory_Management_System.MySql
 
         public static List<List<string>> GetLog()
         {
-           return GetList("SELECT * FROM log_table", 4);
+           return GetList("SELECT * FROM log_table", 3);
         }
     }
 }
