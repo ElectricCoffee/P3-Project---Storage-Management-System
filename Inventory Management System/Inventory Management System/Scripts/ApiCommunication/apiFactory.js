@@ -29,9 +29,9 @@
             // gets data from the server, if called without an argument it gets everything
             // get() = get everything
             // get(foo) = get everything witht he ID 'foo'
-            function get(id) {
+            function get(id, obj) {
                 var newUrl = id ? url + '/' + id : url;
-                return $http.get(newUrl);
+                return $http.get(newUrl, obj);
             }
 
             // updates an item with the specified id on the server

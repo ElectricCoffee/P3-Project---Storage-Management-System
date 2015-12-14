@@ -1,9 +1,44 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
+<div class="row" ng-controller="LoginController as login">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Login</h3>
+            </div>
+            <div class="panel-body">
+                <form ng-submit="login.authenticate()">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Username</div>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="User Name" 
+                                   ng-model="login.data.username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Password</div>
+                            <input type="password"
+                                   class="form-control"
+                                   placeholder="Password" 
+                                   ng-model="login.data.password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit"
+                               class="btn btn-primary pull-right"
+                               value="Log In" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
 
-<div class="button-div">
+@*<div class="button-div">
     <div class="col-md-4 button-div">
         <a href="/SalesEmp/Employee" class="button btn btn-primary" target="_blank">Sales Employee</a>
     </div>
@@ -22,4 +57,4 @@
     <div class="col-md-4 button-div">
         <a href="/Accountant/Index" class="button btn btn-primary" target="_blank">Accountant</a>
     </div>
-</div>
+</div>*@
