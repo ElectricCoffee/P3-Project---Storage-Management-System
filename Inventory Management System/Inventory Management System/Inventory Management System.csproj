@@ -959,6 +959,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\System\deleteButtonDirective.js" />
+    <Content Include="Scripts\System\LogController.js" />
     <Content Include="Scripts\System\module.js" />
     <Content Include="Scripts\System\productController.js" />
     <Content Include="Scripts\System\searchBarDirective.js" />
@@ -1005,6 +1006,7 @@
     <Compile Include="BigBrother\LogWriter.cs" />
     <Compile Include="BigBrother\SQLLogWriter.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\AccountantController.cs" />
     <Compile Include="Controllers\AcquisitorController.cs" />
@@ -1093,6 +1095,7 @@
     <Content Include="Views\Acquisitor\Edit.cshtml" />
     <Content Include="Views\Acquisitor\Add.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\InvEmp\Log.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1102,6 +1105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Log\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
