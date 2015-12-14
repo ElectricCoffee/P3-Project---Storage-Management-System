@@ -23,7 +23,6 @@
 
         // functions
         function addProduct() {
-            //alert("There should be something here: " + self.product);
             productService.post(self.product).then(success, failure);
 
             function success() {
@@ -37,9 +36,6 @@
 
         function deleteItem(row) {
             var articleNumber = rowArtNum(row);
-
-            //alert("deleting item" + articleNumber);
-
             productService.delete(articleNumber).then(success, failure);
 
             function success() {
@@ -84,7 +80,6 @@
 
             function success(response) {
                 console.log("successfully fetched data");
-                //console.log(JSON.stringify(response.data));
                 self.product = response.data;
             }
 
@@ -95,7 +90,7 @@
         }
 
         function rowArtNum(row) {
-            if (!self.tableData) return ''; // to keep it from bitching
+            if (!self.tableData) return ''; // to keep angular from complaining
             else return self.tableData[row].ArticleNumber1;
         }
     }

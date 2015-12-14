@@ -20,10 +20,12 @@
 
             // sends a post request to the server at the specified URL
             // this will create a new entry in the specified database
+            // throws an error if the article number is missing
             function post(obj) {
-                //alert("ApiFactory Post - " + obj);
-                var temp = JSON.stringify(obj)
-                return $http.post(url, temp);
+                if (!obj.ArticleNumber1)
+                    throw new Error('The article number is missing', 'apiFactory.js');
+                else
+                    return $http.post(url, JSON.stringify(obj));
             }
 
             // gets data from the server, if called without an argument it gets everything
@@ -35,15 +37,12 @@
             }
 
             // updates an item with the specified id on the server
-            // if neither data nor id exist, an error will be thrown
+            // throws an error if the article number is missing
             function put(newData) {
-                //var newUrl = url + '/' + id;
-                //if (!id)
-                //    throw new URIError('An id was not provided', 'apiFactory.js');
-                //else if (!newData)
-                //    throw new URIError('No data was provided', 'apiFactory.js');
-                //else
-                return $http.put(url, JSON.stringify(newData));
+                if (!newData.ArticleNumber1)
+                    throw new Error('The article number is missing', 'apiFactory.js');
+                else
+                    return $http.put(url, JSON.stringify(newData));
             }
 
             // delete an item with the specified id from the server

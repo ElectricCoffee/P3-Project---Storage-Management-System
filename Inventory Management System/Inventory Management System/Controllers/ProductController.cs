@@ -21,7 +21,7 @@ namespace Inventory_Management_System.Controllers
             return MySqlCommunication.GetAllProduct();
         }
 
-        // GET: api/Product/5
+        // GET: api/Product/foo
         public PSystem Get(string id)
         {
             Debug.WriteLine("Getting product by article number");
@@ -32,7 +32,6 @@ namespace Inventory_Management_System.Controllers
         public void Post([FromBody]PSystem value)
         {
             Debug.WriteLine("Post function in productController");
-            //var temp = new Product(value); 
             MySqlCommunication.Create(value);
         }
 
@@ -41,7 +40,6 @@ namespace Inventory_Management_System.Controllers
         {
             MySqlCommunication.Update(value);
         }
-
 
         // DELETE: api/Product/foobar
         public void Delete(string id)
