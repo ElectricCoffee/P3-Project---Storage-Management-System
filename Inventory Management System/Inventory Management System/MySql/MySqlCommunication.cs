@@ -412,12 +412,19 @@ namespace Inventory_Management_System.MySql
 
         public static void CreateLog(Log e)
         {
-            Insert(LogTable, new List<string> { "employee", "comment", "date" }, new List<string> {e.employee.Username, e.comment, DateTime.Now.ToString() });
+            Insert(LogTable, new List<string> { "employee", "comment", "date" }, new List<string> { e.employee.Username, e.comment, DateTime.Now.ToString() });
         }
 
-        public static List<List<string>> GetLog()
+        public static List<LognLoad> GetAllLogs()
         {
-           return GetList("SELECT * FROM log_table", 3);
+            //return GetList("SELECT * FROM log_table", 4);
+            var loglist = new List<LognLoad>();
+            List<List<string>> dblist = SelectAll(LogTable, 4);
+            foreach (List<string> item in dblist)
+            {
+                loglist.Add(new LognLoad(item[1], item[2], item[3]));
+            };
+            return loglist;
         }
     }
 }

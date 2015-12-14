@@ -22,11 +22,11 @@ namespace Inventory_Management_System.BigBrother
             {
                 _comment = "Product created with articlenumber: " + p.ArticleNumber1;
             }
-            if (en == "Updated")
+            else if (en == "Updated")
             {
                 _comment = "Product with articlenumber: " + p.ArticleNumber1 + " updated";
             }
-            if (en == "Deleted")
+            else if (en == "Deleted")
             {
                 _comment = "Product with articlenumber: " + p.ArticleNumber1 + " was deleted"; 
             }
@@ -55,7 +55,5 @@ namespace Inventory_Management_System.BigBrother
             get { return _comment; }
             set { _comment = value; }
         }
-
-
     }
 }

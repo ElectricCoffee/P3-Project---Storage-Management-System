@@ -10,7 +10,7 @@ namespace Inventory_Management_System.BigBrother
 {
     public static class SQLLogWriter
     {
-        public static string temp = "temp. untill login has been implemented";
+        public static string temp = "temp";
 
         public static void CreateProductLog(Employee e, Product p)
         {

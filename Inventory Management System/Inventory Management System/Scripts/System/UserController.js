@@ -1,18 +1,18 @@
 ﻿(function () {
     'use strict';
     angular.module('IMS')
-        .controller('LogController', LogController);
+        .controller('CreateUserController', CreateUserController);
 
-    LogController.$inject = ['$http', 'ApiFactory'];
+    CreateUserController.$inject = ['$http', 'ApiFactory'];
 
-    function LogController($http, ApiFactory) {
+    function CreateUserController($http, ApiFactory) {
         // private fields
         var self = this;
-        var logService = new ApiFactory('Log'); // makes connection to /api/Log
-        
+        var logService = new ApiFactory('User'); // makes connection to /api/Log
+
         // public fields+methods
         self.getLog = getLog;
-        
+
         function getLog() {
             logService.get().then(success, failure)
 

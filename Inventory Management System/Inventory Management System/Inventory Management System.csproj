@@ -958,6 +958,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\System\CreateUserController.js" />
     <Content Include="Scripts\System\deleteButtonDirective.js" />
     <Content Include="Scripts\System\LogController.js" />
     <Content Include="Scripts\System\module.js" />
@@ -1003,6 +1004,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BigBrother\Log.cs" />
+    <Compile Include="BigBrother\LognLoad.cs" />
     <Compile Include="BigBrother\LogWriter.cs" />
     <Compile Include="BigBrother\SQLLogWriter.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -1014,6 +1016,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\TechnicianController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Hubs\MessageHub.cs" />
     <Compile Include="Models\Employee\EmployeeData\Buyer.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\IResponsibility.cs" />
@@ -1096,6 +1099,7 @@
     <Content Include="Views\Acquisitor\Add.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\InvEmp\Log.cshtml" />
+    <Content Include="Views\InvEmp\User.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1106,6 +1110,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Log\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

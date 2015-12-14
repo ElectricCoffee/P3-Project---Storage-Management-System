@@ -4,15 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Inventory_Management_System.MySql;
+using Inventory_Management_System.Models.Product;
+using System.Diagnostics;
+using Newtonsoft.Json;
+using System.Text;
+using Inventory_Management_System.BigBrother;
 
 namespace Inventory_Management_System.Controllers
 {
     public class LogController : ApiController
     {
         // GET: api/Log
-        public IEnumerable<string> Get()
+        public IEnumerable<LognLoad> Get()
         {
-            return new string[] { "value1", "value2" };
+            return MySqlCommunication.GetAllLogs();
         }
 
         // GET: api/Log/5

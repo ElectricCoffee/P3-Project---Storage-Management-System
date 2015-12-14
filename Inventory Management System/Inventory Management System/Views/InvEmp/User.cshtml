@@ -1,5 +1,5 @@
-﻿<div ng-controller="LogController as lc"
-     ng-init="lc.getLog()">
+﻿<div ng-controller="UserController as uc"
+     ng-init="uc.getLog()">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8"><search-bar></search-bar></div>
@@ -7,14 +7,14 @@
     </div>
     <table class="table table-bordered">
         <tr>
-            <th>username</th>
-            <th>Comment</th>
-            <th>Datetime</th>
+            <th>UserName</th>
+            <th>Name</th>
+            <th>Role</th>
         </tr>
-        <tr ng-repeat="data in lc.tableData | filter: query">
+        <tr ng-repeat="data in uc.tableData | filter: query">
             <td>{{data.Username}}</td>
             <td>{{data.Comment}}</td>
             <td>{{data.Datetime}}</td>
         </tr>
-</table>
+    </table>
 </div>
