@@ -179,5 +179,15 @@ namespace Inventory_Management_System.Utils
             }
             return false;
         }
+
+        public static Tuple<string, string> GetRole(string usr, string psw)
+        {
+            if (LogInCheck(usr,psw))
+            {
+                List<string> emp = MySqlCommunication.GetList("SELECT * FROM " + MySqlCommunication.EmployeeTable + " WHERE UserName = '" + usr + "'",5)[0];
+                return new Tuple<string,string>(emp[4],emp[2] );
+            }
+            return null;
+        }
     }
 }
