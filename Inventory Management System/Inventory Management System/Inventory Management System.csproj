@@ -1001,6 +1001,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigBrother\Log.cs" />
     <Compile Include="BigBrother\LogWriter.cs" />
     <Compile Include="BigBrother\SQLLogWriter.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />

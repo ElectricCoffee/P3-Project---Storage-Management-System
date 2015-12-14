@@ -410,9 +410,9 @@ namespace Inventory_Management_System.MySql
             );
         }
 
-        public static void CreateLog(Employee e, string commment)
+        public static void CreateLog(Log e)
         {
-            Insert(LogTable, new List<string> { "employee", "comment", "date" }, new List<string> {e.Username, commment, DateTime.Now.ToString() });
+            Insert(LogTable, new List<string> { "employee", "comment", "date" }, new List<string> {e.employee.Username, e.comment, DateTime.Now.ToString() });
         }
 
         public static List<List<string>> GetLog()
