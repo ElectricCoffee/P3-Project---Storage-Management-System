@@ -141,6 +141,7 @@ namespace Inventory_Management_System.Utils
         /// <returns>the hashed text</returns>
         public static string Hash(string text)
         {
+            if (text == null) return "";
             var sha1 = new SHA1CryptoServiceProvider();
             sha1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
 
