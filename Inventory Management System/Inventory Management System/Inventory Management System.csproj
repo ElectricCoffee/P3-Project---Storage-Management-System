@@ -965,7 +965,6 @@
     <Content Include="Scripts\System\Controllers\productController.js" />
     <Content Include="Scripts\System\Directives\searchBarDirective.js" />
     <Content Include="Scripts\System\Controllers\tableController.js" />
-    <Content Include="Scripts\System\Services\SecurityService.js" />
     <Content Include="Scripts\System\Services\urlService.js" />
     <Content Include="Scripts\Message\controller.js" />
     <Content Include="Scripts\Message\directive.js" />

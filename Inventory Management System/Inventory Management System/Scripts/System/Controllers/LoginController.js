@@ -6,27 +6,30 @@
     LoginController.$inject = ['ApiFactory', "URLService"];
 
     function LoginController(ApiFactory, URLService) {
+        // private fields
         var self = this;
         var loginService = new ApiFactory('Login');
 
-        self.authenticate = auth;
-
-        function auth() {
+        // public methods
+        self.authenticate = function () {
             loginService.put(self.data).then(success, failure);
 
             function success(response) {
-                if (response.data === [] || !response.data)
-                    throw new Error("Invalid data (" + JSON.stringify(response.data) + ") returned from server",
-                        "LoginController.js");
+                if (response.data === [] || !response.data) {
+                    var err =
+                        "Invalid data (" +
+                        JSON.stringify(response.data) +
+                        ") returned from server";
+                    throw new Error(err, "LoginController.js");
+                }
 
                 var url = response.data[0];
-                //var name = response.data[1];
                 URLService.setUrl(url);
             }
 
             function failure(response) {
-                alert(JSON.stringify(response));
+                console.error(JSON.stringify(response));
             }
-        }
+        };
     }
 })();

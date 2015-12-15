@@ -16,15 +16,10 @@
         
         function setUrlArgs(args) {
             var newPath = mkNewPath(args);
-
             return $location.path(newPath);
         }
 
         function setUrl(aPath) {
-            //var url = $location.absUrl();
-            //// regex matches http://<<anything>>/ case-insensitively. Also works with https
-            //var base = url.match(/https?:\/\/[\w:.]+\//i)[0];
-            //if (!base) throw new Error("URL (" + base + ") did not match structure");
             var newPath = mkNewPath(aPath);
             $window.location.href = newPath;
         }
