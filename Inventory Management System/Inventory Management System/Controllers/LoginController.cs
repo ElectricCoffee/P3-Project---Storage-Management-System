@@ -26,10 +26,10 @@ namespace Inventory_Management_System.Controllers
         // PUT: api/Login/5
         public IEnumerable<String> Put([FromBody] Login value)
         {
-            var resTpl = Security.GetRole(value.Username, value.Password); // (role, name)
-            var role = resTpl != null ? resTpl.Item1 : "";
-            var name = resTpl != null ? resTpl.Item2 : "";
-            var roleUri = roleMap[role];
+            var resTpl = Security.GetRole(value.Username, value.Password) 
+                ?? Tuple.Create("", "");
+            var name    = resTpl.Item2;
+            var roleUri = roleMap[resTpl.Item1];
 
             return new[] { roleUri, name };
         }
