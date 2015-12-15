@@ -1009,6 +1009,7 @@
     <Compile Include="BigBrother\SQLLogWriter.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\AccountantController.cs" />
     <Compile Include="Controllers\AcquisitorController.cs" />
@@ -1042,6 +1043,7 @@
     <Compile Include="Models\Employee\EmployeeResponsibilities\Name.cs" />
     <Compile Include="Models\Employee\EmployeeResponsibilities\ProductionYear.cs" />
     <Compile Include="Models\Employee\Enums.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Message\EmployeeMessage.cs" />
     <Compile Include="Models\Product\Constructor.cs" />
     <Compile Include="Models\Product\Product.cs" />
@@ -1107,6 +1109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Log\" />
   </ItemGroup>
   <PropertyGroup>
