@@ -26,6 +26,7 @@
             productService.post(self.product).then(success, failure);
 
             function success() {
+                alert("Successfully added");
                 console.log("successfully posted" + JSON.stringify(self.product));
             }
 
@@ -53,6 +54,7 @@
             productService.put(self.product).then(success, failure);
 
             function success(response) {
+                alert("Product successfully editted");
                 console.log("Succesfully put " + self.product);
             }
             function failure(response) {
