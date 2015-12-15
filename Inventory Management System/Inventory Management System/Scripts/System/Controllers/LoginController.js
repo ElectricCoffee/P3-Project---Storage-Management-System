@@ -3,9 +3,9 @@
     angular.module('IMS')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['ApiFactory'];
+    LoginController.$inject = ['ApiFactory', "URLService"];
 
-    function LoginController(ApiFactory) {
+    function LoginController(ApiFactory, URLService) {
         var self = this;
         var loginService = new ApiFactory('Login');
 
@@ -15,7 +15,13 @@
             loginService.put(self.data).then(success, failure);
 
             function success(response) {
-                alert(JSON.stringify(response.data));
+                if (response.data === [] || !response.data)
+                    throw new Error("Invalid data (" + JSON.stringify(response.data) + ") returned from server",
+                        "LoginController.js");
+
+                var url = response.data[0];
+                //var name = response.data[1];
+                URLService.setUrl(url);
             }
 
             function failure(response) {
