@@ -141,6 +141,7 @@ namespace Inventory_Management_System.Utils
         /// <returns>the hashed text</returns>
         public static string Hash(string text)
         {
+            if (text == null) return "";
             var sha1 = new SHA1CryptoServiceProvider();
             sha1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
 
@@ -178,6 +179,16 @@ namespace Inventory_Management_System.Utils
                 return true;
             }
             return false;
+        }
+
+        public static Tuple<string, string> GetRole(string usr, string psw)
+        {
+            if (LogInCheck(usr,psw))
+            {
+                List<string> emp = MySqlCommunication.GetList("SELECT * FROM " + MySqlCommunication.EmployeeTable + " WHERE UserName = '" + usr + "'",5)[0];
+                return new Tuple<string,string>(emp[4],emp[2] );
+            }
+            return null;
         }
     }
 }
