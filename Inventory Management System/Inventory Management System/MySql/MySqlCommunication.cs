@@ -154,7 +154,7 @@ namespace Inventory_Management_System.MySql
             var lrSet = targetColumn.Zip(value, (lhs, rhs) => lhs + " = '" + rhs + "'");
             var resStr = String.Join(",", lrSet);
 
-            String text = String.Format("UPDATE {0} SET {3} WHERE {1} = '{2}'", table, keyColumn, key, resStr);
+            String text = String.Format("UPDATE {0} SET {1} WHERE {2} = '{3}'", table, resStr, keyColumn, key);
 
             SendString(text);
         }
@@ -267,7 +267,7 @@ namespace Inventory_Management_System.MySql
                     new Price()
                     {
                         AcquisitionPrice = Convert.ToInt32(item[7]),
-                        SalesPrice = Convert.ToInt32(item[18])
+                        SalesPrice = item[18]
                     },
                     new Status()
                     {
@@ -352,7 +352,7 @@ namespace Inventory_Management_System.MySql
                 , data.Acquisitor
                 , "" //Specsheet
                 , "" //documents
-                , data.SalesPrice.ToString()
+                , data.SalesPrice
             };
             SQLLogWriter.tempUpdateProductLog(data);
             Update(ProductTable, col, val, "ArticleNumber", data.ArticleNumber1);
@@ -391,7 +391,7 @@ namespace Inventory_Management_System.MySql
                     new Price()
                     {
                         AcquisitionPrice = Convert.ToInt32(item[7]),
-                        SalesPrice = Convert.ToInt32(item[18])
+                        SalesPrice = item[18]
                     },
                     new Status()
                     {

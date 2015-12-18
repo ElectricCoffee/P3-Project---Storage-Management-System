@@ -27,6 +27,7 @@
             productService.post(self.product).then(success, failure);
 
             function success() {
+                alert("Product Successfully added");
                 console.log("successfully posted" + JSON.stringify(self.product));
             }
 
@@ -39,9 +40,10 @@
             var articleNumber = rowArtNum(row);
 
             //alert("deleting item" + articleNumber);
-
-            productService.delete(articleNumber).then(success, failure);
-
+            if (confirm("Are u sure ? ")) {
+                productService.delete(articleNumber).then(success, failure);
+            }
+            
             function success() {
                 console.log("successfully deleted " + articleNumber);
                 getTableData(); // reload the fields
@@ -57,6 +59,7 @@
             productService.put(self.product).then(success, failure);
 
             function success(response) {
+                alert("Product successfully edited");
                 console.log("Succesfully put " + self.product);
             }
             function failure(response) {

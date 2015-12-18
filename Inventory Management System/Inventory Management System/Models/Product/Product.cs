@@ -72,7 +72,7 @@ namespace Inventory_Management_System.Models.Product
         public int AcquisitionPrice { get; set; }
         public string Tags { get; set; }
         public string Category { get; set; }
-        public int SalesPrice { get; set; }
+        public string SalesPrice { get; set; }
         public string Acquisitor { get; set; }
         public string Transit { get; set; }
         public string SerialNumber { get; set; }
@@ -94,7 +94,7 @@ namespace Inventory_Management_System.Models.Product
     public class Price
     {
         public int AcquisitionPrice { get; set; }
-        public int SalesPrice { get; set; }
+        public string SalesPrice { get; set; }
     }
 
     public class Label

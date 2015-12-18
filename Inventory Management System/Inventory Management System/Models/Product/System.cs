@@ -32,7 +32,7 @@ namespace Inventory_Management_System.Models.Product
             Model = id.Model;
             ProductionYear = id.ProductionYear;
             Acquisitor = id.Acquisitor;
-
+            SalesPrice = price.SalesPrice;
 
 //#if DEBUG
 //#warning - Skal lige kvalitet checkes, da jeg ikke ved om dette er okay.
