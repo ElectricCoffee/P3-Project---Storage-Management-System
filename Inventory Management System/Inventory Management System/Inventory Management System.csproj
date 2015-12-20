@@ -959,7 +959,6 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\System\CreateUserController.js" />
-    <Content Include="Scripts\System\deleteButtonDirective.js" />
     <Content Include="Scripts\System\LogController.js" />
     <Content Include="Scripts\System\Directives\deleteButtonDirective.js" />
     <Content Include="Scripts\System\Controllers\LogController.js" />

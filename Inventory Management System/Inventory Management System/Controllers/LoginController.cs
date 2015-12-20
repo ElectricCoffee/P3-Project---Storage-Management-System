@@ -26,7 +26,9 @@ namespace Inventory_Management_System.Controllers
         // PUT: api/Login/5
         public IEnumerable<String> Put([FromBody] Login value)
         {
-            var resTpl = Security.GetRole(value.Username, value.Password) 
+            if (value == null) return new [] { "", ""};
+
+            var resTpl = Security.GetRole(value.Username, value.Password)
                 ?? Tuple.Create("", "");
             var name    = resTpl.Item2;
             var roleUri = roleMap[resTpl.Item1];

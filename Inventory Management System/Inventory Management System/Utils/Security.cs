@@ -129,7 +129,7 @@ namespace Inventory_Management_System.Utils
         /// <returns>if the user and password are correct</returns>
         public static bool LogInCheck(string Username, string password)
         {
-            if (MySqlCommunication.GetHashedPassword(Username) == HashPassword(Username,password))
+            if (Username != null && password != null && MySqlCommunication.GetHashedPassword(Username) == HashPassword(Username,password))
                 return true;
             return false;
         }
