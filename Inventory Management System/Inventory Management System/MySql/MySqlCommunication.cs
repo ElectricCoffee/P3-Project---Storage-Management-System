@@ -28,15 +28,13 @@ namespace Inventory_Management_System.MySql
         private static void SqlConnection(Action<MySqlCommand> body)
         {
             // automatically opens and closes a connection
-            using (var conn = new MySqlConnection(connectionstring))
-            {
-                conn.Open();
-                Debug.WriteLine(conn.State);
+            var conn = new MySqlConnection(connectionstring);
+            conn.Open();
+            Debug.WriteLine(conn.State);
 
-                var cmd = conn.CreateCommand();
-                body(cmd); // the body of the lambda using the cmd (see use below)
-                conn.Close();
-            }
+            var cmd = conn.CreateCommand();
+            body(cmd); // the body of the lambda using the cmd (see use below)
+            conn.Close();
         }
 
 
