@@ -27,7 +27,6 @@ namespace Inventory_Management_System.MySql
         /// <param name="body"></param>
         private static void SqlConnection(Action<MySqlCommand> body)
         {
-            // automatically opens and closes a connection
             var conn = new MySqlConnection(connectionstring);
             conn.Open();
             Debug.WriteLine(conn.State);
